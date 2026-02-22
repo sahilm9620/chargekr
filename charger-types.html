@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Level 1, Level 2, and DC Fast Charging for EVs. Understand which charger type is best for your electric vehicle.">
+    <title>EV Charger Types — Chargekr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img src="Logo/changekr.png" alt="Chargekr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="charger-types.html" class="active">Charger Types</a>
+                <a href="safety.html">Safety</a>
+                <a href="how-it-helps.html">How It Helps</a>
+                <a href="peer-to-peer.html">P2P Charging</a>
+                <a href="earn-money.html">Earn Money</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="safety.html">Safety</a>
+        <a href="how-it-helps.html">How It Helps</a>
+        <a href="peer-to-peer.html">P2P Charging</a>
+        <a href="earn-money.html">Earn Money</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-plug"></i> Understanding EV Chargers</span>
+            <h1>EV <span class="text-gradient">Charger Types</span> Explained</h1>
+            <p>Not all chargers are created equal. Learn about the three main types and find the best fit for your EV
+                lifestyle.</p>
+        </div>
+    </section>
+
+    <!-- Hero Image -->
+    <section class="section" style="padding-top:0;">
+        <div class="container container--narrow">
+            <div class="reveal-scale"
+                style="border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--dark-border);">
+                <img src="images/charger-types.png" alt="Three types of EV chargers" style="width:100%; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Charger Types Cards -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="grid-3 stagger">
+                <!-- Level 1 -->
+                <div class="card charger-type-card reveal">
+                    <div class="card-icon"><i class="fas fa-home"></i></div>
+                    <h3>Level 1 — Home Charging</h3>
+                    <p style="margin-bottom:20px;">Uses a standard household outlet (120V). Perfect for overnight
+                        charging at home.</p>
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Speed:</strong> 3–8 km of range per hour
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Best for:</strong> PHEVs and short daily commutes
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Cost:</strong> No extra equipment needed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 2 -->
+                <div class="card charger-type-card reveal">
+                    <span class="badge">Most Popular</span>
+                    <div class="card-icon" style="background:rgba(74,222,0,0.2);"><i
+                            class="fas fa-charging-station"></i></div>
+                    <h3>Level 2 — Smart Charging</h3>
+                    <p style="margin-bottom:20px;">Uses a 240V outlet or dedicated EVSE. The sweet spot for home and
+                        workplace charging.</p>
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Speed:</strong> 16–50 km of range per hour
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Best for:</strong> Daily drivers and P2P sharing
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Cost:</strong> ₹30,000 – ₹80,000 installed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DC Fast -->
+                <div class="card charger-type-card reveal">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>DC Fast Charging</h3>
+                    <p style="margin-bottom:20px;">Direct current at high voltage (400V+). Ultra-fast charging for
+                        long-distance travel.</p>
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Speed:</strong> 80% in 20–40 minutes
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Best for:</strong> Highway stops and commercial use
+                            </div>
+                        </div>
+                        <div class="feature-list-item">
+                            <span class="check"><i class="fas fa-check"></i></span>
+                            <div>
+                                <strong>Cost:</strong> ₹5,00,000+ installation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="text-center">
+                <span class="section-label reveal"><i class="fas fa-table"></i> Side-by-Side</span>
+                <h2 class="section-title reveal">Quick <span class="text-gradient">Comparison</span></h2>
+            </div>
+            <div class="reveal" style="overflow-x:auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Level 1</th>
+                            <th>Level 2</th>
+                            <th>DC Fast</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Voltage</strong></td>
+                            <td>120V AC</td>
+                            <td>240V AC</td>
+                            <td>400–900V DC</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Charging Speed</strong></td>
+                            <td>3–8 km/hr</td>
+                            <td>16–50 km/hr</td>
+                            <td>80% in 20–40 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full Charge Time</strong></td>
+                            <td>24–48 hours</td>
+                            <td>4–10 hours</td>
+                            <td>20–60 minutes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Installation Cost</strong></td>
+                            <td>None (plug-in)</td>
+                            <td>₹30K – ₹80K</td>
+                            <td>₹5L+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Overnight home</td>
+                            <td>Home &amp; workplace</td>
+                            <td>Highways &amp; fleets</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Shareable on Chargekr?</strong></td>
+                            <td><i class="fas fa-check" style="color:var(--primary)"></i> Yes</td>
+                            <td><i class="fas fa-check" style="color:var(--primary)"></i> Yes (Popular!)</td>
+                            <td><i class="fas fa-check" style="color:var(--primary)"></i> Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connector Types -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-label reveal"><i class="fas fa-link"></i> Connectors</span>
+                <h2 class="section-title reveal">Common <span class="text-gradient">Connector Types</span></h2>
+                <p class="section-subtitle mx-auto reveal">Different EVs use different connectors. Here's what you need
+                    to know.</p>
+            </div>
+            <div class="grid-4 stagger">
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Type 1 (J1772)</h3>
+                    <p>Standard in North America. Single-phase AC charging up to 7.4 kW.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fas fa-plug"></i></div>
+                    <h3>Type 2 (Mennekes)</h3>
+                    <p>European standard, widely used in India. Supports up to 22 kW AC charging.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>CCS (Combined)</h3>
+                    <p>Combines Type 2 with DC pins. Supports ultra-fast charging up to 350 kW.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>CHAdeMO</h3>
+                    <p>Japanese standard used by Nissan and Mitsubishi. DC fast charging up to 62.5 kW.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="reveal">Got a Charger? <span class="text-gradient">Share It!</span></h2>
+            <p class="reveal">Any charger type works with Chargekr. List yours and start earning today.</p>
+            <a href="earn-money.html" class="btn btn--primary btn--lg reveal"><i class="fas fa-bolt"></i> Start
+                Earning</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>India's first peer-to-peer EV charging network. Share your charger, earn money, and build a
+                        greener tomorrow.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety Guidelines</a></li>
+                        <li><a href="how-it-helps.html">How Chargekr Helps</a></li>
+                        <li><a href="peer-to-peer.html">P2P & The Planet</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Earn</h4>
+                    <ul>
+                        <li><a href="earn-money.html">Share & Earn</a></li>
+                        <li><a href="earn-money.html#calculator">Earnings Calculator</a></li>
+                        <li><a href="#">Host Dashboard</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Chargekr. All rights reserved.</p>
+                <p>Made with <i class="fas fa-bolt" style="color:var(--primary)"></i> for a greener future</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
