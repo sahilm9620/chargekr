@@ -1,5 +1,12 @@
+# Chargekr robots.txt
+# https://www.chargekr.com
+
 User-agent: *
 Allow: /
-Disallow:
+Crawl-delay: 1
 
-Sitemap: https://chargekr.com/sitemap.xml
+# Sitemap
+Sitemap: https://www.chargekr.com/sitemap.xml
+
+# Host
+Host: https://www.chargekr.com
