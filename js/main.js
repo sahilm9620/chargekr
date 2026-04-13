@@ -1,5 +1,5 @@
 /* ============================================
-   CHARGEKR — Main JavaScript
+   CHARGEKR  Main JavaScript
    Animations, Interactions & Utilities
    ============================================ */
 
@@ -12,7 +12,98 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initCalculator();
   initSmoothScroll();
+  initFuturisticUI();
 });
+
+/* ---- Futuristic UI Enhancements ---- */
+function initFuturisticUI() {
+  // 1. Create custom cursor
+  if (!window.matchMedia('(pointer: coarse)').matches) {
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    const follower = document.createElement('div');
+    follower.classList.add('custom-cursor-follower');
+
+    document.body.appendChild(cursor);
+    document.body.appendChild(follower);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+    let followerX = mouseX;
+    let followerY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    const render = () => {
+      // Faster response for center dot
+      cursorX += (mouseX - cursorX) * 0.5;
+      cursorY += (mouseY - cursorY) * 0.5;
+
+      // Slower response for follower
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+
+      cursor.style.left = `${cursorX}px`;
+      cursor.style.top = `${cursorY}px`;
+      follower.style.left = `${followerX}px`;
+      follower.style.top = `${followerY}px`;
+
+      requestAnimationFrame(render);
+    };
+    render();
+
+    // Hover states
+    const interactiveElements = document.querySelectorAll('a, button, input, .card, .float-card');
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovering');
+        follower.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovering');
+        follower.classList.remove('hovering');
+      });
+    });
+
+    // Hide native cursor for a cleaner look
+    document.body.style.cursor = 'none';
+    interactiveElements.forEach(el => {
+      el.style.cursor = 'none';
+    });
+  }
+
+  // 2. Inject Cyber Rings into hero visual if it exists
+  const heroVisual = document.querySelector('.hero-visual-inner');
+  if (heroVisual) {
+    const ring1 = document.createElement('div');
+    ring1.className = 'cyber-ring cyber-ring-1';
+    const ring2 = document.createElement('div');
+    ring2.className = 'cyber-ring cyber-ring-2';
+    heroVisual.prepend(ring2);
+    heroVisual.prepend(ring1);
+  }
+
+  // 3. Inject glowing Grid background across hero and dark sections
+  const hero = document.querySelector('.hero');
+  if (hero && !hero.querySelector('.bg-grid')) {
+    const grid = document.createElement('div');
+    grid.className = 'bg-grid';
+    hero.prepend(grid);
+  }
+
+  document.querySelectorAll('.section--dark').forEach(sec => {
+    if (!sec.querySelector('.bg-grid')) {
+      const grid = document.createElement('div');
+      grid.className = 'bg-grid';
+      sec.prepend(grid);
+    }
+  });
+}
 
 /* ---- Navbar Scroll Effect ---- */
 function initNavbar() {
@@ -208,23 +299,3 @@ function initSmoothScroll() {
     });
   });
 }
-
-/* ---- Tilt effect on cards (subtle) ---- */
-document.addEventListener('mousemove', (e) => {
-  const cards = document.querySelectorAll('.card, .testimonial-card');
-  cards.forEach((card) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -3;
-      const rotateY = ((x - centerX) / centerX) * 3;
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    } else {
-      card.style.transform = '';
-    }
-  });
-});
