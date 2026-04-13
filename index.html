@@ -50,6 +50,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Three.js for 3D EV Elements -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -172,10 +175,6 @@
     <div class="particles"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Now available in India
-        </div>
         <h1>Share Your <span class="text-gradient">EV Charger</span>, Power the Future</h1>
         <p class="hero-description">
           Turn your home charger into a revenue stream. Chargekr connects EV owners with nearby chargers through a
@@ -209,10 +208,11 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-visual-inner">
+        <div class="hero-visual-inner" id="hero-3d-container">
+          <!-- The Three.js canvas will be injected here as the background of the visual inner -->
           <img src="images/hero-ev.png"
             alt="EV charging station India  Find and share electric vehicle chargers with Chargekr app"
-            loading="eager">
+            loading="eager" style="position: relative; z-index: 5;">
           <!-- Floating Cards -->
           <div class="float-card float-card--top">
             <div class="icon icon--green"><i class="fas fa-charging-station"></i></div>
@@ -514,3 +514,4 @@
 </body>
 
 </html>
+

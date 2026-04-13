@@ -1,4 +1,4 @@
-# Chargekr — Complete Application Blueprint
+# Chargekr  Complete Application Blueprint
 
 > India's First Peer-to-Peer EV Charging Platform
 
@@ -57,8 +57,8 @@
 ## 2. Problem Statement
 
 - India's EV adoption is surging but public charging infrastructure hasn't kept pace
-- EV owners experience **range anxiety** — fear of running out of charge with no charger nearby
-- Average home EV charger sits **idle 20+ hours/day** — a massive underutilized resource
+- EV owners experience **range anxiety**  fear of running out of charge with no charger nearby
+- Average home EV charger sits **idle 20+ hours/day**  a massive underutilized resource
 - Public stations often have **long wait times**, high prices, or are unreliable
 - No existing platform in India connects private charger owners with drivers who need a charge
 
@@ -68,11 +68,11 @@
 
 Chargekr creates a **decentralized, community-powered charging network** by:
 
-1. **Empowering Hosts** — Homeowners monetize their idle chargers
-2. **Helping Drivers** — Nearby chargers are discoverable and bookable in seconds
-3. **Saving Money** — Up to 40% cheaper than public/commercial charging stations
-4. **Reducing Emissions** — Utilizes existing infrastructure instead of building new stations
-5. **Building Community** — Peer-to-peer trust through reviews, ratings, and verified profiles
+1. **Empowering Hosts**  Homeowners monetize their idle chargers
+2. **Helping Drivers**  Nearby chargers are discoverable and bookable in seconds
+3. **Saving Money**  Up to 40% cheaper than public/commercial charging stations
+4. **Reducing Emissions**  Utilizes existing infrastructure instead of building new stations
+5. **Building Community**  Peer-to-peer trust through reviews, ratings, and verified profiles
 
 ---
 
@@ -103,7 +103,7 @@ Chargekr creates a **decentralized, community-powered charging network** by:
 | **Booking System** | Reserve a charger slot in advance or book on-demand |
 | **Navigation** | In-app navigation to charger location (integrates with Google Maps / Apple Maps) |
 | **Trip Planner** | Plan a long-distance trip with optimal charging stops along the route |
-| **Live Status** | Real-time charging session progress — current charge %, estimated time remaining |
+| **Live Status** | Real-time charging session progress  current charge %, estimated time remaining |
 | **Payment** | Automatic payment at session end via UPI / cards / net banking |
 | **Reviews & Ratings** | Rate hosts and chargers after each session (1-5 stars + text review) |
 | **Charging History** | View past sessions, receipts, and spending analytics |
@@ -115,7 +115,7 @@ Chargekr creates a **decentralized, community-powered charging network** by:
 | Feature | Description |
 |---------|-------------|
 | **Charger Listing** | Add charger with type, connector, photos, location pin, description |
-| **Availability Scheduler** | Set when charger is available — daily, weekly, custom. Block personal use times |
+| **Availability Scheduler** | Set when charger is available  daily, weekly, custom. Block personal use times |
 | **Pricing Control** | Set your own hourly rate OR use AI-suggested pricing based on location & demand |
 | **Booking Management** | View incoming bookings, approve/decline, manage calendar |
 | **Host Dashboard** | Real-time earnings tracker, booking stats, charger usage analytics |
@@ -227,7 +227,7 @@ Example:
 
 ## 8. Charger Types Supported
 
-### 8.1 Level 1 — Standard Home Charger
+### 8.1 Level 1  Standard Home Charger
 
 | Spec | Value |
 |------|-------|
@@ -239,7 +239,7 @@ Example:
 | Best For | Overnight top-ups, scooters, low-range EVs |
 | Cost | ₹0 (uses existing outlet) |
 
-### 8.2 Level 2 — Dedicated Home/Office Charger
+### 8.2 Level 2  Dedicated Home/Office Charger
 
 | Spec | Value |
 |------|-------|
@@ -251,7 +251,7 @@ Example:
 | Best For | Daily home charging, workplace charging |
 | Cost | ₹15,000 – ₹80,000 |
 
-### 8.3 Level 3 — DC Fast Charger
+### 8.3 Level 3  DC Fast Charger
 
 | Spec | Value |
 |------|-------|
@@ -301,7 +301,7 @@ Example:
 | Rain/wet conditions | Connectors are IP-rated weatherproof, sealed on connection |
 | Thunderstorm | Recommend unplugging as precaution |
 | Burning smell | Stop immediately, unplug, report via app |
-| Overnight charging | BMS auto-stops at full charge — completely safe |
+| Overnight charging | BMS auto-stops at full charge  completely safe |
 | Cable tripping | Keep cable visible, use cable ramps |
 
 ---
@@ -312,7 +312,7 @@ Example:
 - **UPI** (Google Pay, PhonePe, Paytm, etc.)
 - **Credit / Debit Cards** (Visa, Mastercard, RuPay)
 - **Net Banking**
-- **Chargekr Wallet** (future — prepaid wallet with bonus credits)
+- **Chargekr Wallet** (future  prepaid wallet with bonus credits)
 
 ### 10.2 Payment Flow
 
@@ -636,7 +636,7 @@ LIMIT 50;
 
 ### 13.4 Smart Notifications
 - "Your usual charger is available now"
-- "Low charge detected — 3 chargers within 2km"
+- "Low charge detected  3 chargers within 2km"
 - "Prices are 20% lower than usual in your area right now"
 
 ---
@@ -668,7 +668,7 @@ LIMIT 50;
 
 ### 15.1 Platform Status
 - Chargekr operates as an **intermediary** under **Information Technology Act, 2000 (Section 79)**
-- Not a party to the charging transaction — facilitates connections only
+- Not a party to the charging transaction  facilitates connections only
 - Users are obligated to comply with all applicable Indian laws
 
 ### 15.2 Data Protection
@@ -691,15 +691,15 @@ LIMIT 50;
 4. Governing law: Laws of India
 
 ### 15.5 Documents
-- **Privacy Policy:** DPDPA-compliant, 11 sections — [privacy-policy.html](privacy-policy.html)
-- **Terms of Service:** 17 sections — [terms-of-service.html](terms-of-service.html)
-- **About Us:** Company info — [about-us.html](about-us.html)
+- **Privacy Policy:** DPDPA-compliant, 11 sections  [privacy-policy.html](privacy-policy.html)
+- **Terms of Service:** 17 sections  [terms-of-service.html](terms-of-service.html)
+- **About Us:** Company info  [about-us.html](about-us.html)
 
 ---
 
 ## 16. Roadmap & Future Features
 
-### Phase 1 — MVP (Current)
+### Phase 1  MVP (Current)
 - [x] User registration & authentication (phone + OTP)
 - [x] Charger listing with photos, type, location
 - [x] Map-based charger discovery
@@ -712,7 +712,7 @@ LIMIT 50;
 - [x] Push notifications
 - [x] Host protection insurance
 
-### Phase 2 — Growth
+### Phase 2  Growth
 - [ ] AI-suggested pricing for hosts
 - [ ] Smart trip planner with route optimization
 - [ ] Chargekr Wallet (prepaid with bonus credits)
@@ -721,7 +721,7 @@ LIMIT 50;
 - [ ] EV scooter/bike specific filters
 - [ ] Subscription plans for frequent drivers
 
-### Phase 3 — Expansion
+### Phase 3  Expansion
 - [ ] Fleet operator partnerships (commercial plans)
 - [ ] Residential society bulk onboarding
 - [ ] Enterprise dashboard for companies with fleets
@@ -730,7 +730,7 @@ LIMIT 50;
 - [ ] IoT smart plug integration for remote monitoring
 - [ ] Expand to Tier 2 & Tier 3 cities
 
-### Phase 4 — Platform Maturity
+### Phase 4  Platform Maturity
 - [ ] Dynamic pricing (surge pricing during peak hours)
 - [ ] Loyalty program with tiers (Bronze → Silver → Gold → Platinum)
 - [ ] Carbon credits tracking and marketplace

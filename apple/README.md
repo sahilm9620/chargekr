@@ -1,4 +1,4 @@
-# Apple — Design System
+# Apple  Design System
 
 > Design.md extracted from the public [apple](https://apple.dev/) website. This is not the official design system. Colors, fonts, and spacing may not be 100% accurate. But it's a good starting point for building something similar.
 
@@ -19,7 +19,7 @@ Open `DESIGN.md` to use as a reference for AI agents (Claude, Cursor, Stitch) to
 A sample landing page built with DESIGN.md. It shows the actual colors, typography, buttons, cards, spacing, and elevation, all in one page.
 
 ### Dark Mode
-![Apple Design System — Dark Mode](https://pub-2e4ecbcbc9b24e7b93f1a6ab5b2bc71f.r2.dev/designs/apple/preview-dark-screenshot.png)
+![Apple Design System  Dark Mode](https://pub-2e4ecbcbc9b24e7b93f1a6ab5b2bc71f.r2.dev/designs/apple/preview-dark-screenshot.png)
 
 ### Light Mode
-![Apple Design System — Light Mode](https://pub-2e4ecbcbc9b24e7b93f1a6ab5b2bc71f.r2.dev/designs/apple/preview-screenshot.png)
+![Apple Design System  Light Mode](https://pub-2e4ecbcbc9b24e7b93f1a6ab5b2bc71f.r2.dev/designs/apple/preview-screenshot.png)
