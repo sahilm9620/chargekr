@@ -575,7 +575,7 @@ p { color: var(--text-secondary); }
 /* Floating elements around hero visual */
 .float-card {
   position: absolute;
-  background: rgba(26, 26, 46, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
   border: 1px solid var(--dark-border);
   border-radius: var(--radius-md);
