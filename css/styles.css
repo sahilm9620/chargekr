@@ -1,5 +1,5 @@
 /* ============================================
-   CHARGEKR — Design System
+   CHARGEKR  Design System
    Theme: Dark + Lime Green (from logo)
    ============================================ */
 
@@ -42,7 +42,8 @@
   --shadow-sm: rgba(0, 0, 0, 0.05) 0px 4px 20px 0px;
   --shadow-md: rgba(0, 0, 0, 0.08) 0px 10px 30px 0px;
   --shadow-lg: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
-  --shadow-3d: rgba(0, 0, 0, 0.1) 0px 30px 60px -10px, rgba(0, 0, 0, 0.05) 0px 20px 25px -5px;
+  --shadow-3d: rgba(0, 0, 0, 0.15) 0px 40px 80px -10px, rgba(0, 0, 0, 0.1) 0px 30px 40px -10px;
+  --shadow-3d-hover: rgba(0, 0, 0, 0.25) 0px 60px 100px -15px, rgba(0, 0, 0, 0.15) 0px 40px 50px -15px;
   --shadow-glow: 0 0 30px rgba(74, 222, 0, 0.15);
   --shadow-glow-strong: 0 0 50px rgba(74, 222, 0, 0.3);
 
@@ -194,6 +195,7 @@ p {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  transform-style: preserve-3d;
 }
 
 .btn::before {
@@ -216,8 +218,8 @@ p {
 }
 
 .btn--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(74, 222, 0, 0.5);
+  transform: translateY(-4px) translateZ(20px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(74, 222, 0, 0.5), 0 5px 15px rgba(74, 222, 0, 0.3);
 }
 
 .btn--outline {
@@ -574,7 +576,7 @@ p {
   width: 100%;
   max-width: 500px;
   transform-style: preserve-3d;
-  transform: translateZ(20px);
+  transform: translateZ(40px);
 }
 
 .hero-visual-inner img {
@@ -582,6 +584,12 @@ p {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-3d);
   transition: transform var(--transition-spring);
+  transform: translateZ(20px);
+}
+
+.hero-visual-inner:hover img {
+  transform: translateZ(60px) scale(1.02);
+  box-shadow: var(--shadow-3d-hover);
 }
 
 /* Floating elements around hero visual */
@@ -600,6 +608,16 @@ p {
   box-shadow: var(--shadow-lg);
   transform-style: preserve-3d;
   z-index: 10;
+  transition: transform var(--transition-bounce);
+}
+
+.float-card:hover {
+  transform: translateZ(80px) scale(1.1) !important;
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.float-card > div {
+  transform: translateZ(30px);
 }
 
 .float-card:nth-child(2) { animation-delay: -1s; }
@@ -629,6 +647,8 @@ p {
   justify-content: center;
   font-size: 1.2rem;
   flex-shrink: 0;
+  transform: translateZ(40px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .float-card .icon--green {
@@ -664,9 +684,9 @@ p {
 }
 
 @keyframes float-3d {
-  0%, 100% { transform: translateY(0) translateZ(30px) rotateX(0deg) rotateY(0deg); }
-  33% { transform: translateY(-15px) translateZ(40px) rotateX(5deg) rotateY(-5deg); }
-  66% { transform: translateY(-5px) translateZ(20px) rotateX(-5deg) rotateY(5deg); }
+  0%, 100% { transform: translateY(0) translateZ(40px) rotateX(0deg) rotateY(0deg); }
+  33% { transform: translateY(-20px) translateZ(60px) rotateX(10deg) rotateY(-10deg); }
+  66% { transform: translateY(-10px) translateZ(30px) rotateX(-10deg) rotateY(10deg); }
 }
 
 /* ---- Cards ---- */
@@ -681,6 +701,7 @@ p {
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .card::before {
@@ -696,9 +717,9 @@ p {
 }
 
 .card:hover {
-  transform: translateY(-8px) scale3d(1.02, 1.02, 1.02);
+  transform: translateY(-12px) scale3d(1.05, 1.05, 1.05) translateZ(30px);
   border-color: rgba(74, 222, 0, 0.4);
-  box-shadow: var(--shadow-3d), var(--shadow-glow);
+  box-shadow: var(--shadow-3d-hover), var(--shadow-glow-strong);
   z-index: 2;
 }
 
@@ -707,7 +728,12 @@ p {
 }
 
 .card > * {
-  transform: translateZ(20px);
+  transform: translateZ(30px);
+  transition: transform var(--transition-spring);
+}
+
+.card:hover > * {
+  transform: translateZ(60px);
 }
 
 .card-icon {
@@ -721,12 +747,14 @@ p {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: var(--primary);
-  transition: all var(--transition-base);
+  transition: transform var(--transition-spring), background var(--transition-base), box-shadow var(--transition-base);
+  transform: translateZ(40px);
 }
 
 .card:hover .card-icon {
   background: rgba(74, 222, 0, 0.2);
-  box-shadow: 0 0 20px rgba(74, 222, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(74, 222, 0, 0.3);
+  transform: translateZ(80px) scale(1.15);
 }
 
 .card h3 {
@@ -736,6 +764,7 @@ p {
 .card p {
   font-size: 0.95rem;
   line-height: 1.7;
+  transform: translateZ(20px);
 }
 
 /* ---- Grid Layouts ---- */
@@ -1664,14 +1693,14 @@ p {
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-3d);
   transition: transform var(--transition-spring), box-shadow var(--transition-base);
   transform-style: preserve-3d;
 }
 
 .card:hover, .feature-card:hover, .price-card:hover {
-  transform: translateY(-8px) scale3d(1.02, 1.02, 1.02) rotateX(2deg);
-  box-shadow: var(--shadow-3d);
+  transform: translateY(-12px) scale3d(1.05, 1.05, 1.05) translateZ(40px);
+  box-shadow: var(--shadow-3d-hover);
 }
 
 /* Feature Checkmarks Theme Overrides */
