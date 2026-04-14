@@ -18,109 +18,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ---- 3D Three.js EV Charging Scene ---- */
 function initThreeJSEV() {
-  // Use body instead of a specific container to make it global
   const container = document.body;
   if (typeof THREE === 'undefined') return;
 
   // Create Scene
   const scene = new THREE.Scene();
 
+  // Add soft fog to blend the horizon smoothly with the crisp light theme background
+  scene.fog = new THREE.FogExp2(0xf5f5f7, 0.04);
+
   // Create Camera
-  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 20;
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 200);
+  camera.position.set(0, 4, 15);
+  camera.lookAt(0, 0, 0);
 
   // Create Renderer with transparent background
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
-  // Fixed positioning to cover the entire screen globally
+  // Fixed positioning to act as a sleek, professional ambient layer
   renderer.domElement.style.position = 'fixed';
   renderer.domElement.style.top = '0';
   renderer.domElement.style.left = '0';
   renderer.domElement.style.width = '100vw';
   renderer.domElement.style.height = '100vh';
-  renderer.domElement.style.zIndex = '9995'; // Sit just below the custom cursor
+  renderer.domElement.style.zIndex = '-1'; // Sit far beneath UI for a modern aesthetic
   renderer.domElement.style.pointerEvents = 'none';
-  renderer.domElement.style.transition = 'opacity 1s ease';
 
   container.appendChild(renderer.domElement);
 
-  // Group to hold all EV elements
-  const evGroup = new THREE.Group();
-
-  // 1. Central Energy Core (represents EV Battery)
-  const coreGeometry = new THREE.IcosahedronGeometry(1, 1);
-  const coreMaterial = new THREE.MeshPhysicalMaterial({
+  // Create an elegant "Peer-to-Peer Energy Network" grid
+  // This brings a premium, Apple-like, high-tech flow of energy
+  const geometry = new THREE.PlaneGeometry(100, 100, 60, 60);
+  const material = new THREE.MeshBasicMaterial({
     color: 0x4ADE00,
-    emissive: 0x228B22,
     wireframe: true,
     transparent: true,
-    opacity: 0.8
+    opacity: 0.15
   });
-  const core = new THREE.Mesh(coreGeometry, coreMaterial);
-  evGroup.add(core);
 
-  // 2. Outer Charging Rings (represents Power Transfer)
-  const ringGeo1 = new THREE.TorusGeometry(2.5, 0.05, 16, 100);
-  const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x4ADE00, transparent: true, opacity: 0.5 });
-  const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
-  ring1.rotation.x = Math.PI / 2;
-  evGroup.add(ring1);
+  const gridTerrain = new THREE.Mesh(geometry, material);
+  gridTerrain.rotation.x = -Math.PI / 2;
+  gridTerrain.position.y = -3;
+  scene.add(gridTerrain);
 
-  const ringGeo2 = new THREE.TorusGeometry(3.5, 0.02, 16, 100);
-  const ringMat2 = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, transparent: true, opacity: 0.3 });
-  const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
-  ring2.rotation.y = Math.PI / 3;
-  evGroup.add(ring2);
+  // Abstract glowing data nodes flowing through the network
+  const nodes = [];
+  const nodeGeo = new THREE.SphereGeometry(0.15, 16, 16);
+  const nodeMat = new THREE.MeshBasicMaterial({ color: 0x00C853, transparent: true, opacity: 0.8 });
 
-  // 3. Floating Energy Particles
-  const particleCount = 150;
-  const particlesGeo = new THREE.BufferGeometry();
-  const posArray = new Float32Array(particleCount * 3);
-  for(let i=0; i < particleCount * 3; i++) {
-    posArray[i] = (Math.random() - 0.5) * 10;
+  for(let i=0; i < 20; i++) {
+    const node = new THREE.Mesh(nodeGeo, nodeMat);
+    node.position.set(
+      (Math.random() - 0.5) * 60,
+      -3,
+      (Math.random() - 0.5) * 60
+    );
+    // Offset for organic, wave-riding mathematics
+    node.userData = {
+      offsetX: Math.random() * 100,
+      offsetZ: Math.random() * 100,
+      speed: 0.5 + Math.random() * 0.5
+    };
+    scene.add(node);
+    nodes.push(node);
   }
-  particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-  const particleMat = new THREE.PointsMaterial({
-    size: 0.05,
-    color: 0x4ADE00,
-    transparent: true,
-    opacity: 0.8,
-    blending: THREE.AdditiveBlending
-  });
-  const particlesMesh = new THREE.Points(particlesGeo, particleMat);
-  evGroup.add(particlesMesh);
 
-  scene.add(evGroup);
-
-  // Mouse Interaction Setup
+  // Ultra-smooth Mouse Parallax tracking
   let mouseX = 0;
   let mouseY = 0;
-  let targetX = 0;
-  let targetY = 0;
-  let isIdle = false;
-  let idleTimer = null;
-  const windowHalfX = window.innerWidth / 2;
-  const windowHalfY = window.innerHeight / 2;
-
-  // Track cursor and start idle timer
   document.addEventListener('mousemove', (e) => {
-    // Map mouse position correctly for the 3D space movement
     mouseX = (e.clientX / window.innerWidth) * 2 - 1;
     mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-
-    // Convert to unprojected 3D coordinates roughly matching Z=15 depth
-    targetX = mouseX * 12;
-    targetY = mouseY * 8;
-
-    isIdle = false;
-    clearTimeout(idleTimer);
-
-    // Set a timer to trigger the "stays for few seconds" effect
-    idleTimer = setTimeout(() => {
-      isIdle = true;
-    }, 2000);
   });
 
   // Handle Resize
@@ -132,38 +102,41 @@ function initThreeJSEV() {
 
   // Animation Loop
   const clock = new THREE.Clock();
+
   function animate() {
     requestAnimationFrame(animate);
-    const elapsedTime = clock.getElapsedTime();
+    const time = clock.getElapsedTime();
 
-    // Smoothly follow the cursor
-    evGroup.position.x += (targetX - evGroup.position.x) * 0.05;
-    evGroup.position.y += (targetY - evGroup.position.y) * 0.05;
+    // 1. Gently animate the grid vertices to simulate an undulating "energy wave"
+    const position = geometry.attributes.position;
+    for (let i = 0; i < position.count; i++) {
+       const x = position.getX(i);
+       const y = position.getY(i);
 
-    // Additional smooth rotation towards movement
-    evGroup.rotation.y += 0.05 * (targetX * 0.1 - evGroup.rotation.y);
-    evGroup.rotation.x += 0.05 * (-targetY * 0.1 - evGroup.rotation.x);
+       // Clean, fluid sine-wave math
+       const z = Math.sin(x * 0.1 + time * 0.5) * 1.5 +
+                 Math.cos(y * 0.15 + time * 0.4) * 1.0;
 
-    // Constant spinning
-    core.rotation.y += 0.01;
-    core.rotation.x += 0.005;
+       position.setZ(i, z);
+    }
+    position.needsUpdate = true;
 
-    ring1.rotation.y += 0.005;
-    ring1.rotation.x += 0.01;
+    // 2. Animate energy nodes organically drifting along the wave
+    nodes.forEach(node => {
+      const data = node.userData;
+      node.position.x += Math.sin(time * data.speed + data.offsetX) * 0.05;
+      node.position.z += Math.cos(time * data.speed + data.offsetZ) * 0.05;
 
-    ring2.rotation.z -= 0.008;
+      // Calculate wave height at the node's position so it explicitly "rides" the terrain
+      const waveY = Math.sin(node.position.x * 0.1 + time * 0.5) * 1.5 +
+                    Math.cos(node.position.z * 0.15 + time * 0.4) * 1.0;
+      node.position.y = -3 + waveY;
+    });
 
-    // Pulse core scale (expands slightly when cursor stays still)
-    const baseScale = isIdle ? 1.5 : 1;
-    const scale = baseScale + Math.sin(elapsedTime * 2) * 0.1;
-    core.scale.set(scale, scale, scale);
-
-    // Enhance rings when idle
-    ring1.scale.set(baseScale, baseScale, baseScale);
-    ring2.scale.set(baseScale, baseScale, baseScale);
-
-    // Rotate particles
-    particlesMesh.rotation.y = elapsedTime * 0.05;
+    // 3. Cinematic and elegant camera parallax
+    camera.position.x += (mouseX * 3 - camera.position.x) * 0.02;
+    camera.position.y += (4 + mouseY * 2 - camera.position.y) * 0.02;
+    camera.lookAt(0, -1, 0);
 
     renderer.render(scene, camera);
   }
