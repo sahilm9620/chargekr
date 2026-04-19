@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chargekr",
+      "sha256_cert_fingerprints": [
+        "63:74:EA:15:2A:24:E6:CF:23:4E:7B:C0:80:1F:E8:0A:FB:B6:0E:E5:05:0D:65:D1:DF:27:BF:B3:21:7C:4B:48"
+      ]
+    }
+  }
+]
