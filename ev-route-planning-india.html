@@ -32,18 +32,49 @@
       {"@type": "ListItem", "position": 2, "name": "EV Route Planning", "item": "https://www.chargekr.com/ev-route-planning-india.html"}
     ]
   }</script>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\">
+  <link rel=\"icon\" type=\"image/png\" href=\"Logo/changekr.png\">
+  <link rel=\"apple-touch-icon\" href=\"Logo/changekr.png\">
+  <link rel=\"stylesheet\" href=\"css/styles.css\">
+  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css\">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-    </nav>
-  </header>
+  <nav class=\"navbar\">
+    <div class=\"container\">
+      <a href=\"index.html\" class=\"nav-logo\">
+        <img loading=\"lazy\" src=\"Logo/changekr.png\" alt=\"ChargeKr Logo\">
+        <span>Charge<span class=\"text-gradient\">kr</span></span>
+      </a>
+      <div class=\"nav-links\">
+        <a href=\"index.html\">Home</a>
+        <a href=\"blog.html\">Blog</a>
+        <a href=\"charger-types.html\">Charger Types</a>
+        <a href=\"earn-money.html\">Earn Money</a>
+        <a href=\"safety.html\">Safety</a>
+      </div>
+      <a href=\"index.html#download\" class=\"btn btn--primary btn--sm nav-cta\">Download App</a>
+      <button class=\"hamburger\" id=\"hamburger\" aria-label=\"Menu\"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class=\"mobile-nav\" id=\"mobile-nav\">
+    <a href=\"index.html\">Home</a>
+    <a href=\"blog.html\">Blog</a>
+    <a href=\"charger-types.html\">Charger Types</a>
+    <a href=\"earn-money.html\">Earn Money</a>
+    <a href=\"safety.html\">Safety</a>
+  </div>
 
-  <main class="container">
-    <h1>EV Route Planning in India: How to Plan Charging Stops</h1>
+  <section class=\"page-hero\">
+    <div class=\"container\">
+      <span class=\"section-label\"><i class=\"fas fa-route\"></i> Route Planning</span>
+      <h1>EV Route Planning in India: How to Plan Charging Stops</h1>
+      <p>Learn how to plan EV trips with charging stops and reduce range anxiety.</p>
+    </div>
+  </section>
+
+  <section class=\"section\">
+    <div class=\"container container--narrow\">
+      <h2>EV Route Planning in India: How to Plan Charging Stops</h2>
 
     <p>EV trips become easier when charging is planned before the journey starts. In India, charger availability can vary by city, highway, vehicle type and charging network, so route planning is important for both new and experienced EV owners.</p>
 
@@ -72,16 +103,49 @@
     <h3>Are EV road trips possible in India?</h3>
     <p>Yes, but the experience depends on route, vehicle range, charger coverage and planning. Charger discovery apps can make planning easier.</p>
 
-    <div class="cta">
+    <div class=\"cta\" style=\"margin-top:40px;\">
       <p>Plan your next EV trip with ChargeKr.</p>
-      <a class="btn btn--primary" href="https://play.google.com/store/apps/details?id=com.chargekr&pcampaignid=web_share" target="_blank" rel="noopener">Download ChargeKr</a>
+      <a class=\"btn btn--primary\" href=\"https://play.google.com/store/apps/details?id=com.chargekr&pcampaignid=web_share\" target=\"_blank\" rel=\"noopener\">Download ChargeKr</a>
     </div>
+    </div>
+  </section>
 
-  </main>
-
-  <footer>
-    <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+  <footer class=\"footer\">
+    <div class=\"container\">
+      <div class=\"footer-grid\">
+        <div class=\"footer-brand\">
+          <a href=\"index.html\" class=\"nav-logo\">
+            <img loading=\"lazy\" src=\"Logo/changekr.png\" alt=\"ChargeKr\">
+            <span>Charge<span class=\"text-gradient\">kr</span></span>
+          </a>
+          <p>India's first peer-to-peer EV charging network. Share your charger, earn money, and build a greener tomorrow.</p>
+        </div>
+        <div class=\"footer-column\">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href=\"charger-types.html\">EV Charger Guide</a></li>
+            <li><a href=\"safety.html\">Safety Best Practices</a></li>
+            <li><a href=\"how-it-helps.html\">How ChargeKr Helps You</a></li>
+            <li><a href=\"peer-to-peer.html\">Sustainability & P2P</a></li>
+          </ul>
+        </div>
+        <div class=\"footer-column\">
+          <h4>Company</h4>
+          <ul>
+            <li><a href=\"about-us.html\">About Us</a></li>
+            <li><a href=\"mailto:info@chargekr.com\">Contact</a></li>
+            <li><a href=\"privacy-policy.html\">Privacy Policy</a></li>
+            <li><a href=\"terms-of-service.html\">Terms of Service</a></li>
+            <li><a href=\"faq.html\">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class=\"footer-bottom\">
+        <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
+  <script src=\"js/main.js\"></script>
 
 </body>
 </html>
