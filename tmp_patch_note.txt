@@ -1,0 +1,1 @@
+Attempting to patch remaining footers: image-optimization-guide.html, apple/design.html, apple/preview-dark.html, apple/readme.html, website-content-guide.html. If apply_patch fails, edits can be made manually.
