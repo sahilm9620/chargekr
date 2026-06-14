@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Allow: /llms.txt
 Crawl-delay: 1
 
 # Sitemap
