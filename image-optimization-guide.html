@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Optimization Guide | ChargeKr</title>
+  <meta name="description" content="Concise image optimization commands and recommendations for ChargeKr: WebP, responsive images, and automation suggestions.">
+  <link rel="canonical" href="https://www.chargekr.com/image-optimization-guide.html">
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Image Optimization Guide",
+    "author":{"@type":"Organization","name":"ChargeKr"},
+    "publisher":{"@type":"Organization","name":"ChargeKr"},
+    "mainEntityOfPage":"https://www.chargekr.com/image-optimization-guide.html"
+  }</script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Image optimization guide — concise commands and recommendations</h1>
+    <p>Goal: reduce bytes, preserve visual quality, enable responsive loading and lazy-loading.</p>
+
+    <h2>Recommended formats</h2>
+    <ul>
+      <li>WebP for photos/illustrations</li>
+      <li>PNG for transparency (consider WebP fallback)</li>
+      <li>SVG for logos and simple graphics</li>
+    </ul>
+
+    <h2>Basic macOS commands</h2>
+    <pre> sips -Z 1200 input.jpg --out output.jpg
+cwebp -q 80 input.jpg -o output.webp</pre>
+
+    <h2>Using ImageMagick</h2>
+    <pre>magick input.jpg -strip -interlace Plane -gaussian-blur 0.05 -quality 75 -resize 1200x output.jpg
+for f in *.jpg; do magick "$f" -quality 80 "${f%.*}.webp"; done</pre>
+
+    <h2>Best practices</h2>
+    <ul>
+      <li>Add `width` and `height` attributes to images</li>
+      <li>Use `loading="lazy"` for non-critical images</li>
+      <li>Provide `srcset` and multiple sizes for responsive images</li>
+      <li>Inline small critical images</li>
+    </ul>
+
+    <h2>Automation suggestions</h2>
+    <p>Add a build step or Git hook to convert images to WebP and generate responsive sizes.</p>
+
+  </main>
+  <footer>
+    <p>&copy; 2026 ChargeKr</p>
+  </footer>
+</body>
+</html>
