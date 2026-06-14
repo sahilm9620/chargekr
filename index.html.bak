@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Search Console Verification (replace YOUR_VERIFICATION_CODE_HERE with your actual code) -->
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
+
+  <meta name="description"
+    content="ChargeKr  Share your EV charger and earn ₹5,000–15,000/month. Find peer-to-peer charging stations near you across India. Download the free app.">
+  <meta name="keywords"
+    content="EV charging stations India, electric vehicle charging, peer-to-peer EV charging, P2P EV charging, share EV charger, earn money EV charger, ChargeKr, EV charging India, home charger sharing, electric car charging near me, EV charging station near me, find EV charger, EV range anxiety, EV charging app, green energy, sustainable mobility, EV charging infrastructure India, fast charging stations India">
+  <meta name="author" content="ChargeKr">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#4ADE00">
+  <link rel="canonical" href="https://www.chargekr.com/">
+  <link rel="alternate" hreflang="en-IN" href="https://www.chargekr.com/">
+  <link rel="alternate" hreflang="x-default" href="https://www.chargekr.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.chargekr.com/">
+  <meta property="og:title" content="ChargeKr  Share Your EV Charger, Power the Future">
+  <meta property="og:description"
+    content="Find EV charging stations near you or share your charger & earn ₹5,000–15,000/month. Join 10,000+ users on India's fastest-growing P2P charging network.">
+  <meta property="og:image" content="https://www.chargekr.com/Logo/changekr.png">
+  <meta property="og:image:alt" content="ChargeKr  India's Peer-to-Peer EV Charging Platform">
+  <meta property="og:site_name" content="ChargeKr">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@charge_kr">
+  <meta name="twitter:title" content="ChargeKr  India's First Peer-to-Peer EV Charging Platform">
+  <meta name="twitter:description"
+    content="Share your EV charger, earn ₹5,000–15,000/month, and help build a greener future. Download the app today.">
+  <meta name="twitter:image" content="https://www.chargekr.com/Logo/changekr.png">
+
+  <title>ChargeKr: Share Your EV Charger &amp; Earn Money in India</title>
+  <link rel="icon" type="image/png" href="Logo/changekr.png">
+  <link rel="apple-touch-icon" href="Logo/changekr.png">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Three.js for 3D EV Elements -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ChargeKr",
+    "url": "https://www.chargekr.com",
+    "logo": "https://www.chargekr.com/Logo/changekr.png",
+    "description": "ChargeKR is a peer-to-peer EV charging platform built to help EV drivers find and share chargers anywhere, starting from India.",
+    "foundingDate": "2025",
+    "sameAs": [
+      "https://x.com/charge_kr",
+      "https://www.instagram.com/charge.kr/",
+      "https://www.linkedin.com/company/chargekr/",
+      "https://www.youtube.com/@Chargekr-i9r"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@chargekr.com",
+      "contactType": "customer support"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ChargeKr",
+    "url": "https://www.chargekr.com",
+    "description": "India's first peer-to-peer EV charging platform",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ChargeKr"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChargeKr",
+    "operatingSystem": "Android, iOS",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "Find and share EV chargers near you. Earn money by listing your home charger on India's largest P2P charging network.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.chargekr.com/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics GA4 (replace G-XXXXXXXXXX with your actual Measurement ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr Logo">
+        <span>Charge<span class="text-gradient">Kr</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="safety.html">Safety</a>
+        <a href="how-it-helps.html">How It Helps</a>
+        <a href="peer-to-peer.html">P2P Charging</a>
+        <a href="earn-money.html">Earn Money</a>
+      </div>
+      <a href="#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="charger-types.html">EV Charger Types</a>
+    <a href="safety.html">Safety Tips</a>
+    <a href="how-it-helps.html">Benefits</a>
+    <a href="peer-to-peer.html">P2P & Planet</a>
+    <a href="earn-money.html">Earn as Host</a>
+    <a href="#download" class="btn btn--primary">Get the App</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="particles"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Share Your <span class="text-gradient">EV Charger</span>, Power the Future</h1>
+        <p class="hero-description">
+          Turn your home charger into a revenue stream. ChargeKr connects EV owners with nearby chargers through a
+          seamless peer-to-peer network  saving money, reducing range anxiety, and building a greener planet.
+        </p>
+        <div class="hero-actions">
+          <a href="#how-it-works" class="btn btn--primary btn--lg">
+            <i class="fas fa-bolt"></i> Get Started
+          </a>
+          <a href="#features" class="btn btn--outline btn--lg">
+            Learn More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="app-buttons" id="download">
+          <a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank" rel="noopener noreferrer" class="app-btn"
+            aria-label="Download ChargeKr EV charging app on Google Play">
+            <span class="app-btn__icon"><i class="fab fa-google-play"></i></span>
+            <div class="app-btn__text">
+              <small>Get it on</small>
+              <span>Google Play</span>
+            </div>
+          </a>
+          <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="app-btn"
+            aria-label="Download ChargeKr EV charging app on App Store">
+            <span class="app-btn__icon"><i class="fab fa-apple"></i></span>
+            <div class="app-btn__text">
+              <small>Download on the</small>
+              <span>App Store</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-inner" id="hero-3d-container">
+          <!-- The Three.js canvas will be injected here as the background of the visual inner -->
+          <img src="images/hero-ev.png"
+            alt="EV charging station India  Find and share electric vehicle chargers with ChargeKr app"
+            loading="eager" style="position: relative; z-index: 5;">
+          <!-- Floating Cards -->
+          <div class="float-card float-card--top">
+            <div class="icon icon--green"><i class="fas fa-charging-station"></i></div>
+            <div>
+              <div class="label">Chargers Online</div>
+              <div class="value">2,500+</div>
+            </div>
+          </div>
+          <div class="float-card float-card--bottom">
+            <div class="icon icon--blue"><i class="fas fa-users"></i></div>
+            <div>
+              <div class="label">Active Users</div>
+              <div class="value">10+</div>
+            </div>
+          </div>
+          <div class="float-card float-card--mid">
+            <div class="icon icon--orange"><i class="fas fa-leaf"></i></div>
+            <div>
+              <div class="label">CO₂ Saved</div>
+              <div class="value">50 Tons</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section--dark" id="how-it-works">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal"><i class="fas fa-route"></i> How It Works</span>
+        <h2 class="section-title reveal">Start Charging in <span class="text-gradient">3 Simple Steps</span></h2>
+        <p class="section-subtitle mx-auto reveal">Getting started with Chargekr takes less than 2 minutes. Download,
+          discover, and charge  it's that simple.</p>
+      </div>
+      <div class="steps stagger">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h3>Download the App</h3>
+          <p>Get Chargekr from the App Store or Google Play. Create your profile in seconds.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <h3>Find a Charger</h3>
+          <p>Browse the map to discover nearby chargers shared by your community. Filter by type and availability.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <h3>Charge & Go</h3>
+          <p>Reserve your slot, plug in, and pay seamlessly through the app. Rate your experience!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal"><i class="fas fa-star"></i> Features</span>
+        <h2 class="section-title reveal">Why <span class="text-gradient">Chargekr</span> Stands Apart</h2>
+        <p class="section-subtitle mx-auto reveal">Built for EV owners, by EV enthusiasts. Every feature is designed to
+          make your charging experience seamless.</p>
+      </div>
+      <div class="grid-4 stagger">
+        <div class="card reveal">
+          <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <h3>Smart Discovery</h3>
+          <p>AI-powered charger recommendations based on your route, vehicle type, and charging preferences.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <h3>Earn Passively</h3>
+          <p>List your charger and earn money while you sleep. Set your own rates and availability schedule.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Verified & Secure</h3>
+          <p>Every charger and user is verified. Secure payments, insurance coverage, and 24/7 support backed by trust.
+          </p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Go Green</h3>
+          <p>Track your carbon footprint reduction. Every charge contributes to a cleaner, more sustainable future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Banner -->
+  <section class="stats" style="display: none;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="2500" data-suffix="+">0</span></div>
+          <div class="stat-label">Chargers Shared</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="10000" data-suffix="+">0</span></div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="50" data-suffix=" Tons">0</span></div>
+          <div class="stat-label">CO₂ Saved</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="15" data-suffix="+">0</span></div>
+          <div class="stat-label">Cities Covered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore More -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal"><i class="fas fa-book-open"></i> Learn More</span>
+        <h2 class="section-title reveal">Everything About <span class="text-gradient">EV Charging</span></h2>
+        <p class="section-subtitle mx-auto reveal">Whether you're new to EVs or a seasoned owner, we've got resources to
+          help you make the most of your electric journey.</p>
+      </div>
+      <div class="grid-3 stagger">
+        <a href="charger-types.html" class="card reveal" style="cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-plug"></i></div>
+          <h3>Compare EV Charger Types</h3>
+          <p>Learn about Level 1, Level 2, and DC Fast Charging  which one is right for you?</p>
+        </a>
+        <a href="safety.html" class="card reveal" style="cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+          <h3>Charging Safety Guide</h3>
+          <p>Essential safety tips for charging at home and using shared charging stations safely.</p>
+        </a>
+        <a href="peer-to-peer.html" class="card reveal" style="cursor:pointer;">
+          <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+          <h3>Green Impact of P2P Charging</h3>
+          <p>Discover how peer-to-peer charging helps reduce emissions and build a sustainable future.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label reveal"><i class="fas fa-quote-left"></i> What People Say</span>
+        <h2 class="section-title reveal">Loved by <span class="text-gradient">EV Owners</span></h2>
+      </div>
+      <div class="testimonial-carousel reveal">
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>Chargekr has completely changed how I charge my EV. I found 3 chargers within walking distance of my home.
+            No more range anxiety!</p>
+          <div class="testimonial-author">
+            <div class="avatar">R</div>
+            <div>
+              <div class="name">Rahul Sharma</div>
+              <div class="role">Tesla Model 3 Owner, Mumbai</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>I earn ₹10,000 a month just by sharing my home charger when I'm at work. Chargekr turned my charger into an
+            investment!</p>
+          <div class="testimonial-author">
+            <div class="avatar">P</div>
+            <div>
+              <div class="name">Piyush Patni</div>
+              <div class="role">Charger Host, Pune</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>The app is beautifully designed and super easy to use. I love that I can see real-time charger availability
+            and even book ahead.</p>
+          <div class="testimonial-author">
+            <div class="avatar">A</div>
+            <div>
+              <div class="name">Arjun Mehta</div>
+              <div class="role">Nexon EV Owner, Delhi</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p>As a fleet manager, Chargekr has saved us lakhs in charging costs. The P2P network is a game changer for
+            commercial EVs.</p>
+          <div class="testimonial-author">
+            <div class="avatar">S</div>
+            <div>
+              <div class="name">Sneha Reddy</div>
+              <div class="role">Fleet Manager, Hyderabad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section--dark">
+    <div class="container">
+      <h2 class="reveal">Ready to <span class="text-gradient">Charge Smarter</span>?</h2>
+      <p class="reveal">Join thousands of EV owners already using Chargekr. Download the app today and start saving.</p>
+      <div class="app-buttons reveal" style="justify-content:center;">
+        <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="app-btn">
+          <span class="app-btn__icon"><i class="fab fa-google-play"></i></span>
+          <div class="app-btn__text">
+            <small>Get it on</small>
+            <span>Google Play</span>
+          </div>
+        </a>
+        <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="app-btn">
+          <span class="app-btn__icon"><i class="fab fa-apple"></i></span>
+          <div class="app-btn__text">
+            <small>Download on the</small>
+            <span>App Store</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+            <span>Charge<span class="text-gradient">kr</span></span>
+          </a>
+          <p>India's first peer-to-peer EV charging network. Share your charger, earn money, and build a greener
+            tomorrow.</p>
+          <div class="footer-social">
+            <a href="https://x.com/charge_kr" target="_blank" rel="noopener noreferrer"
+              aria-label="Chargekr on X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/charge.kr/" target="_blank" rel="noopener noreferrer"
+              aria-label="Chargekr on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/chargekr/" target="_blank" rel="noopener noreferrer"
+              aria-label="Chargekr on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@Chargekr-i9r" target="_blank" rel="noopener noreferrer"
+              aria-label="Chargekr on YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="charger-types.html">EV Charger Guide</a></li>
+            <li><a href="safety.html">Safety Best Practices</a></li>
+            <li><a href="how-it-helps.html">How Chargekr Helps You</a></li>
+            <li><a href="peer-to-peer.html">Sustainability & P2P</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Earn</h4>
+          <ul>
+            <li><a href="earn-money.html">Host Your Charger</a></li>
+            <li><a href="earn-money.html#calculator">Calculate Your Earnings</a></li>
+            <li><a href="#">Host Dashboard</a></li>
+            <li><a href="#">Success Stories</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="mailto:info@chargekr.com">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Chargekr. All rights reserved.</p>
+        <p>Made with <i class="fas fa-bolt" style="color:var(--primary)"></i> for a greener future</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+    <!-- 3D Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+      VanillaTilt.init(document.querySelectorAll(".card, .feature-list-item, .infographic-item, .float-card, .hero-visual-inner img, .calculator"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.4,
+        scale: 1.05,
+        perspective: 800
+      });
+    </script>
+</body>
+
+</html>
+

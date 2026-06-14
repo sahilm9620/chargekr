@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Best EV charging apps in India for finding nearby chargers, booking slots, comparing fast chargers, and reading charger reviews.">
+    <meta name="keywords" content="best EV charging apps India, find EV charging apps India, EV charging station app, ChargeKR app, fast EV chargers Pune, charger reviews">
+    <meta name="author" content="Chargekr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/best-ev-charging-apps-india.html">
+    <title>Best EV Charging Apps in India | ChargeKR</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="Chargekr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-mobile-alt"></i> App Guide</span>
+            <h1>Best EV Charging Apps in India</h1>
+            <p>Compare the top apps that help EV drivers find chargers, reserve slots, and review charger locations across India.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Why the right app matters</h2>
+                <p>In India, EV charging is evolving quickly. The best EV charging apps combine real-time station data with route planning, charger filters, and user feedback. The goal is simple: find a charger near you, choose the right connector, and avoid long wait times.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Top app features for EV drivers</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-map-marker-alt"></i></span><div><strong>Nearby charger search:</strong> Locate chargers within minutes of your current position.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-bolt"></i></span><div><strong>Fast charger filters:</strong> Only see fast or DC fast chargers when you need a quick top-up.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-star"></i></span><div><strong>User reviews:</strong> Read feedback from other drivers before you arrive.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-calendar-check"></i></span><div><strong>Slot booking:</strong> Reserve your charging time ahead for stress-free charging.</div></div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>How ChargeKR stands out</h2>
+                <p>ChargeKR brings both public and peer-to-peer chargers into one map. That means you can discover shared home and business chargers in addition to commercial stations. In cities like Pune and Mumbai, this expands your charging options significantly.</p>
+                <p>ChargeKR also helps drivers compare prices, confirm availability, and see reviews for listed chargers.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Best use cases</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-road"></i></span><div><strong>City commuting:</strong> Find chargers near office hubs, malls, and apartment complexes.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-truck"></i></span><div><strong>Road trips:</strong> Plan stops with fast chargers on highway corridors.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-user"></i></span><div><strong>Charger review checks:</strong> Choose chargers with high ratings and reliable availability.</div></div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKR and start finding chargers →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Peer-to-peer EV charging in India. Find chargers, book slots, and share your charger with nearby drivers.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Chargekr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

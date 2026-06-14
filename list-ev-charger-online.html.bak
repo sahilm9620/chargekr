@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="List Your EV Charger Online in India | ChargeKr">
+  <meta name="keywords" content="list EV charger online, share EV charger, charger sharing India">
+  <meta name="author" content="ChargeKr">
+  <link rel="canonical" href="https://www.chargekr.com/list-ev-charger-online.html">
+  <title>List Your EV Charger Online in India | ChargeKR</title>
+  <link rel="icon" type="image/png" href="Logo/changekr.png">
+  <link rel="apple-touch-icon" href="Logo/changekr.png">
+</head>
+<body>
+  <main>
+    <article>
+      <h1>How to List Your EV Charger Online with ChargeKr</h1>
+      <p>If you own an EV charger at home, work or a private property, listing it can help nearby EV users and help you earn.</p>
+
+      <section>
+        <h2>What charger owners should prepare</h2>
+        <ul>
+          <li>Charger type and compatibility</li>
+          <li>Location and access instructions</li>
+          <li>Photos and availability times</li>
+          <li>Pricing details and safety notes</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Safety and trust tips</h2>
+        <p>Only list chargers you own or control, ensure safe installation, and provide clear access instructions.</p>
+      </section>
+
+      <p><a href="https://www.chargekr.com/">List your EV charger on ChargeKr</a></p>
+    </article>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to List Your EV Charger Online with ChargeKr",
+    "step": [
+      {"@type":"HowToStep","name":"Prepare charger details","text":"Collect charger type, photos, location and access instructions."}
+    ]
+  }
+  </script>
+
+</body>
+</html>

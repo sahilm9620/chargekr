@@ -1,4 +1,4 @@
-# Chargekr robots.txt
+# ChargeKr robots.txt
 # https://www.chargekr.com
 
 User-agent: *

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the types of EV chargers in India, including slow chargers, fast chargers, and DC fast charging for different use cases.">
+    <meta name="keywords" content="types of EV chargers, slow charging, fast charging, DC fast charging, EV charger types India">
+    <meta name="author" content="ChargeKr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/types-of-ev-chargers-slow-fast-dc-fast-charging.html">
+    <title>Types of EV Chargers: Slow, Fast, DC Fast Charging | ChargeKr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-cogs"></i> Charger Types</span>
+            <h1>Types of EV Chargers: Slow, Fast, DC Fast Charging</h1>
+            <p>Understand the differences between slow, fast, and DC fast chargers so you can pick the right charging option.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Slow charging (Level 1 and Level 2)</h2>
+                <p>Slow charging uses standard AC power and is ideal for overnight or long-stay charging. Level 1 typically uses a regular household outlet, while Level 2 requires a dedicated 240V charger and adds more range per hour.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Fast charging</h2>
+                <p>Fast charging usually refers to high-power AC chargers that deliver faster energy than slow chargers. These are commonly available at workplaces, malls, and public parking where EVs stay parked for 1-2 hours.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>DC fast charging</h2>
+                <p>DC fast charging bypasses the vehicle’s onboard charger to deliver high power directly to the battery. It is the quickest option for highway travel and can charge an EV to 80% in 20-40 minutes.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>When to use each type</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-home"></i></span><div><strong>Home charging:</strong> Slow chargers are best for overnight top-ups.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-building"></i></span><div><strong>Workplace charging:</strong> Fast chargers are great for day parking.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-highway"></i></span><div><strong>Road trips:</strong> Use DC fast chargers for quick highway stops.</div></div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKr for smarter charger choices →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Learn which charger type fits your EV routine and make charging easier across India.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

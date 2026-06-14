@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="EV Charging App India: Find Nearby EV Chargers with ChargeKR">
+  <meta name="keywords" content="EV charging app India, EV charger app, ChargeKR app, find EV charger near me">
+  <meta name="author" content="ChargeKR">
+  <link rel="canonical" href="https://www.chargekr.com/ev-charging-app-india.html">
+  <title>EV Charging App India: Find Nearby EV Chargers | ChargeKR</title>
+  <link rel="icon" type="image/png" href="Logo/changekr.png">
+  <link rel="apple-touch-icon" href="Logo/changekr.png">
+</head>
+<body>
+  <main>
+    <article>
+      <h1>EV Charging App India: Find Nearby EV Chargers with ChargeKR</h1>
+      <p>ChargeKR helps EV users discover nearby charging options, get directions, book or schedule charging where available, and list chargers for others.</p>
+
+      <section>
+        <h2>What ChargeKR does</h2>
+        <ul>
+          <li>Search for EV charging stations nearby</li>
+          <li>View charger details and compatibility</li>
+          <li>Get map directions and plan charging stops</li>
+          <li>List eligible home, office or private chargers</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Frequently asked questions</h2>
+        <h3>What is ChargeKr?</h3>
+        <p>ChargeKr is an EV charging discovery and charger-sharing app for India.</p>
+        <h3>Can I list my own EV charger?</h3>
+        <p>Yes — eligible charger owners can list chargers on ChargeKr.</p>
+      </section>
+
+      <p><a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank" rel="noopener noreferrer">Download ChargeKR on Android</a></p>
+    </article>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChargeKr",
+    "url": "https://www.chargekr.com/",
+    "applicationCategory": "MobileApplication",
+    "offers": { "@type": "Offer", "url": "https://play.google.com/store/apps/details?id=com.chargekr" }
+  }
+  </script>
+</body>
+</html>

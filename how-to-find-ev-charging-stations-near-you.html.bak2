@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to find EV charging stations near you with apps, maps, and filters for fast and available chargers in India.">
+    <meta name="keywords" content="find EV charging stations near me, EV charging station search, nearby EV charger India, ChargeKR guide">
+    <meta name="author" content="ChargeKr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/how-to-find-ev-charging-stations-near-you.html">
+    <title>How to Find EV Charging Stations Near You | ChargeKr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="Chargekr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-search-location"></i> Nearby Chargers</span>
+            <h1>How to Find EV Charging Stations Near You</h1>
+            <p>Use maps, app filters, and local charger data to quickly locate the nearest EV charging station.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Ask the right question</h2>
+                <p>When you search for "EV charging station near me," Google and dedicated EV apps should return nearby options with distance, connector type, and availability. Combining multiple tools gives you the best chance of finding a charger that fits your trip.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Best tools to use</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-map"></i></span><div><strong>ChargeKr:</strong> Shows shared and public chargers with ratings, price, and booking capability.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-globe"></i></span><div><strong>Google Maps:</strong> Great for public charging station locations and driving directions.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-car-side"></i></span><div><strong>In-car navigation:</strong> Use your EV’s built-in charger finder for on-route results.</div></div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Key search filters</h2>
+                <p>Look for filters that let you choose:</p>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-bolt"></i></span><div><strong>Charger speed:</strong> slow, fast, or DC fast options.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-plug"></i></span><div><strong>Connector type:</strong> CCS, CHAdeMO, Type 2, or J1772 compatibility.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-star"></i></span><div><strong>Ratings:</strong> recent reviews from people who used the charger.</div></div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>How to choose the best option</h2>
+                <p>Prefer chargers with recent availability data, strong ratings, and a connector type that matches your EV. If you need a quick charge, pick a DC fast charger. If you’re parking for a few hours, a slower public or shared charger can be more affordable.</p>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKr for better nearby charger search →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Find chargers near you and reserve the best available option for your EV in India.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

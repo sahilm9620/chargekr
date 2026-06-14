@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EV charging etiquette every owner should know, including booking respect, charger care, and sharing rules on ChargeKR.">
+    <meta name="keywords" content="EV charging etiquette, charger etiquette, ChargeKR charging rules, EV owner guide">
+    <meta name="author" content="ChargeKr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/ev-charging-etiquette-what-every-ev-owner-should-know.html">
+    <title>EV Charging Etiquette: What Every EV Owner Should Know | ChargeKr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="Chargekr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-hand-holding-heart"></i> Etiquette</span>
+            <h1>EV Charging Etiquette: What Every EV Owner Should Know</h1>
+            <p>Follow the best practices that keep shared and public EV charging convenient and respectful for everyone.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Arrive on time</h2>
+                <p>If you reserve a charger slot, arrive within the booked window. Timely arrival helps hosts and other drivers stay on schedule.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Keep the area clean</h2>
+                <p>After charging, clear any trash and return cables neatly. A clean charging area makes the experience better for the next driver.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Follow host instructions</h2>
+                <p>Use the charger exactly as the host describes. If there are special entry instructions or connector notes, follow them carefully.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Respect shared charging</h2>
+                <p>Shared chargers are a community resource. Don’t overstay your booked time, and make future bookings only when you genuinely need the charger.</p>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKr and charge responsibly →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Respectful charging behavior keeps the EV community strong and reliable.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

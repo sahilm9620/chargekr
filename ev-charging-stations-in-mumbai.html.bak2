@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A guide to EV charging stations in Mumbai, including fast chargers, mall chargers, and shared options across the city.">
+    <meta name="keywords" content="EV charging stations Mumbai, fast EV chargers Mumbai, Mumbai EV charging guide, ChargeKr Mumbai">
+    <meta name="author" content="ChargeKr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/ev-charging-stations-in-mumbai.html">
+    <title>EV Charging Stations in Mumbai | ChargeKr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-city"></i> Mumbai Chargers</span>
+            <h1>EV Charging Stations in Mumbai</h1>
+            <p>Find the best EV chargers in Mumbai with practical guidance for public, mall, and fast charging locations.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Mumbai charging overview</h2>
+                <p>Mumbai is growing its charging infrastructure rapidly, especially in South Mumbai, Powai, Andheri, and Navi Mumbai. Public chargers are now available at malls, offices, and transit hubs, while shared chargers add flexibility for local drivers.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Fast charging in the city</h2>
+                <p>Fast chargers are the best option when you need a quick top-up. Search for DC fast stations near highways or business districts, and use ChargeKr to compare power levels and user reviews.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Charger reliability</h2>
+                <p>ChargeKr helps you choose reliable Mumbai chargers by showing availability updates and ratings. Pick chargers with frequent positive reviews and clear instructions to avoid downtime.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Where to charge in Mumbai</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-shopping-bag"></i></span><div><strong>Malls and retail parks:</strong> Good for shopping or leisure while charging.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-briefcase"></i></span><div><strong>Office areas:</strong> Convenient for daytime charging near workplaces.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-home"></i></span><div><strong>Residential chargers:</strong> Shared options can be great for local drivers and overnight charging.</div></div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKr for Mumbai charger search →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Find better EV charging options across Mumbai using ChargeKr.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

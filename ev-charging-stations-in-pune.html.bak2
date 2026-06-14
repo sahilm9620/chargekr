@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover EV charging stations in Pune with fast charger locations, shared chargers, and tips for finding availability.">
+    <meta name="keywords" content="EV charging stations Pune, fast EV chargers Pune, Pune EV charging guide, ChargeKr Pune">
+    <meta name="author" content="ChargeKr">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.chargekr.com/ev-charging-stations-in-pune.html">
+    <title>EV Charging Stations in Pune | ChargeKr</title>
+    <link rel="icon" type="image/png" href="Logo/changekr.png">
+    <link rel="apple-touch-icon" href="Logo/changekr.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr Logo">
+                <span>Charge<span class="text-gradient">kr</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="charger-types.html">Charger Types</a>
+                <a href="earn-money.html">Earn Money</a>
+                <a href="safety.html">Safety</a>
+            </div>
+            <a href="index.html#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="charger-types.html">Charger Types</a>
+        <a href="earn-money.html">Earn Money</a>
+        <a href="safety.html">Safety</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="section-label"><i class="fas fa-map-pin"></i> Pune Chargers</span>
+            <h1>EV Charging Stations in Pune</h1>
+            <p>Find the best EV charging stations in Pune, from fast chargers on highway routes to convenient city and shared chargers.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Pune charging hotspots</h2>
+                <p>Pune is building a strong EV charging network across Hinjewadi, Magarpatta, Kalyani Nagar, Baner, and the Mumbai-Pune Expressway corridor. These areas now host both public and private charging locations.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Fast chargers in Pune</h2>
+                <p>For quick top-ups, focus on DC fast chargers and high-power AC chargers. Search for stations near business parks, malls, and highway rest stops to minimize waiting time.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>Shared chargers and peer-to-peer options</h2>
+                <p>ChargeKr makes it easy to discover shared chargers from homes and businesses in Pune. These chargers can be useful when public networks are busy or when you need a convenient city charging option.</p>
+            </div>
+
+            <div class="card reveal" style="margin-bottom:40px;">
+                <h2>How to choose a Pune charger</h2>
+                <div class="feature-list">
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-bolt"></i></span><div><strong>Check connector compatibility:</strong> Ensure the charger matches your EV’s connector.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-star"></i></span><div><strong>Read reviews:</strong> Pick chargers with good feedback for reliability and safety.</div></div>
+                    <div class="feature-list-item"><span class="check"><i class="fas fa-clock"></i></span><div><strong>Reserve when possible:</strong> Booking ahead reduces uncertainty during peak hours.</div></div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top:24px;">
+                <a href="index.html#download" class="btn btn--primary">Download ChargeKr and find Pune chargers faster →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">
+                        <img loading="lazy" src="Logo/changekr.png" alt="Chargekr">
+                        <span>Charge<span class="text-gradient">kr</span></span>
+                    </a>
+                    <p>Discover convenient and fast charging locations across Pune with ChargeKr.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="charger-types.html">Charger Types</a></li>
+                        <li><a href="safety.html">Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeKr. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
