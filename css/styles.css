@@ -509,10 +509,10 @@ p {
 
 .editorial-hero-top {
   display: grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap: 48px;
-  align-items: flex-end;
-  margin-bottom: 56px;
+  grid-template-columns: 1.16fr 0.84fr;
+  gap: clamp(32px, 4vw, 56px);
+  align-items: center;
+  margin-bottom: 52px;
 }
 
 .editorial-kicker {
@@ -538,22 +538,37 @@ p {
 .editorial-hero-sub {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 28px;
-  padding-bottom: 8px;
+  justify-content: center;
+  gap: 22px;
+  background: var(--bg-paper);
+  border: 1px solid rgba(11, 12, 14, 0.08);
+  border-radius: 26px;
+  padding: clamp(24px, 2.6vw, 32px);
+  box-shadow: 0 18px 44px rgba(11, 12, 14, 0.04);
 }
 
 .editorial-hero-sub p {
-  font-size: 1.125rem;
+  font-size: 1.04rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.62;
+  margin: 0;
+}
+
+.editorial-hero-sub p strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .editorial-hero-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
+}
+
+.editorial-hero-actions .btn--lg {
+  padding: 15px 24px;
+  font-size: 0.92rem;
 }
 
 /* Expanding Viewport Media Container (GSAP Animated) */
@@ -3467,29 +3482,130 @@ p {
   100% { left: 105%; }
 }
 
-/* 3. Kinetic Volt Accent Sweep under Hero Headline */
-.ck-hero-highlight {
+/* 3. Flagship 2-Line Hero Headline Lockup + Kinetic Rotating Journey Pill */
+.ck-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.45rem, 4.35vw, 4.15rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.038em;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ck-hero-line {
+  display: block;
+}
+
+.ck-hero-line--second {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.24em;
+  color: var(--text-secondary);
+}
+
+.ck-hero-underline-word {
   position: relative;
   display: inline-block;
+  color: var(--text-primary);
+  z-index: 1;
 }
 
-.ck-hero-highlight::after {
+.ck-hero-underline-word::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.04em;
-  height: 0.11em;
-  background: var(--primary-volt);
-  border-radius: 99px;
+  left: -0.04em;
+  right: -0.04em;
+  bottom: 0.06em;
+  height: 0.2em;
+  background: rgba(50, 232, 0, 0.42);
+  border-radius: 6px;
   z-index: -1;
   transform-origin: 0 50%;
-  transform: scaleX(0);
-  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+  animation: ckHeroSweep 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
-.split-ready.is-inview .ck-hero-highlight::after {
-  transform: scaleX(1);
+@keyframes ckHeroSweep {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.ck-hero-journey-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
+  padding: 0.06em 0.38em 0.1em 0.26em;
+  border-radius: 999px;
+  background: var(--bg-carbon);
+  color: #FFFFFF;
+  box-shadow: 0 12px 30px rgba(11, 12, 14, 0.14);
+  vertical-align: middle;
+}
+
+.ck-journey-bolt {
+  width: 0.76em;
+  height: 0.76em;
+  border-radius: 50%;
+  background: var(--primary-volt);
+  color: var(--bg-carbon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.56em;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(50, 232, 0, 0.55);
+}
+
+.ck-journey-word-wrap {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.ck-journey-word {
+  display: inline-block;
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.26s ease;
+}
+
+.ck-journey-word.is-out {
+  transform: translateY(-65%);
+  opacity: 0;
+}
+
+.ck-journey-word.is-in-prep {
+  transform: translateY(65%);
+  opacity: 0;
+  transition: none;
+}
+
+.ck-hero-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(11, 12, 14, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ck-hero-trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ck-hero-trust-strip i {
+  color: #1b8a00;
+  font-size: 0.72rem;
 }
 
 /* 4. Interactive Neighbourhood Host Switcher Pins on Hero Stage */

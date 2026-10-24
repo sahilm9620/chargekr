@@ -196,6 +196,28 @@ function initHeroNodeSwitcher() {
   }
   resetAutoTimer();
 
+  // Kinetic Rotating Hero Capsule Word (Journey. -> Driveway. -> Neighbourhood. -> EV in India.)
+  const rotatingWordEl = document.getElementById('ck-rotating-word');
+  if (rotatingWordEl) {
+    const heroWords = ['Journey.', 'Driveway.', 'Society Bay.', 'EV in India.'];
+    let wordIdx = 0;
+    setInterval(() => {
+      if (window.scrollY > 360) return;
+      wordIdx = (wordIdx + 1) % heroWords.length;
+      rotatingWordEl.classList.add('is-out');
+      setTimeout(() => {
+        rotatingWordEl.classList.remove('is-out');
+        rotatingWordEl.classList.add('is-in-prep');
+        rotatingWordEl.textContent = heroWords[wordIdx];
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            rotatingWordEl.classList.remove('is-in-prep');
+          });
+        });
+      }, 240);
+    }, 3100);
+  }
+
   // Subtle 3D mouse-move parallax on Hero Overlay elements
   if (heroBox && window.innerWidth > 1024) {
     const overlay = heroBox.querySelector('.hero-cinema-overlay');
