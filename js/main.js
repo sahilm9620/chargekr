@@ -468,7 +468,7 @@ function initThreeWallboxTwin(lenis) {
       rows: [
         ['Host Location', 'Indiranagar Villa #14 (Type-2 · 7.4 kW)', false],
         ['Reserved Slot & Entry', '2:00 PM – 5:00 PM • Gate Pass Approved', true],
-        ['Host Protection', '₹2,00,000 Charger Coverage Included', false]
+        ['Driver Verification', 'Verified EV Profile & Connector Match', false]
       ]
     },
     {
