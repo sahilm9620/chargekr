@@ -1,4 +1,4 @@
-Image optimization guide — concise commands and recommendations
+Image optimization guide  concise commands and recommendations
 
 - Goal: reduce bytes, preserve visual quality, enable responsive loading and lazy-loading.
 

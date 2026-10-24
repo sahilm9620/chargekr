@@ -14,7 +14,7 @@
     content="EV charging stations India, electric vehicle charging, peer-to-peer EV charging, P2P EV charging, share EV charger, earn money EV charger, ChargeKr, EV charging India, home charger sharing, electric car charging near me, EV charging station near me, find EV charger, EV range anxiety, EV charging app, green energy, sustainable mobility, EV charging infrastructure India, fast charging stations India">
   <meta name="author" content="ChargeKr">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <meta name="theme-color" content="#4ADE00">
+  <meta name="theme-color" content="#F6F5F2">
   <link rel="canonical" href="https://www.chargekr.com/">
   <link rel="alternate" hreflang="en-IN" href="https://www.chargekr.com/">
   <link rel="alternate" hreflang="x-default" href="https://www.chargekr.com/">
@@ -50,9 +50,6 @@
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Three.js for 3D EV Elements -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "ChargeKr", "url": "https://www.chargekr.com", "logo": "https://www.chargekr.com/Logo/changekr.png", "description": "ChargeKr is a peer-to-peer EV charging platform built to help EV drivers find and share chargers anywhere, starting from India.", "foundingDate": "2025", "sameAs": ["https://x.com/charge_kr", "https://www.instagram.com/charge.kr/", "https://www.linkedin.com/company/chargekr/", "https://www.youtube.com/@ChargeKr-i9r", "https://play.google.com/store/apps/details?id=com.chargekr"], "contactPoint": {"@type": "ContactPoint", "email": "info@chargekr.com", "contactType": "customer support"}, "areaServed": {"@type": "Country", "name": "India"}}</script>
@@ -92,7 +89,7 @@
   }
   </script>
 
-  <!-- Google Analytics GA4 (replace G-XXXXXXXXXX with your actual Measurement ID) -->
+  <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -104,22 +101,22 @@
 
 <body>
 
-  <!-- Navigation -->
+  <!-- Minimalist Architectural Navbar -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">
         <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr Logo">
-        <span>Charge<span class="text-gradient">Kr</span></span>
+        <span>ChargeKr</span>
       </a>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
-        <a href="charger-types.html">Charger Types</a>
+        <a href="charger-types.html">Chargers</a>
         <a href="safety.html">Safety</a>
-        <a href="how-it-helps.html">How It Helps</a>
-        <a href="peer-to-peer.html">P2P Charging</a>
-        <a href="earn-money.html">Earn Money</a>
+        <a href="how-it-helps.html">Benefits</a>
+        <a href="peer-to-peer.html">P2P</a>
+        <a href="earn-money.html">Earn</a>
       </div>
-      <a href="#download" class="btn btn--primary btn--sm nav-cta">Download App</a>
+      <a href="#download" class="btn btn--primary btn--sm nav-cta">Get the App</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
         <span></span>
@@ -134,256 +131,659 @@
     <a href="charger-types.html">EV Charger Types</a>
     <a href="safety.html">Safety Tips</a>
     <a href="how-it-helps.html">Benefits</a>
-    <a href="peer-to-peer.html">P2P & Planet</a>
+    <a href="peer-to-peer.html">P2P &amp; Planet</a>
     <a href="earn-money.html">Earn as Host</a>
     <a href="#download" class="btn btn--primary">Get the App</a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="particles"></div>
-    <div class="container">
-      <div class="hero-content">
-        <h1>Share Your <span class="text-gradient">EV Charger</span>, Power the Future</h1>
-        <p class="hero-description">
-          Turn your home charger into a revenue stream. ChargeKr connects EV owners with nearby chargers through a
-          seamless peer-to-peer network  saving money, reducing range anxiety, and building a greener planet.
-        </p>
-        <div class="hero-actions">
-          <a href="#how-it-works" class="btn btn--primary btn--lg">
-            <i class="fas fa-bolt"></i> Get Started
-          </a>
-          <a href="#features" class="btn btn--outline btn--lg">
-            Learn More <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        <div class="app-buttons" id="download">
-          <a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank" rel="noopener noreferrer" class="app-btn"
-            aria-label="Download ChargeKr EV charging app on Google Play">
-            <span class="app-btn__icon"><i class="fab fa-google-play"></i></span>
-            <div class="app-btn__text">
-              <small>Get it on</small>
-              <span>Google Play</span>
-            </div>
-          </a>
-          <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="app-btn"
-            aria-label="Download ChargeKr EV charging app on App Store">
-            <span class="app-btn__icon"><i class="fab fa-apple"></i></span>
-            <div class="app-btn__text">
-              <small>Download on the</small>
-              <span>App Store</span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-visual-inner" id="hero-3d-container">
-          <!-- The Three.js canvas will be injected here as the background of the visual inner -->
-          <img src="images/hero-ev.png"
-            alt="EV charging station India  Find and share electric vehicle chargers with ChargeKr app"
-            loading="eager" style="position: relative; z-index: 5;">
-          <!-- Floating Cards -->
-          <div class="float-card float-card--top">
-            <div class="icon icon--green"><i class="fas fa-charging-station"></i></div>
-            <div>
-              <div class="label">Chargers Online</div>
-              <div class="value">2,500+</div>
-            </div>
-          </div>
-          <div class="float-card float-card--bottom">
-            <div class="icon icon--blue"><i class="fas fa-users"></i></div>
-            <div>
-              <div class="label">Active Users</div>
-              <div class="value">10+</div>
-            </div>
-          </div>
-          <div class="float-card float-card--mid">
-            <div class="icon icon--orange"><i class="fas fa-leaf"></i></div>
-            <div>
-              <div class="label">CO₂ Saved</div>
-              <div class="value">50 Tons</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Subtle Top Scroll Progress Line -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
 
-  <!-- How It Works -->
-  <section class="section section--dark" id="how-it-works">
+  <!-- ========================================================================
+       HERO: CHARGEKR COMMUNITY EV CHARGING NETWORK
+       ======================================================================== -->
+  <header class="editorial-hero" id="hero">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label reveal"><i class="fas fa-route"></i> How It Works</span>
-        <h2 class="section-title reveal">Start Charging in <span class="text-gradient">3 Simple Steps</span></h2>
-        <p class="section-subtitle mx-auto reveal">Getting started with ChargeKr takes less than 2 minutes. Download,
-          discover, and charge  it's that simple.</p>
-      </div>
-      <div class="steps stagger">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <h3>Download the App</h3>
-          <p>Get ChargeKr from the App Store or Google Play. Create your profile in seconds.</p>
+      <div class="editorial-hero-top">
+        <div>
+          <div class="editorial-kicker">
+            <span class="live-dot"></span>
+            <span>COMMUNITY EV CHARGING NETWORK • INDIA</span>
+          </div>
+          <h1 data-split-reveal>Share Your EV Charger.<br><span class="text-muted-tone">Power Every Journey.</span></h1>
         </div>
-        <div class="step reveal">
-          <div class="step-number">2</div>
-          <h3>Find a Charger</h3>
-          <p>Browse the map to discover nearby chargers shared by your community. Filter by type and availability.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">3</div>
-          <h3>Charge & Go</h3>
-          <p>Reserve your slot, plug in, and pay seamlessly through the app. Rate your experience!</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Features -->
-  <section class="section" id="features">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label reveal"><i class="fas fa-star"></i> Features</span>
-        <h2 class="section-title reveal">Why <span class="text-gradient">ChargeKr</span> Stands Apart</h2>
-        <p class="section-subtitle mx-auto reveal">Built for EV owners, by EV enthusiasts. Every feature is designed to
-          make your charging experience seamless.</p>
-      </div>
-      <div class="grid-4 stagger">
-        <div class="card reveal">
-          <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <h3>Smart Discovery</h3>
-          <p>AI-powered charger recommendations based on your route, vehicle type, and charging preferences.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
-          <h3>Earn Passively</h3>
-          <p>List your charger and earn money while you sleep. Set your own rates and availability schedule.</p>
-        </div>
-        <div class="card reveal">
-          <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>Verified & Secure</h3>
-          <p>Every charger and user is verified. Secure payments, insurance coverage, and 24/7 support backed by trust.
+        <div class="editorial-hero-sub">
+          <p>
+            Every home driveway and apartment parking bay can power India's EV transition. Book verified neighbourhood
+            chargers near you with zero waiting queues, or share your idle charger to earn ₹5,000–15,000 every month.
           </p>
+          <div class="editorial-hero-actions">
+            <a href="#how-it-works" class="btn btn--primary btn--lg magnetic-btn">See How It Works</a>
+            <a href="#host-estimator" class="btn btn--outline btn--lg magnetic-btn">Calculate Host Income</a>
+          </div>
         </div>
-        <div class="card reveal">
-          <div class="card-icon"><i class="fas fa-seedling"></i></div>
-          <h3>Go Green</h3>
-          <p>Track your carbon footprint reduction. Every charge contributes to a cleaner, more sustainable future.</p>
+      </div>
+    </div>
+
+    <!-- Hero Visual Stage -->
+    <div class="hero-cinema-stage" id="hero-cinema-stage">
+      <div class="hero-cinema-box" id="hero-cinema-box">
+        <img src="images/editorial-hero-ev.jpg"
+          alt="EV charging station India  Find and share electric vehicle chargers with ChargeKr app"
+          loading="eager">
+        <div class="hero-cinema-overlay">
+          <div class="cinema-top-pills">
+            <span class="cinema-glass-pill">
+              <span style="width:7px; height:7px; border-radius:50%; background:var(--primary-volt);"></span>
+              VERIFIED HOST • INDIRANAGAR, BENGALURU
+            </span>
+            <span class="cinema-glass-pill">7.4 KW HOME WALLBOX • ₹45/HR</span>
+          </div>
+
+          <div class="cinema-bottom-bar">
+            <!-- Live Neighbourhood Booking Snapshot -->
+            <div class="hero-live-telemetry-card">
+              <div class="hero-telemetry-header">
+                <span>NEIGHBOURHOOD SESSION</span>
+                <span id="hero-telemetry-status" style="color:var(--primary-volt);">● CHARGING NOW</span>
+              </div>
+              <div class="hero-telemetry-main">
+                <div class="hero-telemetry-soc" id="hero-telemetry-soc">24% Charged</div>
+                <div class="hero-telemetry-kwh" id="hero-telemetry-kwh">+4.8 kWh · Host Earns ₹57</div>
+              </div>
+              <div class="hero-telemetry-bar-bg">
+                <div class="hero-telemetry-bar-fill" id="hero-telemetry-bar"></div>
+              </div>
+            </div>
+
+            <div class="cinema-specs">
+              <div class="cinema-spec-item">
+                <div class="s-val">2,500+</div>
+                <div class="s-lbl">Community Chargers</div>
+              </div>
+              <div class="cinema-spec-item">
+                <div class="s-val">100%</div>
+                <div class="s-lbl">Earnings to Host</div>
+              </div>
+              <div class="cinema-spec-item">
+                <div class="s-val">40%</div>
+                <div class="s-lbl">Lower Driver Tariff</div>
+              </div>
+            </div>
+
+            <div class="app-buttons" id="download">
+              <a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank"
+                rel="noopener noreferrer" class="app-btn magnetic-btn"
+                aria-label="Download ChargeKr EV charging app on Google Play">
+                <span class="app-btn__icon"><i class="fab fa-google-play"></i></span>
+                <div class="app-btn__text">
+                  <small>Get it on</small>
+                  <span>Google Play</span>
+                </div>
+              </a>
+              <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="app-btn magnetic-btn"
+                aria-label="Download ChargeKr EV charging app on App Store">
+                <span class="app-btn__icon"><i class="fab fa-apple"></i></span>
+                <div class="app-btn__text">
+                  <small>Download on the</small>
+                  <span>App Store</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MINIMALIST ARCHITECTURAL TICKER RIBBON
+       ======================================================================== -->
+  <div class="velocity-marquee-section" aria-label="Supported Indian cities and EV compatibility">
+    <div class="velocity-marquee-track" id="velocity-marquee-track">
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>BENGALURU</strong> 480+ RESIDENTIAL PLUGS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>MUMBAI &amp; PUNE</strong> 620+ SOCIETY HOSTS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>DELHI NCR</strong> 540+ PRIVATE DRIVEWAYS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>HYDERABAD &amp; CHENNAI</strong> 490+ COMMUNITY NODES</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>15A • TYPE-2 AC • CCS2 DC</strong> ALL EV BRANDS SUPPORTED</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>TATA • MG • MAHINDRA • BYD • HYUNDAI • ATHER • OLA</strong></div>
+      <!-- Duplicated for seamless loop -->
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>BENGALURU</strong> 480+ RESIDENTIAL PLUGS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>MUMBAI &amp; PUNE</strong> 620+ SOCIETY HOSTS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>DELHI NCR</strong> 540+ PRIVATE DRIVEWAYS</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>HYDERABAD &amp; CHENNAI</strong> 490+ COMMUNITY NODES</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>15A • TYPE-2 AC • CCS2 DC</strong> ALL EV BRANDS SUPPORTED</div>
+      <div class="velocity-marquee-item"><span class="m-sep"></span><strong>TATA • MG • MAHINDRA • BYD • HYUNDAI • ATHER • OLA</strong></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       WHY CHARGEKR: UNLOCKING INDIA'S EXISTING HOME CHARGERS
+       ======================================================================== -->
+  <section class="arch-bento-section" id="network-economics">
+    <div class="container">
+      <div class="arch-bento-header">
+        <div>
+          <span class="section-label">WHY CHARGEKR</span>
+          <h2 data-split-reveal>The chargers India needs are already in our homes.</h2>
+        </div>
+        <p class="arch-bento-lead">
+          Over 90% of residential EV wallboxes and 15A sockets sit unused for twenty hours every day while owners are at
+          work or asleep. ChargeKr connects EV drivers with verified neighbourhood hosts  turning apartments, villas,
+          and offices into a trusted community network.
+        </p>
+      </div>
+
+      <div class="arch-bento-grid">
+        <!-- Bento 1: Utilization (Span 7) -->
+        <article class="arch-bento-card arch-bento-card--span-7" data-parallax-speed="-18">
+          <div>
+            <div class="bento-top-tag">
+              <span>IDLE HOME CHARGERS</span>
+              <span>DAILY 24-HOUR WINDOW</span>
+            </div>
+            <div class="bento-big-stat">20+ hrs</div>
+            <h3>Unused every day in residential parking</h3>
+            <p>
+              Most home chargers only run for 3 to 4 hours a night. Sharing your parking spot during the hours you don't
+              use it helps fellow EV drivers and requires zero extra hardware.
+            </p>
+          </div>
+          <div class="bento-utilization-meter">
+            <div class="bento-meter-bar">
+              <div class="bento-meter-active"></div>
+              <div class="bento-meter-idle"></div>
+            </div>
+            <div class="bento-meter-legend">
+              <span>■ 4 HRS OWNER CHARGING</span>
+              <span style="color:var(--text-primary); font-weight:600;">■ 20 HRS AVAILABLE TO SHARE ON CHARGEKR</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bento 2: Host Revenue Share (Span 5, Carbon Contrast) -->
+        <article class="arch-bento-card arch-bento-card--span-5 arch-bento-card--carbon" data-parallax-speed="18">
+          <div>
+            <div class="bento-top-tag">
+              <span>EARN AS A HOST</span>
+              <span style="color:var(--primary-volt);">● ₹0 COMMISSION</span>
+            </div>
+            <div class="bento-big-stat">100%</div>
+            <h3>Every rupee goes directly to the host</h3>
+            <p>
+              You choose your own hourly price and the exact hours your charger is open. ChargeKr charges zero platform
+              commission — 100% of your charging income goes straight to you.
+            </p>
+          </div>
+          <div style="padding-top:20px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.74rem; color:rgba(255,255,255,0.65);">
+            <span>TYPICAL HOST EARNINGS</span>
+            <strong style="color:var(--primary-volt);">₹5,000 – ₹15,000 / MO</strong>
+          </div>
+        </article>
+
+        <!-- Bento 3: Driver Savings (Span 5) -->
+        <article class="arch-bento-card arch-bento-card--span-5" data-parallax-speed="-14">
+          <div>
+            <div class="bento-top-tag">
+              <span>FOR EV DRIVERS</span>
+              <span>VS COMMERCIAL STATIONS</span>
+            </div>
+            <div class="bento-big-stat">40% less</div>
+            <h3>Affordable charging where you already go</h3>
+            <p>
+              Commercial highway hubs charge steep commercial tariffs and often have long queues. Neighbourhood hosts
+              share home power at fair rates right next to your destination.
+            </p>
+          </div>
+          <div style="padding-top:20px; border-top:1px solid rgba(11,12,14,0.08); display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.74rem; color:var(--text-muted);">
+            <span>QUEUE WAIT TIME</span>
+            <strong style="color:var(--text-primary);">0 MINUTES (PRE-BOOKED)</strong>
+          </div>
+        </article>
+
+        <!-- Bento 4: Equipment Protection (Span 7) -->
+        <article class="arch-bento-card arch-bento-card--span-7" data-parallax-speed="14">
+          <div>
+            <div class="bento-top-tag">
+              <span>TRUST &amp; SAFETY</span>
+              <span>VERIFIED COMMUNITY</span>
+            </div>
+            <div class="bento-big-stat">₹2,00,000</div>
+            <h3>Host charger protection on every booking</h3>
+            <p>
+              Every EV driver on ChargeKr completes KYC and vehicle verification before booking. Every session includes
+              host hardware protection and a digital gate pass for apartment societies.
+            </p>
+          </div>
+          <div style="padding-top:20px; border-top:1px solid rgba(11,12,14,0.08); display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.74rem; color:var(--text-muted);">
+            <span>HOST LISTING FEE</span>
+            <strong style="color:var(--text-primary);">100% FREE • LIST IN 2 MINUTES</strong>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       HOW CHARGEKR WORKS: STEP-BY-STEP NEIGHBOURHOOD CHARGING WALKTHROUGH
+       ======================================================================== -->
+  <section class="lenis-3d-section" id="how-it-works">
+    <div class="lenis-3d-sticky" id="lenis-3d-showcase">
+      <div class="container lenis-3d-layout">
+        <!-- Top Header & Step Tabs -->
+        <div class="lenis-3d-top">
+          <div>
+            <span class="section-label">HOW CHARGEKR WORKS</span>
+            <h2 data-split-reveal>Book a neighbour's charger in three simple steps.</h2>
+          </div>
+
+          <div class="lenis-3d-stage-pills" id="lenis-3d-stage-pills" role="tablist" aria-label="How ChargeKr works steps">
+            <button type="button" class="lenis-3d-pill active" data-3d-stage="0">1. Find &amp; Reserve</button>
+            <button type="button" class="lenis-3d-pill" data-3d-stage="1">2. Arrive &amp; Plug In</button>
+            <button type="button" class="lenis-3d-pill" data-3d-stage="2">3. Charge &amp; Auto-Pay</button>
+          </div>
+        </div>
+
+        <!-- Main Split Stage: Left Story Card + Right Residential Driveway Visual -->
+        <div class="lenis-3d-stage-grid">
+          <div class="lenis-3d-info-card" id="lenis-3d-info-card">
+            <div>
+              <span class="stage-idx" id="three-stage-idx">STEP 01 OF 03 • DISCOVER &amp; BOOK NEARBY</span>
+              <h3 id="three-stage-title">Reserve a verified home charger near your destination</h3>
+              <p id="three-stage-desc">
+                Open ChargeKr to see available 15A, Type-2, and Fast chargers in nearby apartments, villas, and offices.
+                Lock your time slot in advance and receive an automatic digital gate pass for society entry.
+              </p>
+            </div>
+
+            <!-- Dynamic ChargeKr App Summary Rows -->
+            <div class="ck-step-app-box" id="ck-step-app-box">
+              <div class="ck-step-row">
+                <span id="ck-row-1-lbl">Host Location</span>
+                <strong id="ck-row-1-val">Indiranagar Villa #14 (Type-2 · 7.4 kW)</strong>
+              </div>
+              <div class="ck-step-row">
+                <span id="ck-row-2-lbl">Reserved Slot &amp; Entry</span>
+                <strong id="ck-row-2-val" style="color:#1b8a00;">2:00 PM – 5:00 PM • Gate Pass Approved</strong>
+              </div>
+              <div class="ck-step-row">
+                <span id="ck-row-3-lbl">Live Charger Status</span>
+                <strong id="ck-row-3-val">Bay Ready · Waiting to Plug In</strong>
+              </div>
+            </div>
+
+            <div class="lenis-3d-telemetry-row">
+              <span id="three-spec-left">CHARGER: <strong>READY IN HOST BAY</strong></span>
+              <span id="three-spec-right" style="color:#1b8a00;">● VEHICLE BATTERY: 20%</span>
+            </div>
+          </div>
+
+          <!-- Clean Daylight Residential Parking Bay Visual -->
+          <div class="lenis-3d-visual-card">
+            <div class="lenis-3d-visual-badges">
+              <span class="ck-bay-pill">
+                <span class="live-dot" style="display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--primary-volt); margin-right:6px;"></span>
+                VERIFIED HOST DRIVEWAY • 7.4 KW TYPE-2 WALLBOX
+              </span>
+              <span class="ck-bay-pill" id="ck-bay-rate-pill">TARIFF: ₹60/HR • 100% TO HOST</span>
+            </div>
+            <div class="lenis-3d-canvas-wrap" id="lenis-3d-canvas-wrap" aria-label="Visualizing an electric car parking and plugging into a ChargeKr host home charger"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Banner -->
-  <section class="stats" style="display: none;">
+  <!-- ========================================================================
+       FOR DRIVERS & HOSTS: BUILT FOR INDIA'S EV COMMUNITY
+       ======================================================================== -->
+  <section class="stacking-section" id="session-journey">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number"><span data-counter="2500" data-suffix="+">0</span></div>
-          <div class="stat-label">Chargers Shared</div>
+      <div style="margin-bottom: 64px; max-width: 680px;">
+        <span class="section-label">FOR DRIVERS &amp; HOSTS</span>
+        <h2 data-split-reveal>Built for everyone who drives an EV or owns a charger.</h2>
+      </div>
+
+      <div class="stack-cards-wrapper" id="features">
+        <!-- Stack Card 1: For EV Drivers -->
+        <article class="stack-card">
+          <div class="stack-card-content">
+            <div class="stack-card-index">
+              <span>FOR EV DRIVERS</span>
+              <span>FIND • RESERVE • PLUG IN</span>
+            </div>
+            <div class="stack-card-body">
+              <h3>Charge where you already park.</h3>
+              <p>
+                Skip highway detours and commercial queues. Discover verified residential and workplace chargers within
+                walking distance of your destination, reserve your time slot in advance, and pay automatically via UPI.
+              </p>
+            </div>
+            <div class="stack-card-specs">
+              <div class="stack-spec">
+                <strong>0 min</strong>
+                <span>Wait time</span>
+              </div>
+              <div class="stack-spec">
+                <strong>Up to 40%</strong>
+                <span>Lower cost</span>
+              </div>
+              <div class="stack-spec">
+                <strong>UPI / Card</strong>
+                <span>Auto-settlement</span>
+              </div>
+            </div>
+          </div>
+          <div class="stack-card-media">
+            <img src="images/editorial-driver-app.jpg"
+              alt="EV driver plugging Type 2 charging cable into electric vehicle" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Stack Card 2: For Charger Hosts -->
+        <article class="stack-card stack-card--dark">
+          <div class="stack-card-content">
+            <div class="stack-card-index">
+              <span>FOR CHARGER HOSTS</span>
+              <span>LIST • SCHEDULE • EARN</span>
+            </div>
+            <div class="stack-card-body">
+              <h3>Turn your parking spot into passive income.</h3>
+              <p>
+                Whether your charger is in an apartment stilt bay or a private bungalow driveway, you control the exact
+                hours it's open and the hourly tariff. Keep 100% of every booking — ChargeKr takes zero commission.
+              </p>
+            </div>
+            <div class="stack-card-specs">
+              <div class="stack-spec">
+                <strong>100%</strong>
+                <span>Income to host</span>
+              </div>
+              <div class="stack-spec">
+                <strong>₹0 Fee</strong>
+                <span>Zero commission</span>
+              </div>
+              <div class="stack-spec">
+                <strong>100%</strong>
+                <span>Schedule control</span>
+              </div>
+            </div>
+          </div>
+          <div class="stack-card-media">
+            <img src="images/editorial-host-home.jpg"
+              alt="Residential apartment parking bay with EV charging on pillar wallbox" loading="lazy">
+          </div>
+        </article>
+
+        <!-- Stack Card 3: Universal Hardware -->
+        <article class="stack-card">
+          <div class="stack-card-content">
+            <div class="stack-card-index">
+              <span>EVERY EV SUPPORTED</span>
+              <span>15A SOCKET • TYPE-2 AC • FAST DC</span>
+            </div>
+            <div class="stack-card-body">
+              <h3>Every connector. Every electric vehicle.</h3>
+              <p>
+                From electric scooters plugging into a standard 15A socket to family SUVs drawing 7.4kW–22kW on a Type-2
+                home wallbox  ChargeKr automatically filters the map for your exact vehicle port.
+              </p>
+            </div>
+            <div class="stack-card-specs">
+              <div class="stack-spec">
+                <strong>3.3 kW</strong>
+                <span>15A Smart Socket</span>
+              </div>
+              <div class="stack-spec">
+                <strong>7.4–22 kW</strong>
+                <span>Type 2 AC Wallbox</span>
+              </div>
+              <div class="stack-spec">
+                <strong>50–350 kW</strong>
+                <span>CCS2 DC Fast</span>
+              </div>
+            </div>
+          </div>
+          <div class="stack-card-media">
+            <img src="images/editorial-hardware-types.jpg"
+              alt="Minimalist studio photograph of Level 1, Type 2, and CCS2 EV charging connectors" loading="lazy">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CHARGER COMPATIBILITY & RANGE GUIDE
+       ======================================================================== -->
+  <section class="speed-comparator-section" id="speed-comparator">
+    <div class="container">
+      <div class="speed-Comparator-header">
+        <div>
+          <span class="section-label">CHARGER COMPATIBILITY &amp; RANGE</span>
+          <h2 data-split-reveal>See how much range each charger adds per hour.</h2>
         </div>
-        <div class="stat-item">
-          <div class="stat-number"><span data-counter="10000" data-suffix="+">0</span></div>
-          <div class="stat-label">Active Users</div>
+
+        <div class="ev-vehicle-selector" role="tablist" aria-label="Select electric vehicle category">
+          <button type="button" class="ev-vehicle-btn" data-ev-mode="scooter">2W Scooter (Ather / Ola)</button>
+          <button type="button" class="ev-vehicle-btn active" data-ev-mode="suv">Compact SUV (Nexon / ZS)</button>
+          <button type="button" class="ev-vehicle-btn" data-ev-mode="sedan">Premium EV (Ioniq 5 / BYD)</button>
         </div>
-        <div class="stat-item">
-          <div class="stat-number"><span data-counter="50" data-suffix=" Tons">0</span></div>
-          <div class="stat-label">CO₂ Saved</div>
+      </div>
+
+      <div class="speed-bars-stack" id="speed-bars-stack">
+        <!-- Tier 1 -->
+        <div class="speed-tier-row" data-base-pct="34" data-km-scooter="65" data-km-suv="22" data-km-sedan="18">
+          <div class="speed-tier-top">
+            <div class="speed-tier-title">
+              <span class="speed-tier-tag">LEVEL 1 • 3.3 KW</span>
+              <h3>15A Smart Domestic Socket</h3>
+            </div>
+            <div class="speed-tier-metrics">
+              <span style="color:var(--text-muted); font-size:0.82rem;">OVERNIGHT / APARTMENT PARKING</span>
+              <span class="speed-tier-km">+22 km/hr</span>
+            </div>
+          </div>
+          <div class="speed-bar-track">
+            <div class="speed-bar-fill" style="width: 0%;"></div>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number"><span data-counter="15" data-suffix="+">0</span></div>
-          <div class="stat-label">Cities Covered</div>
+
+        <!-- Tier 2 -->
+        <div class="speed-tier-row speed-tier-row--highlight" data-base-pct="68" data-km-scooter="95" data-km-suv="52" data-km-sedan="44">
+          <div class="speed-tier-top">
+            <div class="speed-tier-title">
+              <span class="speed-tier-tag">LEVEL 2 • 7.4 KW – 11 KW</span>
+              <h3>Type-2 AC Home Wallbox</h3>
+            </div>
+            <div class="speed-tier-metrics">
+              <span style="color:var(--text-muted); font-size:0.82rem;">MOST POPULAR HOME HOST CHARGER</span>
+              <span class="speed-tier-km">+52 km/hr</span>
+            </div>
+          </div>
+          <div class="speed-bar-track">
+            <div class="speed-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="speed-tier-row" data-base-pct="98" data-km-scooter="120" data-km-suv="145" data-km-sedan="135">
+          <div class="speed-tier-top">
+            <div class="speed-tier-title">
+              <span class="speed-tier-tag">FAST AC / DC • 22 KW – 60 KW</span>
+              <h3>Commercial &amp; Society Fast Hub</h3>
+            </div>
+            <div class="speed-tier-metrics">
+              <span style="color:var(--text-muted); font-size:0.82rem;">RAPID TOP-UP IN 45 MINS</span>
+              <span class="speed-tier-km">+145 km/hr</span>
+            </div>
+          </div>
+          <div class="speed-bar-track">
+            <div class="speed-bar-fill" style="width: 0%;"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Explore More -->
-  <section class="section section--dark">
+  <!-- ========================================================================
+       HOST EARNINGS CALCULATOR
+       ======================================================================== -->
+  <section class="host-estimator-section" id="host-estimator">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label reveal"><i class="fas fa-book-open"></i> Learn More</span>
-        <h2 class="section-title reveal">Everything About <span class="text-gradient">EV Charging</span></h2>
-        <p class="section-subtitle mx-auto reveal">Whether you're new to EVs or a seasoned owner, we've got resources to
-          help you make the most of your electric journey.</p>
+      <div class="airbnb-estimator-layout">
+        <div class="estimator-giant-display reveal">
+          <div class="e-kicker">Host on ChargeKr</div>
+          <div class="e-title">Your charger could earn</div>
+          <div class="estimator-giant-number" id="monthly-earnings">₹4,000</div>
+          <p class="estimator-caption" id="estimator-summary-text">
+            Sharing <strong>4 hrs/day</strong> (5 days/wk) at <strong>₹50/hr</strong> • ₹48,000/yr
+          </p>
+          <span id="yearly-earnings" style="display:none;">₹48,000</span>
+          <div style="margin-top: 32px;">
+            <a href="earn-money.html" class="btn btn--primary btn--lg magnetic-btn">Start Hosting in 2 Minutes</a>
+          </div>
+        </div>
+
+        <div class="estimator-controls-card reveal">
+          <div style="font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:14px;">
+            Select Your Charger Type
+          </div>
+          <div class="charger-preset-pills">
+            <button type="button" class="preset-pill" data-preset-rate="30">
+              <strong>Level 1</strong>
+              <span>15A Plug • ₹30/hr</span>
+            </button>
+            <button type="button" class="preset-pill active" data-preset-rate="50">
+              <strong>Level 2</strong>
+              <span>Wallbox • ₹50/hr</span>
+            </button>
+            <button type="button" class="preset-pill" data-preset-rate="110">
+              <strong>Fast AC/DC</strong>
+              <span>22kW+ • ₹110/hr</span>
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-hours">
+              <span>Hours shared per day</span>
+              <strong><span id="calc-hours-val">4</span> hrs</strong>
+            </label>
+            <input type="range" id="calc-hours" min="1" max="16" value="4">
+            <div class="range-values"><span>1 hr</span><span>16 hrs</span></div>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-rate">
+              <span>Hourly tariff</span>
+              <strong id="calc-rate-val">₹50</strong>
+            </label>
+            <input type="range" id="calc-rate" min="20" max="200" value="50" step="10">
+            <div class="range-values"><span>₹20/hr</span><span>₹200/hr</span></div>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-days">
+              <span>Days available per week</span>
+              <strong><span id="calc-days-val">5</span> days</strong>
+            </label>
+            <input type="range" id="calc-days" min="1" max="7" value="5">
+            <div class="range-values"><span>1 day</span><span>7 days</span></div>
+          </div>
+        </div>
       </div>
-      <div class="grid-3 stagger">
-        <a href="charger-types.html" class="card reveal" style="cursor:pointer;">
-          <div class="card-icon"><i class="fas fa-plug"></i></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EV CHARGING GUIDES & RESOURCES
+       ======================================================================== -->
+  <section class="section" id="knowledge-index">
+    <div class="container">
+      <div style="margin-bottom: 48px;">
+        <span class="section-label">EV CHARGING GUIDES</span>
+        <h2 data-split-reveal>Everything you need to know about community charging.</h2>
+      </div>
+
+      <div class="editorial-index-grid reveal">
+        <a href="charger-types.html" class="editorial-index-row">
+          <span class="idx-num">01</span>
           <h3>Compare EV Charger Types</h3>
-          <p>Learn about Level 1, Level 2, and DC Fast Charging  which one is right for you?</p>
+          <p>Level 1, Level 2, and DC Fast Charging  speeds, connectors, and installation costs.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
-        <a href="safety.html" class="card reveal" style="cursor:pointer;">
-          <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+
+        <a href="safety.html" class="editorial-index-row">
+          <span class="idx-num">02</span>
           <h3>Charging Safety Guide</h3>
-          <p>Essential safety tips for charging at home and using shared charging stations safely.</p>
+          <p>Essential electrical checklists, weatherproofing, and safety practices for hosts and drivers.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
-        <a href="peer-to-peer.html" class="card reveal" style="cursor:pointer;">
-          <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+
+        <a href="peer-to-peer.html" class="editorial-index-row">
+          <span class="idx-num">03</span>
           <h3>Green Impact of P2P Charging</h3>
-          <p>Discover how peer-to-peer charging helps reduce emissions and build a sustainable future.</p>
+          <p>How sharing existing residential infrastructure cuts urban carbon emissions by 40%.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
-        <a href="how-to-find-ev-charging-stations-near-you.html" class="card reveal" style="cursor:pointer;">
-          <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
+
+        <a href="how-to-find-ev-charging-stations-near-you.html" class="editorial-index-row">
+          <span class="idx-num">04</span>
           <h3>Find EV Chargers Near Me</h3>
-          <p>Quick guide to locating nearby EV charging stations, using maps, apps, and filters.</p>
+          <p>A complete guide to locating nearby EV stations using live maps and connector filters.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
-        <a href="list-ev-charger-online.html" class="card reveal" style="cursor:pointer;">
-          <div class="card-icon"><i class="fas fa-home"></i></div>
+
+        <a href="list-ev-charger-online.html" class="editorial-index-row">
+          <span class="idx-num">05</span>
           <h3>How to Host Your EV Charger</h3>
-          <p>List your home charger on ChargeKr and earn — step-by-step host onboarding guide.</p>
+          <p>Step-by-step onboarding guide to listing your home charger and receiving weekly payouts.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a href="how-it-helps.html" class="editorial-index-row">
+          <span class="idx-num">06</span>
+          <h3>Why EV Owners Choose P2P</h3>
+          <p>Eliminate range anxiety, skip commercial queues, and save up to 40% on daily charging.</p>
+          <span class="idx-arrow"><i class="fas fa-arrow-right"></i></span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section">
+  <!-- ========================================================================
+       COMMUNITY STORIES
+       ======================================================================== -->
+  <section class="section section--paper">
     <div class="container">
-      <div class="text-center">
-        <span class="section-label reveal"><i class="fas fa-question-circle"></i> FAQ</span>
-        <h2 class="section-title reveal">ChargeKr <span class="text-gradient">FAQ</span></h2>
+      <div style="margin-bottom: 48px;">
+        <span class="section-label">COMMUNITY STORIES</span>
+        <h2>Trusted by EV owners and hosts across India.</h2>
       </div>
-      <div class="faq-list reveal" style="max-width: 800px; margin: 0 auto; text-align: left;">
-        <div style="margin-bottom: 20px;">
-          <h3>What is ChargeKr?</h3>
-          <p>ChargeKr is a community-powered EV charging network in India. It helps EV owners find nearby chargers and allows charger owners to list their chargers and earn money.</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3>What is the official ChargeKr website?</h3>
-          <p>The official ChargeKr website is <a href="https://www.chargekr.com/" style="color: var(--primary);">https://www.chargekr.com/</a>.</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3>Is ChargeKr available as an app?</h3>
-          <p>Yes, ChargeKr is available as a mobile app. You can download the Android app on the <a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">Google Play Store</a>.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Testimonials -->
-  <section class="section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-label reveal"><i class="fas fa-quote-left"></i> What People Say</span>
-        <h2 class="section-title reveal">Loved by <span class="text-gradient">EV Owners</span></h2>
-      </div>
       <div class="testimonial-carousel reveal">
         <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p>ChargeKr has completely changed how I charge my EV. I found 3 chargers within walking distance of my home.
-            No more range anxiety!</p>
+          <div>
+            <div class="quote">“</div>
+            <p>ChargeKr completely changed how I charge my EV. I found three verified residential chargers within
+              walking distance of my apartment in Mumbai. Zero range anxiety.</p>
+          </div>
           <div class="testimonial-author">
             <div class="avatar">R</div>
             <div>
               <div class="name">Rahul Sharma</div>
-              <div class="role">Tesla Model 3 Owner, Mumbai</div>
+              <div class="role">EV Owner, Mumbai</div>
             </div>
           </div>
         </div>
+
         <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p>I earn ₹10,000 a month just by sharing my home charger when I'm at work. ChargeKr turned my charger into an
-            investment!</p>
+          <div>
+            <div class="quote">“</div>
+            <p>I earn ₹10,000 a month simply by sharing my home Type-2 wallbox while I'm at the office. It offsets my
+              entire monthly electricity bill automatically.</p>
+          </div>
           <div class="testimonial-author">
             <div class="avatar">P</div>
             <div>
@@ -392,27 +792,56 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p>The app is beautifully designed and super easy to use. I love that I can see real-time charger availability
-            and even book ahead.</p>
-          <div class="testimonial-author">
-            <div class="avatar">A</div>
-            <div>
-              <div class="name">Arjun Mehta</div>
-              <div class="role">Nexon EV Owner, Delhi</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FREQUENTLY ASKED QUESTIONS
+       ======================================================================== -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div style="margin-bottom: 40px;">
+        <span class="section-label">FREQUENTLY ASKED QUESTIONS</span>
+        <h2>Common questions about ChargeKr.</h2>
+      </div>
+
+      <div class="accordion reveal">
+        <div class="accordion-item active">
+          <div class="accordion-header">
+            <span>What is ChargeKr?</span>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              ChargeKr is a community-powered peer-to-peer EV charging network in India. It helps EV owners find nearby
+              chargers and allows charger owners to list their chargers and earn money.
             </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p>As a fleet manager, ChargeKr has saved us lakhs in charging costs. The P2P network is a game changer for
-            commercial EVs.</p>
-          <div class="testimonial-author">
-            <div class="avatar">S</div>
-            <div>
-              <div class="name">Sneha Reddy</div>
-              <div class="role">Fleet Manager, Hyderabad</div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>What is the official ChargeKr website?</span>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              The official ChargeKr website is <a href="https://www.chargekr.com/" style="text-decoration:underline;">https://www.chargekr.com/</a>.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Is ChargeKr available as an app?</span>
+            <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-body-inner">
+              Yes, ChargeKr is available as a mobile app. You can download the Android app on the <a
+                href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank"
+                rel="noopener noreferrer" style="text-decoration:underline;">Google Play Store</a>.
             </div>
           </div>
         </div>
@@ -420,13 +849,16 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section section--dark">
+  <!-- ========================================================================
+       MINIMALIST CARBON CTA & FOOTER
+       ======================================================================== -->
+  <section class="cta-section">
     <div class="container">
-      <h2 class="reveal">Ready to <span class="text-gradient">Charge Smarter</span>?</h2>
-      <p class="reveal">Join thousands of EV owners already using ChargeKr. Download the app today and start saving.</p>
+      <h2 class="reveal">Join the neighbourhood grid.</h2>
+      <p class="reveal">Download ChargeKr to find verified chargers near you or start hosting in under two minutes.</p>
       <div class="app-buttons reveal" style="justify-content:center;">
-        <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="app-btn">
+        <a href="https://play.google.com/store/apps/details?id=com.chargekr" target="_blank" rel="noopener noreferrer"
+          class="app-btn">
           <span class="app-btn__icon"><i class="fab fa-google-play"></i></span>
           <div class="app-btn__text">
             <small>Get it on</small>
@@ -444,17 +876,16 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
             <img loading="lazy" src="Logo/changekr.png" alt="ChargeKr">
-            <span>Charge<span class="text-gradient">kr</span></span>
+            <span>ChargeKr</span>
           </a>
-          <p>India's first peer-to-peer EV charging network. Share your charger, earn money, and build a greener
-            tomorrow.</p>
+          <p>India's peer-to-peer EV charging network. Share your charger, earn passive income, and build a cleaner
+            grid.</p>
           <div class="footer-social">
             <a href="https://x.com/charge_kr" target="_blank" rel="noopener noreferrer"
               aria-label="ChargeKr on X (Twitter)"><i class="fab fa-x-twitter"></i></a>
@@ -472,7 +903,8 @@
             <li><a href="charger-types.html">EV Charger Guide</a></li>
             <li><a href="safety.html">Safety Best Practices</a></li>
             <li><a href="how-it-helps.html">How ChargeKr Helps You</a></li>
-            <li><a href="peer-to-peer.html">Sustainability & P2P</a></li>
+            <li><a href="peer-to-peer.html">Sustainability &amp; P2P</a></li>
+            <li><a href="blog.html">EV Charging Blog</a></li>
           </ul>
         </div>
         <div class="footer-column">
@@ -480,8 +912,8 @@
           <ul>
             <li><a href="earn-money.html">Host Your Charger</a></li>
             <li><a href="earn-money.html#calculator">Calculate Your Earnings</a></li>
-            <li><a href="#">Host Dashboard</a></li>
-            <li><a href="#">Success Stories</a></li>
+            <li><a href="list-ev-charger-online.html">Host Onboarding Guide</a></li>
+            <li><a href="how-to-add-your-charger-on-chargekr.html">How to Add a Charger</a></li>
           </ul>
         </div>
         <div class="footer-column">
@@ -497,25 +929,18 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 ChargeKr. All rights reserved.</p>
-        <p>Made with <i class="fas fa-bolt" style="color:var(--primary)"></i> for a greener future</p>
+        <button type="button" class="lenis-top-btn" data-lenis-top aria-label="Scroll to top">
+          <span>Back to Top</span>
+          <i class="fas fa-arrow-up"></i>
+        </button>
       </div>
     </div>
   </footer>
 
+  <!-- Three.js 3D WebGL & Lenis Smooth Scroll CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
-    <!-- 3D Vanilla Tilt -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script>
-      VanillaTilt.init(document.querySelectorAll(".card, .feature-list-item, .infographic-item, .float-card, .hero-visual-inner img, .calculator"), {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.4,
-        scale: 1.05,
-        perspective: 800
-      });
-    </script>
 </body>
 
 </html>
-
