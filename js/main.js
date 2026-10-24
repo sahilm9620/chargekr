@@ -15,7 +15,9 @@ const expoOut = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
 document.addEventListener('DOMContentLoaded', () => {
   const lenis = initLenisEngine();
+  initBrandIgnitionIntro(lenis);
   initSplitTextReveals();
+  initHeroNodeSwitcher();
   initLenisScrollChoreography(lenis);
   initThreeWallboxTwin(lenis);
   init3DCardTilt();
@@ -29,6 +31,186 @@ document.addEventListener('DOMContentLoaded', () => {
   initCalculator();
   initLenisAnchorScroll(lenis);
 });
+
+/* ---- 0. Signature ChargeKr Brand Ignition Curtain + Hero Host Node Switcher ---- */
+function initBrandIgnitionIntro(lenis) {
+  const introEl = document.getElementById('ck-brand-intro');
+  if (!introEl) return;
+
+  // Skip intro if user already viewed it in this tab session and navigated back from an inner page
+  const navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+  const isReload = navEntries && navEntries[0] && navEntries[0].type === 'reload';
+  if (!isReload && sessionStorage.getItem('ck_intro_seen') === '1') {
+    introEl.classList.add('is-done');
+    return;
+  }
+  sessionStorage.setItem('ck_intro_seen', '1');
+
+  const ringFill = document.getElementById('ck-intro-ring-fill');
+  const meterFill = document.getElementById('ck-intro-meter-fill');
+  const pctEl = document.getElementById('ck-intro-pct');
+  const statusLbl = document.getElementById('ck-intro-status-lbl');
+  const heroHeading = document.querySelector('#hero h1[data-split-reveal]');
+
+  const circumference = 326.7;
+  const duration = 680;
+  const startTime = performance.now();
+
+  if (lenis) lenis.stop();
+
+  function stepIntro(now) {
+    const t = clamp((now - startTime) / duration, 0, 1);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const pct = Math.round(eased * 100);
+
+    if (ringFill) {
+      ringFill.style.strokeDashoffset = (circumference * (1 - eased)).toFixed(1);
+    }
+    if (meterFill) {
+      meterFill.style.transform = `scaleX(${eased.toFixed(3)})`;
+    }
+    if (pctEl) {
+      pctEl.textContent = `${pct}%`;
+    }
+    if (statusLbl && pct >= 88) {
+      statusLbl.textContent = '● GRID ONLINE • 100% TO HOST';
+      statusLbl.style.color = '#32E800';
+    }
+
+    if (t < 1) {
+      requestAnimationFrame(stepIntro);
+    } else {
+      // Re-trigger hero headline split-word + volt underline reveal right as shutters part
+      if (heroHeading) {
+        heroHeading.classList.remove('is-inview');
+      }
+      setTimeout(() => {
+        introEl.classList.add('is-opening');
+        if (lenis) lenis.start();
+        if (heroHeading) {
+          requestAnimationFrame(() => heroHeading.classList.add('is-inview'));
+        }
+        setTimeout(() => {
+          introEl.classList.add('is-done');
+        }, 900);
+      }, 120);
+    }
+  }
+
+  requestAnimationFrame(stepIntro);
+}
+
+function initHeroNodeSwitcher() {
+  const pins = Array.from(document.querySelectorAll('#hero-node-switcher .hero-node-pin'));
+  const locTxt = document.getElementById('hero-host-loc-txt');
+  const specPill = document.getElementById('hero-host-spec-pill');
+  const socEl = document.getElementById('hero-telemetry-soc');
+  const kwhEl = document.getElementById('hero-telemetry-kwh');
+  const barEl = document.getElementById('hero-telemetry-bar');
+  const statusEl = document.getElementById('hero-telemetry-status');
+  const heroBox = document.getElementById('hero-cinema-box');
+
+  if (!pins.length) return;
+
+  const nodes = [
+    {
+      loc: 'VERIFIED HOST • INDIRANAGAR, BENGALURU',
+      spec: '7.4 KW HOME WALLBOX • ₹45/HR',
+      soc: 38,
+      kwh: '6.4',
+      earn: 90,
+      status: '● CHARGING NOW'
+    },
+    {
+      loc: 'VERIFIED HOST • BANDRA WEST, MUMBAI',
+      spec: '11 KW TYPE-2 AC BAY • ₹60/HR',
+      soc: 74,
+      kwh: '16.5',
+      earn: 180,
+      status: '● CHARGING NOW'
+    },
+    {
+      loc: 'VERIFIED HOST • KOREGAON PARK, PUNE',
+      spec: '3.3 KW 15A SMART PLUG • ₹30/HR',
+      soc: 92,
+      kwh: '5.2',
+      earn: 60,
+      status: '● PAID VIA UPI (100% TO HOST)'
+    }
+  ];
+
+  let activeIdx = 0;
+  let displayedSoc = nodes[0].soc;
+  let displayedEarn = nodes[0].earn;
+  let animRaf = null;
+
+  function selectNode(idx) {
+    activeIdx = idx;
+    const node = nodes[idx] || nodes[0];
+    pins.forEach((p, i) => p.classList.toggle('active', i === idx));
+
+    if (locTxt) locTxt.textContent = node.loc;
+    if (specPill) specPill.textContent = node.spec;
+    if (statusEl) statusEl.textContent = node.status;
+
+    if (barEl && window.scrollY < 140) {
+      barEl.style.transform = `scaleX(${(node.soc / 100).toFixed(3)})`;
+    }
+
+    if (animRaf) cancelAnimationFrame(animRaf);
+    const startSoc = displayedSoc;
+    const startEarn = displayedEarn;
+    const startTime = performance.now();
+    const duration = 360;
+
+    function tick(now) {
+      if (window.scrollY >= 140) return;
+      const t = Math.min(1, (now - startTime) / duration);
+      const ease = 1 - Math.pow(1 - t, 3);
+      displayedSoc = Math.round(startSoc + (node.soc - startSoc) * ease);
+      displayedEarn = Math.round(startEarn + (node.earn - startEarn) * ease);
+      if (socEl) socEl.textContent = `${displayedSoc}% Charged`;
+      if (kwhEl) kwhEl.textContent = `+${node.kwh} kWh · Host Earns ₹${displayedEarn}`;
+      if (t < 1) {
+        animRaf = requestAnimationFrame(tick);
+      }
+    }
+    animRaf = requestAnimationFrame(tick);
+  }
+
+  pins.forEach((pin, idx) => {
+    pin.addEventListener('click', () => {
+      selectNode(idx);
+      resetAutoTimer();
+    });
+  });
+
+  let autoTimer = null;
+  function resetAutoTimer() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      if (window.scrollY < 120) {
+        selectNode((activeIdx + 1) % nodes.length);
+      }
+    }, 3800);
+  }
+  resetAutoTimer();
+
+  // Subtle 3D mouse-move parallax on Hero Overlay elements
+  if (heroBox && window.innerWidth > 1024) {
+    const overlay = heroBox.querySelector('.hero-cinema-overlay');
+    heroBox.addEventListener('mousemove', (e) => {
+      if (!overlay) return;
+      const rect = heroBox.getBoundingClientRect();
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      overlay.style.transform = `translate3d(${(nx * -10).toFixed(1)}px, ${(ny * -8).toFixed(1)}px, 0)`;
+    });
+    heroBox.addEventListener('mouseleave', () => {
+      if (overlay) overlay.style.transform = '';
+    });
+  }
+}
 
 /* ---- 1. Core Lenis Smooth Inertia Engine ---- */
 window.__lenisVelocity = 0;
@@ -268,19 +450,21 @@ function initLenisScrollChoreography(lenis) {
         heroImg.style.transform = `translate3d(0, ${imgY}px, 0) scale3d(${imgScale}, ${imgScale}, 1)`;
       }
 
-      const soc = Math.round(24 + p * 72);
-      if (soc !== lastRenderedSoc) {
-        lastRenderedSoc = soc;
-        const kwh = (4.8 + p * 24.6).toFixed(1);
-        const hostEarn = Math.round(parseFloat(kwh) * 11.9);
-        if (socEl) socEl.textContent = `${soc}% Charged`;
-        if (kwhEl) kwhEl.textContent = `+${kwh} kWh · Host Earns ₹${hostEarn}`;
-        if (statusEl) {
-          statusEl.textContent = p > 0.92 ? '● PAID VIA UPI' : '● CHARGING NOW';
+      if (scroll > 80) {
+        const soc = Math.round(24 + p * 72);
+        if (soc !== lastRenderedSoc) {
+          lastRenderedSoc = soc;
+          const kwh = (4.8 + p * 24.6).toFixed(1);
+          const hostEarn = Math.round(parseFloat(kwh) * 11.9);
+          if (socEl) socEl.textContent = `${soc}% Charged`;
+          if (kwhEl) kwhEl.textContent = `+${kwh} kWh · Host Earns ₹${hostEarn}`;
+          if (statusEl) {
+            statusEl.textContent = p > 0.92 ? '● PAID VIA UPI (100% TO HOST)' : '● CHARGING NOW';
+          }
         }
-      }
-      if (barEl) {
-        barEl.style.transform = `scaleX(${(0.24 + p * 0.72).toFixed(4)})`;
+        if (barEl) {
+          barEl.style.transform = `scaleX(${(0.24 + p * 0.72).toFixed(4)})`;
+        }
       }
     }
 
@@ -483,8 +667,8 @@ function initThreeWallboxTwin(lenis) {
     },
     {
       idx: 'STEP 03 OF 03 • CHARGE & AUTO-UPI PAYOUT',
-      title: 'Unplug and drive away — instant 100% payout to host',
-      desc: 'No cash or manual meter reading. The moment your car finishes charging, ChargeKr settles the bill automatically via UPI and transfers 100% of the earnings directly to the host — with zero commission.',
+      title: 'Unplug and drive away instant 100% payout to host',
+      desc: 'No cash or manual meter reading. The moment your car finishes charging, ChargeKr settles the bill automatically via UPI and transfers 100% of the earnings directly to the host with zero commission.',
       rows: [
         ['Energy Delivered', '+22.0 kWh Added (20% → 85% Battery)', false],
         ['Driver UPI Payment', '₹180.00 Auto-Paid (3 hrs @ ₹60/hr)', false],

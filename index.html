@@ -9,7 +9,7 @@
   <meta name="google-site-verification" content="0HaV-SvT9b96G1SlRVmDesFxRFislLF8PygYHeuCMNA" />
 
   <meta name="description"
-    content="ChargeKr — Find &amp; book verified EV charging stations near you across India, or share your home EV charger and earn ₹5,000–15,000/month with 0% commission.">
+    content="ChargeKr Find &amp; book verified EV charging stations near you across India, or share your home EV charger and earn ₹5,000–15,000/month with 0% commission.">
   <meta name="keywords"
     content="EV charging stations near me, EV charging stations India, peer-to-peer EV charging, P2P EV charging India, share EV charger, earn money EV charger, ChargeKr, ChargeKr app, home EV charger sharing, electric car charging near me, Type 2 EV charger India, 15A EV charging point, EV charging cost India">
   <meta name="author" content="ChargeKr">
@@ -26,7 +26,7 @@
   <meta property="og:description"
     content="Book verified neighbourhood 15A, Type-2 &amp; Fast EV chargers near you with zero queues, or share your home charger and keep 100% of your earnings.">
   <meta property="og:image" content="https://www.chargekr.com/images/editorial-hero-ev.jpg">
-  <meta property="og:image:alt" content="ChargeKr — India's Peer-to-Peer EV Charging Network">
+  <meta property="og:image:alt" content="ChargeKr India's Peer-to-Peer EV Charging Network">
   <meta property="og:site_name" content="ChargeKr">
   <meta property="og:locale" content="en_IN">
 
@@ -157,17 +157,66 @@
   <div class="scroll-progress-bar" id="scroll-progress-bar" aria-hidden="true"></div>
 
   <!-- ========================================================================
+       SIGNATURE CHARGEKR BRAND IGNITION INTRO (Fast 1.1s Shutter Reveal)
+       ======================================================================== -->
+  <div class="ck-brand-intro" id="ck-brand-intro" aria-hidden="true">
+    <div class="ck-intro-shutter ck-intro-shutter--top"></div>
+    <div class="ck-intro-shutter ck-intro-shutter--bottom"></div>
+    <div class="ck-intro-center">
+      <div class="ck-intro-ring-wrap">
+        <svg class="ck-intro-ring-svg" viewBox="0 0 120 120">
+          <circle class="ck-intro-ring-track" cx="60" cy="60" r="52" />
+          <circle class="ck-intro-ring-fill" id="ck-intro-ring-fill" cx="60" cy="60" r="52" />
+        </svg>
+        <img src="Logo/changekr.png" alt="" class="ck-intro-logo" width="48" height="48">
+      </div>
+      <div class="ck-intro-wordmark">
+        <span class="ck-intro-brand">Charge<span>Kr</span></span>
+        <span class="ck-intro-sub">INDIA'S PEER-TO-PEER EV CHARGING GRID</span>
+      </div>
+      <div class="ck-intro-meter">
+        <div class="ck-intro-meter-bar">
+          <div class="ck-intro-meter-fill" id="ck-intro-meter-fill"></div>
+        </div>
+        <div class="ck-intro-meter-status">
+          <span id="ck-intro-status-lbl">PLUGGING INTO NEIGHBOURHOOD GRID</span>
+          <strong id="ck-intro-pct">0%</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
        HERO: CHARGEKR COMMUNITY EV CHARGING NETWORK
        ======================================================================== -->
   <header class="editorial-hero" id="hero">
     <div class="container">
       <div class="editorial-hero-top">
         <div>
-          <div class="editorial-kicker">
-            <span class="live-dot"></span>
-            <span>COMMUNITY EV CHARGING NETWORK • INDIA</span>
+          <!-- Animated Host -> ChargeKr -> EV Driver Brand Conduit -->
+          <div class="ck-hero-brand-conduit" aria-label="How ChargeKr connects Home Hosts with EV Drivers at 0% commission">
+            <span class="ck-conduit-node">
+              <span class="live-dot"></span>
+              HOME HOST
+            </span>
+            <span class="ck-conduit-wire" aria-hidden="true">
+              <span class="ck-conduit-pulse"></span>
+            </span>
+            <span class="ck-conduit-hub">
+              <i class="fas fa-bolt"></i> CHARGEKR • 0% FEE
+            </span>
+            <span class="ck-conduit-wire" aria-hidden="true">
+              <span class="ck-conduit-pulse ck-conduit-pulse--delayed"></span>
+            </span>
+            <span class="ck-conduit-node">
+              EV DRIVER
+            </span>
           </div>
-          <h1 data-split-reveal>Share Your EV Charger.<br><span class="text-muted-tone">Power Every Journey.</span></h1>
+
+          <h1 data-split-reveal>
+            <span class="ck-hero-highlight">Share Your EV Charger.</span><br>
+            <span class="text-muted-tone">Power Every Journey.</span>
+          </h1>
         </div>
 
         <div class="editorial-hero-sub">
@@ -187,15 +236,34 @@
     <div class="hero-cinema-stage" id="hero-cinema-stage">
       <div class="hero-cinema-box" id="hero-cinema-box">
         <img src="images/editorial-hero-ev.jpg"
-          alt="EV charging station India — Find and share electric vehicle chargers with ChargeKr app"
+          alt="EV charging station India Find and share electric vehicle chargers with ChargeKr app"
           width="1600" height="1000" fetchpriority="high" decoding="async">
         <div class="hero-cinema-overlay">
           <div class="cinema-top-pills">
-            <span class="cinema-glass-pill">
+            <span class="cinema-glass-pill" id="hero-host-loc-pill">
               <span style="width:7px; height:7px; border-radius:50%; background:var(--primary-volt);"></span>
-              VERIFIED HOST • INDIRANAGAR, BENGALURU
+              <span id="hero-host-loc-txt">VERIFIED HOST • INDIRANAGAR, BENGALURU</span>
             </span>
-            <span class="cinema-glass-pill">7.4 KW HOME WALLBOX • ₹45/HR</span>
+            <span class="cinema-glass-pill" id="hero-host-spec-pill">7.4 KW HOME WALLBOX • ₹45/HR</span>
+          </div>
+
+          <!-- Interactive Live Neighbourhood Host Switcher Pills on Hero Stage -->
+          <div class="hero-node-switcher" id="hero-node-switcher" role="tablist" aria-label="Live ChargeKr neighbourhood host sessions">
+            <button type="button" class="hero-node-pin active" data-node-idx="0">
+              <span class="pin-pulse"></span>
+              <span class="pin-city">Bengaluru</span>
+              <span class="pin-meta">7.4 kW • ₹45/hr</span>
+            </button>
+            <button type="button" class="hero-node-pin" data-node-idx="1">
+              <span class="pin-pulse"></span>
+              <span class="pin-city">Mumbai</span>
+              <span class="pin-meta">11 kW • ₹60/hr</span>
+            </button>
+            <button type="button" class="hero-node-pin" data-node-idx="2">
+              <span class="pin-pulse"></span>
+              <span class="pin-city">Pune</span>
+              <span class="pin-meta">15A • ₹30/hr</span>
+            </button>
           </div>
 
           <div class="cinema-bottom-bar">
@@ -330,7 +398,7 @@
             <h3>Every rupee goes directly to the host</h3>
             <p>
               You choose your own hourly price and the exact hours your charger is open. ChargeKr charges zero platform
-              commission — 100% of your charging income goes straight to you.
+              commission 100% of your charging income goes straight to you.
             </p>
           </div>
           <div style="padding-top:20px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.74rem; color:rgba(255,255,255,0.65);">
@@ -509,7 +577,7 @@
               <h3>Turn your parking spot into passive income.</h3>
               <p>
                 Whether your charger is in an apartment stilt bay or a private bungalow driveway, you control the exact
-                hours it's open and the hourly tariff. Keep 100% of every booking — ChargeKr takes zero commission.
+                hours it's open and the hourly tariff. Keep 100% of every booking ChargeKr takes zero commission.
               </p>
             </div>
             <div class="stack-card-specs">
