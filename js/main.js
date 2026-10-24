@@ -496,7 +496,8 @@ function initThreeWallboxTwin(lenis) {
   // Scene, Camera & Renderer
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.set(-1.35, 1.55, 6.6);
+  camera.position.set(0, 1.85, 6.4);
+  camera.lookAt(0, 0.15, 0);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -522,10 +523,10 @@ function initThreeWallboxTwin(lenis) {
   const portGlowLight = new THREE.PointLight(0x32e800, 0, 4.5);
   scene.add(portGlowLight);
 
-  // Master Stage Group
+  // Master Stage Group (Centered in Card)
   const stageGroup = new THREE.Group();
-  stageGroup.position.set(0.15, -0.12, 0);
-  stageGroup.rotation.y = -0.42;
+  stageGroup.position.set(-0.08, 0.12, -0.2);
+  stageGroup.rotation.y = -0.38;
   scene.add(stageGroup);
 
   // High-Contrast Architectural Materials (Pearl Glacier White EV on Slate Asphalt Bay)
@@ -584,35 +585,35 @@ function initThreeWallboxTwin(lenis) {
   stageGroup.add(bayGroup);
 
   // Outer Stone Apron
-  const apronMesh = new THREE.Mesh(new THREE.BoxGeometry(6.2, 0.06, 3.9), bayCurbBaseMat);
-  apronMesh.position.set(0.05, -0.05, 0.35);
+  const apronMesh = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.06, 3.35), bayCurbBaseMat);
+  apronMesh.position.set(0.0, -0.04, 0.16);
   bayGroup.add(apronMesh);
 
   // Dark Slate Asphalt Parking Pad
-  const slabMesh = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.08, 3.2), baySlabMat);
-  slabMesh.position.set(0.05, -0.03, 0.25);
+  const slabMesh = new THREE.Mesh(new THREE.BoxGeometry(5.05, 0.07, 2.85), baySlabMat);
+  slabMesh.position.set(0.0, -0.015, 0.14);
   bayGroup.add(slabMesh);
 
   // Crisp Parking Bay Striping
-  const frontStripe = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.012, 2.4), bayLineMat);
-  frontStripe.position.set(-2.35, 0.012, 0.05);
+  const frontStripe = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.012, 2.3), bayLineMat);
+  frontStripe.position.set(-2.22, 0.022, 0.06);
   bayGroup.add(frontStripe);
 
-  const sideStripeLeft = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.012, 0.06), bayLineMat);
-  sideStripeLeft.position.set(-0.1, 0.012, 1.25);
+  const sideStripeLeft = new THREE.Mesh(new THREE.BoxGeometry(4.35, 0.012, 0.06), bayLineMat);
+  sideStripeLeft.position.set(-0.08, 0.022, 1.21);
   bayGroup.add(sideStripeLeft);
 
-  const sideStripeRight = new THREE.Mesh(new THREE.BoxGeometry(4.5, 0.012, 0.06), bayLineMat);
-  sideStripeRight.position.set(-0.1, 0.012, -1.15);
+  const sideStripeRight = new THREE.Mesh(new THREE.BoxGeometry(4.35, 0.012, 0.06), bayLineMat);
+  sideStripeRight.position.set(-0.08, 0.022, -1.09);
   bayGroup.add(sideStripeRight);
 
   // Wheel Stop Curb Block with Volt Accent Stripe
-  const curbMesh = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.09, 1.5), darkTrimMat);
-  curbMesh.position.set(-2.08, 0.045, 0.0);
+  const curbMesh = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.09, 1.46), darkTrimMat);
+  curbMesh.position.set(-1.96, 0.045, 0.0);
   bayGroup.add(curbMesh);
 
-  const curbVoltStripe = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.03, 0.9), voltGlowMat);
-  curbVoltStripe.position.set(-2.08, 0.06, 0.0);
+  const curbVoltStripe = new THREE.Mesh(new THREE.BoxGeometry(0.17, 0.03, 0.88), voltGlowMat);
+  curbVoltStripe.position.set(-1.96, 0.06, 0.0);
   bayGroup.add(curbVoltStripe);
 
   // Under-Car Charging Glow Plane (Illuminates during Step 3)
@@ -623,7 +624,7 @@ function initThreeWallboxTwin(lenis) {
   });
   const underGlowMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.35), underGlowMat);
   underGlowMesh.rotation.x = -Math.PI / 2;
-  underGlowMesh.position.set(0, 0.015, 0);
+  underGlowMesh.position.set(0.14, 0.024, 0);
   bayGroup.add(underGlowMesh);
 
   // =========================================================================
@@ -796,23 +797,23 @@ function initThreeWallboxTwin(lenis) {
   portGroup.add(portFlapPivot);
 
   // =========================================================================
-  // 2. HOST HOME WALLBOX ON ARCHITECTURAL PILLAR
+  // 2. HOST HOME WALLBOX ON ARCHITECTURAL PILLAR (Flush on Bay Slab)
   // =========================================================================
   const wallboxGroup = new THREE.Group();
-  wallboxGroup.position.set(-1.85, 0.28, 1.92);
-  wallboxGroup.rotation.y = 0.35;
+  wallboxGroup.position.set(-1.66, 0.22, 1.32);
+  wallboxGroup.rotation.y = 0.36;
   stageGroup.add(wallboxGroup);
 
-  const pillarMesh = new THREE.Mesh(new THREE.BoxGeometry(0.42, 1.72, 0.32), pillarConcreteMat);
-  pillarMesh.position.y = -0.18;
+  const pillarMesh = new THREE.Mesh(new THREE.BoxGeometry(0.4, 1.44, 0.3), pillarConcreteMat);
+  pillarMesh.position.y = 0;
   wallboxGroup.add(pillarMesh);
 
-  const boxMesh = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.68, 0.18), cabinGlassMat);
-  boxMesh.position.set(0, 0.22, 0.18);
+  const boxMesh = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.64, 0.18), cabinGlassMat);
+  boxMesh.position.set(0, 0.18, 0.17);
   wallboxGroup.add(boxMesh);
 
-  const wbHaloMesh = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.016, 16, 48), voltGlowMat);
-  wbHaloMesh.position.set(0, 0.3, 0.28);
+  const wbHaloMesh = new THREE.Mesh(new THREE.TorusGeometry(0.135, 0.016, 16, 48), voltGlowMat);
+  wbHaloMesh.position.set(0, 0.25, 0.27);
   wallboxGroup.add(wbHaloMesh);
 
   // =========================================================================
@@ -836,9 +837,9 @@ function initThreeWallboxTwin(lenis) {
   gunLedMesh.position.set(0, 0.05, 0.06);
   plugNozzleGroup.add(gunLedMesh);
 
-  const holsterPos = new THREE.Vector3(-1.55, 0.26, 1.98);
+  const holsterPos = new THREE.Vector3(-1.42, 0.22, 1.4);
   const dockedPos = new THREE.Vector3(portCoords.x, portCoords.y, portCoords.z + 0.14);
-  const cableOrigin = new THREE.Vector3(-1.78, -0.08, 2.02);
+  const cableOrigin = new THREE.Vector3(-1.6, -0.06, 1.44);
 
   const cableMat = new THREE.MeshStandardMaterial({
     color: 0x14161b,
@@ -852,12 +853,12 @@ function initThreeWallboxTwin(lenis) {
     const tailPos = new THREE.Vector3(nozzlePos.x, nozzlePos.y - 0.06, nozzlePos.z + 0.22);
     const mid1 = new THREE.Vector3(
       lerp(cableOrigin.x, tailPos.x, 0.33),
-      -0.44 + dockT * 0.08,
-      lerp(cableOrigin.z, tailPos.z, 0.35) + 0.16
+      -0.42 + dockT * 0.08,
+      lerp(cableOrigin.z, tailPos.z, 0.35) + 0.15
     );
     const mid2 = new THREE.Vector3(
       lerp(cableOrigin.x, tailPos.x, 0.68),
-      -0.34 + dockT * 0.12,
+      -0.32 + dockT * 0.12,
       lerp(cableOrigin.z, tailPos.z, 0.7) + 0.1
     );
     return new THREE.CatmullRomCurve3([cableOrigin, mid1, mid2, tailPos]);
@@ -903,16 +904,18 @@ function initThreeWallboxTwin(lenis) {
     secTop = section.getBoundingClientRect().top + window.scrollY;
     secScrollable = Math.max(1, section.offsetHeight - window.innerHeight);
 
-    // Responsive 3D Camera Framing for Mobile Phones vs Desktop
-    if (aspect < 1.15) {
-      camera.fov = 40;
-      camera.position.set(-1.15, 1.72, 7.85);
-      stageGroup.position.set(0.08, -0.14, 0);
-    } else {
-      camera.fov = 34;
-      camera.position.set(-1.35, 1.55, 6.6);
-      stageGroup.position.set(0.15, -0.1, 0);
-    }
+    // Dynamically compute camera distance so the entire bay + car + wallbox
+    // fits 100% inside the card and stays centered on every desktop & mobile screen
+    const fovRad = (34 * Math.PI) / 180;
+    const halfTan = Math.tan(fovRad / 2);
+    const requiredDistForWidth = 5.95 / (2 * halfTan * aspect);
+    const requiredDistForHeight = 2.6 / (2 * halfTan);
+    const camDist = Math.max(6.2, requiredDistForWidth, requiredDistForHeight);
+
+    camera.fov = 34;
+    camera.position.set(0, camDist * 0.27, camDist);
+    camera.lookAt(0, 0.14, 0);
+    stageGroup.position.set(0.04, 0.04, 0);
 
     camera.aspect = aspect;
     camera.updateProjectionMatrix();
@@ -922,6 +925,10 @@ function initThreeWallboxTwin(lenis) {
   cache3DBounds();
   window.addEventListener('resize', cache3DBounds);
   window.addEventListener('load', cache3DBounds);
+  if (typeof ResizeObserver !== 'undefined') {
+    const ro = new ResizeObserver(() => cache3DBounds());
+    ro.observe(container);
+  }
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
@@ -1003,18 +1010,18 @@ function initThreeWallboxTwin(lenis) {
     updateStageHUD(activeStage);
 
     // 1. Subtle 3D Camera Angle Shift
-    const targetRotY = -0.44 + smoothProg * 0.28 + pointerX;
-    const targetRotX = 0.08 + pointerY;
+    const targetRotY = -0.34 + smoothProg * 0.22 + pointerX;
+    const targetRotX = 0.04 + pointerY;
     stageGroup.rotation.y = lerp(stageGroup.rotation.y, targetRotY, 0.1);
     stageGroup.rotation.x = lerp(stageGroup.rotation.x, targetRotX, 0.1);
 
     // 2. Step 1 (0.0 -> 0.26): EV Drives Smoothly Into Host Bay + Wheels Spin + Brake Flare
     const rawDrive = clamp(smoothProg / 0.24, 0, 1);
     const driveEase = 1 - Math.pow(1 - rawDrive, 3); // Cubic deceleration into parking bay
-    evCarGroup.position.x = (1 - driveEase) * 1.65;
+    evCarGroup.position.x = 0.14 + (1 - driveEase) * 0.62;
 
     // Spin 5-spoke aero wheels proportional to car movement
-    const wheelAngle = (1 - driveEase) * -4.2;
+    const wheelAngle = (1 - driveEase) * -3.6;
     wheelSpinGroups.forEach((wg) => {
       wg.rotation.z = wheelAngle;
     });
