@@ -4,10 +4,10 @@
 User-agent: *
 Allow: /
 Allow: /llms.txt
-Crawl-delay: 1
+Disallow: /image-optimization-guide.html
+Disallow: /playstore-and-ai-notes.html
+Disallow: /website-content-guide.html
+Disallow: /info.html
 
 # Sitemap
 Sitemap: https://www.chargekr.com/sitemap.xml
-
-# Host
-Host: https://www.chargekr.com

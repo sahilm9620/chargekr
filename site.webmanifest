@@ -1,10 +1,11 @@
 {
-  "name": "ChargeKr",
+  "name": "ChargeKr — Peer-to-Peer EV Charging Network",
   "short_name": "ChargeKr",
+  "description": "Find and reserve nearby EV charging stations or share your home EV charger in India and earn 100% of your charging income.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4ADE00",
+  "background_color": "#F6F5F2",
+  "theme_color": "#0B0C0E",
   "icons": [
     {
       "src": "/Logo/changekr.png",
