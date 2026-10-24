@@ -938,10 +938,10 @@ function initThreeWallboxTwin(lenis) {
     pointerY = ny * 0.07;
   });
 
-  function updateStageHUD(stageIdx) {
-    if (stageIdx === lastStageIdx) return;
-    lastStageIdx = stageIdx;
-    const info = stageContent[stageIdx] || stageContent[0];
+  const infoCardEl = document.getElementById('lenis-3d-info-card');
+  let stageSwitchTimer = null;
+
+  function applyStageText(info) {
     if (stageIdxEl) stageIdxEl.textContent = info.idx;
     if (stageTitleEl) stageTitleEl.textContent = info.title;
     if (stageDescEl) stageDescEl.textContent = info.desc;
@@ -963,8 +963,27 @@ function initThreeWallboxTwin(lenis) {
         row3Val.style.color = info.rows[2][2] ? '#1b8a00' : 'var(--text-primary)';
       }
     }
+  }
+
+  function updateStageHUD(stageIdx) {
+    if (stageIdx === lastStageIdx) return;
+    const isInitial = lastStageIdx === -1;
+    lastStageIdx = stageIdx;
+    const info = stageContent[stageIdx] || stageContent[0];
 
     stagePills.forEach((pill, i) => pill.classList.toggle('active', i === stageIdx));
+
+    if (isInitial || !infoCardEl) {
+      applyStageText(info);
+      return;
+    }
+
+    if (stageSwitchTimer) clearTimeout(stageSwitchTimer);
+    infoCardEl.classList.add('stage-switching');
+    stageSwitchTimer = setTimeout(() => {
+      applyStageText(info);
+      infoCardEl.classList.remove('stage-switching');
+    }, 125);
   }
 
   function computeScrollProgress(scrollY) {
@@ -1008,6 +1027,15 @@ function initThreeWallboxTwin(lenis) {
 
     const activeStage = smoothProg < 0.33 ? 0 : smoothProg < 0.62 ? 1 : 2;
     updateStageHUD(activeStage);
+
+    // Update live progress bar inside the 3 step pills
+    const p0 = clamp(smoothProg / 0.33, 0, 1);
+    const p1 = clamp((smoothProg - 0.33) / 0.29, 0, 1);
+    const p2 = clamp((smoothProg - 0.62) / 0.38, 0, 1);
+    const pillProgs = [p0, p1, p2];
+    stagePills.forEach((pill, i) => {
+      pill.style.setProperty('--pill-progress', pillProgs[i].toFixed(3));
+    });
 
     // 1. Subtle 3D Camera Angle Shift
     const targetRotY = -0.34 + smoothProg * 0.22 + pointerX;
@@ -1264,31 +1292,69 @@ function initSpeedComparator(lenis) {
   window.addEventListener('resize', cacheSecTop);
   window.addEventListener('load', cacheSecTop);
 
-  function renderBars(progressFactor) {
+  const currentDisplayedKm = Array.from(rows).map((row) =>
+    parseInt(row.getAttribute(`data-km-${currentMode}`) || '40', 10)
+  );
+  let kmRafId = null;
+
+  function renderBars(progressFactor, animateNumbers = false) {
     lastProgressFactor = progressFactor;
-    rows.forEach((row) => {
-      const basePct = parseFloat(row.getAttribute('data-base-pct') || '50');
+    const targets = [];
+
+    rows.forEach((row, idx) => {
+      const modePct = parseFloat(
+        row.getAttribute(`data-pct-${currentMode}`) || row.getAttribute('data-base-pct') || '50'
+      );
       const kmVal = parseInt(row.getAttribute(`data-km-${currentMode}`) || '40', 10);
+      const timeMeta = row.getAttribute(`data-time-${currentMode}`);
       const fillEl = row.querySelector('.speed-bar-fill');
       const kmEl = row.querySelector('.speed-tier-km');
+      const metaEl = row.querySelector('.speed-tier-meta');
 
-      const displayWidth = (basePct * progressFactor).toFixed(1);
-      const displayKm = Math.round(kmVal * progressFactor);
+      const displayWidth = (modePct * progressFactor).toFixed(1);
+      const targetKm = Math.round(kmVal * progressFactor);
+      targets.push({ kmEl, targetKm, idx });
 
       if (fillEl) fillEl.style.width = `${displayWidth}%`;
-      if (kmEl) kmEl.textContent = `+${displayKm} km/hr`;
+      if (metaEl && timeMeta) metaEl.textContent = timeMeta;
+
+      if (!animateNumbers) {
+        currentDisplayedKm[idx] = targetKm;
+        if (kmEl) kmEl.textContent = `+${targetKm} km/hr`;
+      }
     });
+
+    if (animateNumbers) {
+      if (kmRafId) cancelAnimationFrame(kmRafId);
+      const startVals = [...currentDisplayedKm];
+      const startTime = performance.now();
+      const duration = 380;
+
+      function stepKm(now) {
+        const t = Math.min(1, (now - startTime) / duration);
+        const ease = 1 - Math.pow(1 - t, 3);
+        targets.forEach(({ kmEl, targetKm, idx }) => {
+          const val = Math.round(startVals[idx] + (targetKm - startVals[idx]) * ease);
+          currentDisplayedKm[idx] = val;
+          if (kmEl) kmEl.textContent = `+${val} km/hr`;
+        });
+        if (t < 1) {
+          kmRafId = requestAnimationFrame(stepKm);
+        }
+      }
+      kmRafId = requestAnimationFrame(stepKm);
+    }
   }
 
   if (lenis) {
     lenis.on('scroll', ({ scroll }) => {
       const topInView = secTop - scroll;
       const windowH = window.innerHeight;
-      const p = clamp((windowH * 0.88 - topInView) / (windowH * 0.52), 0.2, 1);
-      renderBars(p);
+      const p = clamp((windowH * 0.88 - topInView) / (windowH * 0.52), 0.25, 1);
+      renderBars(p, false);
     });
   } else {
-    renderBars(1);
+    renderBars(1, false);
   }
 
   modeBtns.forEach((btn) => {
@@ -1296,7 +1362,7 @@ function initSpeedComparator(lenis) {
       modeBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       currentMode = btn.getAttribute('data-ev-mode') || 'suv';
-      renderBars(Math.max(0.85, lastProgressFactor));
+      renderBars(Math.max(0.92, lastProgressFactor), true);
     });
   });
 }
@@ -1322,7 +1388,9 @@ function initMagneticButtons() {
 
 /* ---- 9. Scroll Reveal Choreography ---- */
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+  const revealElements = document.querySelectorAll(
+    '.reveal, .reveal-left, .reveal-right, .reveal-scale, .bento-utilization-meter'
+  );
   if (!revealElements.length) return;
 
   const observer = new IntersectionObserver(
@@ -1330,11 +1398,12 @@ function initScrollReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          entry.target.classList.add('is-inview');
         }
       });
     },
     {
-      threshold: 0.1,
+      threshold: 0.12,
       rootMargin: '0px 0px -36px 0px'
     }
   );
@@ -1431,7 +1500,7 @@ function initMobileMenu(lenis) {
   });
 }
 
-/* ---- 13. Airbnb-Style Earnings Calculator ---- */
+/* ---- 13. Airbnb-Style Earnings Calculator (Smooth Number Rolling & Filled Sliders) ---- */
 function initCalculator() {
   const hoursSlider = document.getElementById('calc-hours');
   const rateSlider = document.getElementById('calc-rate');
@@ -1446,8 +1515,57 @@ function initCalculator() {
   const monthlyResult = document.getElementById('monthly-earnings');
   const yearlyResult = document.getElementById('yearly-earnings');
   const summaryText = document.getElementById('estimator-summary-text');
+  const annualInline = document.getElementById('estimator-annual-inline');
+  const impactBadge = document.getElementById('estimator-impact-badge');
 
-  function calculate() {
+  let displayedMonthly = 4000;
+  let calcRafId = null;
+
+  function syncRangeTrack(slider) {
+    const min = parseFloat(slider.min || '0');
+    const max = parseFloat(slider.max || '100');
+    const val = parseFloat(slider.value || '0');
+    const pct = clamp(((val - min) / Math.max(1, max - min)) * 100, 0, 100);
+    slider.style.setProperty('--range-pct', `${pct.toFixed(1)}%`);
+  }
+
+  function getImpactDescription(monthly) {
+    if (monthly < 3500) {
+      return 'Covers 100% of your own monthly home EV charging bill';
+    }
+    if (monthly < 8500) {
+      return 'Covers 100% of home EV charging + monthly society maintenance';
+    }
+    if (monthly < 16000) {
+      return 'Offsets your EV EMI + 100% of monthly household electricity';
+    }
+    return 'High-yield host income • Equivalent to ~12,000 km of free EV driving/mo';
+  }
+
+  function animateMonthlyNumber(targetMonthly) {
+    if (!monthlyResult) return;
+    if (calcRafId) cancelAnimationFrame(calcRafId);
+    const startVal = displayedMonthly;
+    const startTime = performance.now();
+    const duration = 260;
+
+    function tick(now) {
+      const t = Math.min(1, (now - startTime) / duration);
+      const ease = 1 - Math.pow(1 - t, 3);
+      displayedMonthly = Math.round(startVal + (targetMonthly - startVal) * ease);
+      monthlyResult.textContent = '₹' + displayedMonthly.toLocaleString('en-IN');
+      if (t < 1) {
+        calcRafId = requestAnimationFrame(tick);
+      }
+    }
+    calcRafId = requestAnimationFrame(tick);
+  }
+
+  function calculate(isInitial = false) {
+    syncRangeTrack(hoursSlider);
+    syncRangeTrack(rateSlider);
+    syncRangeTrack(daysSlider);
+
     const hours = parseInt(hoursSlider.value, 10);
     const rate = parseInt(rateSlider.value, 10);
     const days = parseInt(daysSlider.value, 10);
@@ -1459,8 +1577,16 @@ function initCalculator() {
     const monthly = hours * rate * days * 4;
     const yearly = monthly * 12;
 
-    if (monthlyResult) monthlyResult.textContent = '₹' + monthly.toLocaleString('en-IN');
+    if (isInitial) {
+      displayedMonthly = monthly;
+      if (monthlyResult) monthlyResult.textContent = '₹' + monthly.toLocaleString('en-IN');
+    } else {
+      animateMonthlyNumber(monthly);
+    }
+
     if (yearlyResult) yearlyResult.textContent = '₹' + yearly.toLocaleString('en-IN');
+    if (annualInline) annualInline.textContent = `₹${yearly.toLocaleString('en-IN')} / yr`;
+    if (impactBadge) impactBadge.textContent = getImpactDescription(monthly);
     if (summaryText) {
       summaryText.innerHTML = `Sharing <strong>${hours} hrs/day</strong> (${days} days/wk) at <strong>₹${rate}/hr</strong> • ₹${yearly.toLocaleString('en-IN')}/yr`;
     }
@@ -1473,15 +1599,15 @@ function initCalculator() {
       const presetRate = pill.getAttribute('data-preset-rate');
       if (presetRate) {
         rateSlider.value = presetRate;
-        calculate();
+        calculate(false);
       }
     });
   });
 
-  hoursSlider.addEventListener('input', calculate);
-  rateSlider.addEventListener('input', calculate);
-  daysSlider.addEventListener('input', calculate);
-  calculate();
+  hoursSlider.addEventListener('input', () => calculate(false));
+  rateSlider.addEventListener('input', () => calculate(false));
+  daysSlider.addEventListener('input', () => calculate(false));
+  calculate(true);
 }
 
 /* ---- 14. Native Lenis scrollTo() for Anchors & Back-to-Top ---- */

@@ -109,14 +109,31 @@
     <div class="container">
       <div class="airbnb-estimator-layout">
         <div class="estimator-giant-display reveal">
-          <div class="e-kicker">01 / LIVE HOST ESTIMATOR</div>
+          <div class="e-kicker">LIVE HOST ESTIMATOR</div>
           <div class="e-title">Estimated monthly income</div>
           <div class="estimator-giant-number" id="monthly-earnings">₹4,000</div>
           <p class="estimator-caption" id="estimator-summary-text">
             Sharing <strong>4 hrs/day</strong> (5 days/wk) at <strong>₹50/hr</strong> • ₹48,000/yr
           </p>
           <span id="yearly-earnings" style="display:none;">₹48,000</span>
-          <div style="margin-top: 32px; display:flex; gap:12px; flex-wrap:wrap;">
+
+          <!-- Live Host Payout & Real-World EV Impact Strip -->
+          <div class="estimator-payout-breakdown" id="estimator-payout-breakdown">
+            <div class="estimator-payout-item">
+              <span>Host Keeps</span>
+              <strong style="color:#1b8a00;">100% (₹0 Fee)</strong>
+            </div>
+            <div class="estimator-payout-item">
+              <span>Annual Payout</span>
+              <strong id="estimator-annual-inline">₹48,000 / yr</strong>
+            </div>
+            <div class="estimator-payout-item estimator-payout-item--wide">
+              <span>What This Covers</span>
+              <strong id="estimator-impact-badge">Covers 100% of home EV charging + society maintenance</strong>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px; display:flex; gap:12px; flex-wrap:wrap;">
             <a href="index.html#download" class="btn btn--primary btn--lg magnetic-btn">Download Host App</a>
             <a href="list-ev-charger-online.html" class="btn btn--outline btn--lg">Read Host Setup Guide</a>
           </div>

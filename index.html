@@ -283,21 +283,21 @@
               <span>IDLE HOME CHARGERS</span>
               <span>DAILY 24-HOUR WINDOW</span>
             </div>
-            <div class="bento-big-stat">20+ hrs</div>
+            <div class="bento-big-stat" data-counter="20" data-suffix="+ hrs">20+ hrs</div>
             <h3>Unused every day in residential parking</h3>
             <p>
               Most home chargers only run for 3 to 4 hours a night. Sharing your parking spot during the hours you don't
               use it helps fellow EV drivers and requires zero extra hardware.
             </p>
           </div>
-          <div class="bento-utilization-meter">
+          <div class="bento-utilization-meter" id="bento-utilization-meter">
             <div class="bento-meter-bar">
               <div class="bento-meter-active"></div>
               <div class="bento-meter-idle"></div>
             </div>
             <div class="bento-meter-legend">
-              <span>■ 4 HRS OWNER CHARGING</span>
-              <span style="color:var(--text-primary); font-weight:600;">■ 20 HRS AVAILABLE TO SHARE ON CHARGEKR</span>
+              <span>■ 11 PM – 3 AM: OWNER (4 HRS)</span>
+              <span style="color:var(--text-primary); font-weight:600;">■ 7 AM – 9 PM: SHARE &amp; EARN ON CHARGEKR (20 HRS)</span>
             </div>
           </div>
         </article>
@@ -309,7 +309,7 @@
               <span>EARN AS A HOST</span>
               <span style="color:var(--primary-volt);">● ₹0 COMMISSION</span>
             </div>
-            <div class="bento-big-stat">100%</div>
+            <div class="bento-big-stat" data-counter="100" data-suffix="%">100%</div>
             <h3>Every rupee goes directly to the host</h3>
             <p>
               You choose your own hourly price and the exact hours your charger is open. ChargeKr charges zero platform
@@ -329,7 +329,7 @@
               <span>FOR EV DRIVERS</span>
               <span>VS COMMERCIAL STATIONS</span>
             </div>
-            <div class="bento-big-stat">40% less</div>
+            <div class="bento-big-stat" data-counter="40" data-suffix="% less">40% less</div>
             <h3>Affordable charging where you already go</h3>
             <p>
               Commercial highway hubs charge steep commercial tariffs and often have long queues. Neighbourhood hosts
@@ -349,7 +349,7 @@
               <span>TRUST &amp; CONTROL</span>
               <span>VERIFIED COMMUNITY</span>
             </div>
-            <div class="bento-big-stat">100% Verified</div>
+            <div class="bento-big-stat" data-counter="100" data-suffix="% Verified">100% Verified</div>
             <h3>KYC-verified EV drivers &amp; full host control</h3>
             <p>
               Every EV driver on ChargeKr completes profile and vehicle connector verification before booking. Hosts have
@@ -574,14 +574,20 @@
 
       <div class="speed-bars-stack" id="speed-bars-stack">
         <!-- Tier 1 -->
-        <div class="speed-tier-row" data-base-pct="34" data-km-scooter="65" data-km-suv="22" data-km-sedan="18">
+        <div class="speed-tier-row"
+          data-base-pct="34"
+          data-pct-scooter="54" data-pct-suv="32" data-pct-sedan="26"
+          data-km-scooter="65" data-km-suv="22" data-km-sedan="18"
+          data-time-scooter="100 km in ~1 hr 30m • ₹45"
+          data-time-suv="100 km in ~4 hrs 30m • OVERNIGHT"
+          data-time-sedan="100 km in ~5 hrs 30m • OVERNIGHT">
           <div class="speed-tier-top">
             <div class="speed-tier-title">
               <span class="speed-tier-tag">LEVEL 1 • 3.3 KW</span>
               <h3>15A Smart Domestic Socket</h3>
             </div>
             <div class="speed-tier-metrics">
-              <span style="color:var(--text-muted); font-size:0.82rem;">OVERNIGHT / APARTMENT PARKING</span>
+              <span class="speed-tier-meta" style="color:var(--text-muted); font-size:0.82rem;">100 km in ~4 hrs 30m • OVERNIGHT</span>
               <span class="speed-tier-km">+22 km/hr</span>
             </div>
           </div>
@@ -591,14 +597,20 @@
         </div>
 
         <!-- Tier 2 -->
-        <div class="speed-tier-row speed-tier-row--highlight" data-base-pct="68" data-km-scooter="95" data-km-suv="52" data-km-sedan="44">
+        <div class="speed-tier-row speed-tier-row--highlight"
+          data-base-pct="68"
+          data-pct-scooter="82" data-pct-suv="68" data-pct-sedan="58"
+          data-km-scooter="95" data-km-suv="52" data-km-sedan="44"
+          data-time-scooter="100 km in ~1 hr 05m • HOME HOST"
+          data-time-suv="100 km in ~1 hr 55m • MOST POPULAR"
+          data-time-sedan="100 km in ~2 hrs 15m • HOME WALLBOX">
           <div class="speed-tier-top">
             <div class="speed-tier-title">
               <span class="speed-tier-tag">LEVEL 2 • 7.4 KW – 11 KW</span>
               <h3>Type-2 AC Home Wallbox</h3>
             </div>
             <div class="speed-tier-metrics">
-              <span style="color:var(--text-muted); font-size:0.82rem;">MOST POPULAR HOME HOST CHARGER</span>
+              <span class="speed-tier-meta" style="color:var(--text-muted); font-size:0.82rem;">100 km in ~1 hr 55m • MOST POPULAR</span>
               <span class="speed-tier-km">+52 km/hr</span>
             </div>
           </div>
@@ -608,14 +620,20 @@
         </div>
 
         <!-- Tier 3 -->
-        <div class="speed-tier-row" data-base-pct="98" data-km-scooter="120" data-km-suv="145" data-km-sedan="135">
+        <div class="speed-tier-row"
+          data-base-pct="98"
+          data-pct-scooter="98" data-pct-suv="98" data-pct-sedan="94"
+          data-km-scooter="120" data-km-suv="145" data-km-sedan="135"
+          data-time-scooter="100 km in ~45 mins • FAST NODE"
+          data-time-suv="100 km in ~40 mins • RAPID TOP-UP"
+          data-time-sedan="100 km in ~45 mins • RAPID TOP-UP">
           <div class="speed-tier-top">
             <div class="speed-tier-title">
               <span class="speed-tier-tag">FAST AC / DC • 22 KW – 60 KW</span>
               <h3>Commercial &amp; Society Fast Hub</h3>
             </div>
             <div class="speed-tier-metrics">
-              <span style="color:var(--text-muted); font-size:0.82rem;">RAPID TOP-UP IN 45 MINS</span>
+              <span class="speed-tier-meta" style="color:var(--text-muted); font-size:0.82rem;">100 km in ~40 mins • RAPID TOP-UP</span>
               <span class="speed-tier-km">+145 km/hr</span>
             </div>
           </div>
@@ -641,7 +659,24 @@
             Sharing <strong>4 hrs/day</strong> (5 days/wk) at <strong>₹50/hr</strong> • ₹48,000/yr
           </p>
           <span id="yearly-earnings" style="display:none;">₹48,000</span>
-          <div style="margin-top: 32px;">
+
+          <!-- Live Host Payout & Real-World EV Impact Strip -->
+          <div class="estimator-payout-breakdown" id="estimator-payout-breakdown">
+            <div class="estimator-payout-item">
+              <span>Host Keeps</span>
+              <strong style="color:#1b8a00;">100% (₹0 Fee)</strong>
+            </div>
+            <div class="estimator-payout-item">
+              <span>Annual Payout</span>
+              <strong id="estimator-annual-inline">₹48,000 / yr</strong>
+            </div>
+            <div class="estimator-payout-item estimator-payout-item--wide">
+              <span>What This Covers</span>
+              <strong id="estimator-impact-badge">Covers 100% of home EV charging + society maintenance</strong>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px;">
             <a href="earn-money.html" class="btn btn--primary btn--lg magnetic-btn">Start Hosting in 2 Minutes</a>
           </div>
         </div>
