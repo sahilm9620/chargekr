@@ -165,7 +165,8 @@ p {
 
 /* Muted secondary tone inside headlines (Polestar / Apple style) */
 .text-muted-tone {
-  color: var(--text-muted);
+  color: #555962;
+  font-weight: 500;
 }
 
 /* Clean editorial accent (Replaces cheesy neon gradients on inner pages) */
@@ -503,96 +504,140 @@ p {
    VIRAL SEQUENCE 1: MINIMALIST EDITORIAL HERO + EXPANDING CINEMA FRAME
    ========================================================================== */
 .editorial-hero {
-  padding-top: calc(var(--nav-height) + 64px);
+  padding-top: calc(var(--nav-height) + 56px);
   padding-bottom: 40px;
 }
 
 .editorial-hero-top {
-  display: grid;
-  grid-template-columns: 1.22fr 0.78fr;
-  gap: clamp(32px, 4.5vw, 64px);
-  align-items: flex-end;
-  margin-bottom: 52px;
-}
-
-.editorial-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-secondary);
-  margin-bottom: 22px;
-}
-
-.editorial-kicker .live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary-volt);
-  box-shadow: 0 0 0 4px rgba(50, 232, 0, 0.2);
-}
-
-.editorial-hero-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4.4vw, 4.35rem);
-  font-weight: 600;
-  line-height: 1.07;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.editorial-hero-sub {
+  max-width: 960px;
+  margin: 0 auto 52px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 22px;
-  padding-left: clamp(24px, 3vw, 40px);
-  border-left: 1px solid rgba(11, 12, 14, 0.1);
+  align-items: center;
 }
 
-.editorial-hero-sub p {
-  font-size: 1.05rem;
+/* 1. Architectural Status Pill Badge */
+.editorial-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(11, 12, 14, 0.08);
+  box-shadow: 0 2px 10px rgba(11, 12, 14, 0.03);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.editorial-kicker-badge:hover {
+  border-color: rgba(11, 12, 14, 0.16);
+  transform: translateY(-1px);
+}
+
+.kicker-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.18);
+  flex-shrink: 0;
+}
+
+.kicker-title {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #2D3137;
+}
+
+.kicker-sep {
+  color: rgba(11, 12, 14, 0.22);
+  font-size: 0.72rem;
+  user-select: none;
+}
+
+.kicker-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #15803D;
+}
+
+/* 2. Flagship Minimalist Headline Lockup */
+.editorial-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5.2vw, 4.65rem);
+  font-weight: 600;
+  line-height: 1.09;
+  letter-spacing: -0.038em;
+  color: var(--text-primary);
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+
+.hero-title-sub {
+  color: #52565E;
+  display: block;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+/* 3. Refined Hero Lead Story Narrative */
+.editorial-hero-lead {
+  max-width: 680px;
+  margin: 0 auto 30px;
+  font-size: clamp(1.02rem, 1.3vw, 1.14rem);
   color: var(--text-secondary);
-  line-height: 1.65;
-  margin: 0;
+  line-height: 1.62;
+  text-wrap: balance;
 }
 
-.editorial-hero-sub p strong {
+.editorial-hero-lead strong {
   color: var(--text-primary);
   font-weight: 600;
 }
 
+/* 4. Action CTAs */
 .editorial-hero-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+  margin-bottom: 22px;
 }
 
 .editorial-hero-actions .btn--lg {
-  padding: 15px 24px;
-  font-size: 0.92rem;
+  padding: 15px 28px;
+  font-size: 0.94rem;
+  font-weight: 500;
 }
 
+/* 5. Clean Architectural Metadata Strip */
 .editorial-hero-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 10px;
+  justify-content: center;
+  gap: 8px 12px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding-top: 2px;
 }
 
 .editorial-hero-meta .meta-dot {
   color: rgba(11, 12, 14, 0.24);
+  user-select: none;
+}
 }
 
 /* Expanding Viewport Media Container (GSAP Animated) */
@@ -2829,17 +2874,15 @@ p {
     min-height: 380px;
   }
 
-  .editorial-hero-top,
+  .editorial-hero-top {
+    margin-bottom: 38px;
+  }
+
   .arch-bento-header,
   .arch-page-hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
     margin-bottom: 36px;
-  }
-
-  .editorial-hero-sub {
-    padding-left: 0;
-    border-left: none;
   }
 
   .arch-bento-card--span-7,
@@ -2919,17 +2962,31 @@ p {
   }
 
   .editorial-hero {
-    padding-top: calc(var(--nav-height) + 28px);
+    padding-top: calc(var(--nav-height) + 24px);
     padding-bottom: 24px;
   }
 
-  .editorial-kicker {
-    font-size: 0.68rem;
-    margin-bottom: 14px;
+  .editorial-kicker-badge {
+    padding: 5px 12px 5px 8px;
+    margin-bottom: 18px;
   }
 
-  .editorial-hero-sub p {
-    font-size: 1rem;
+  .kicker-title {
+    font-size: 0.72rem;
+  }
+
+  .kicker-tag {
+    font-size: 0.65rem;
+  }
+
+  .editorial-hero-lead {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+
+  .editorial-hero-meta {
+    font-size: 0.65rem;
+    gap: 6px 8px;
   }
 
   .hero-cinema-stage {
