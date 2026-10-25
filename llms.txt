@@ -25,13 +25,13 @@ Charger owners (hosts) can list their EV charger in under 2 minutes, set their o
   - Advance slot reservation with zero queue wait times and up to 40% lower tariffs than commercial stations
   - Automatic UPI payment settlement and digital gate-pass approvals for residential societies
 - **For Charger Hosts**:
-  - 100% of charging income goes to the host — ChargeKr charges ₹0 platform commission and ₹0 listing fee
+  - 100% of charging income goes to the host ChargeKr charges ₹0 platform commission and ₹0 listing fee
   - Full schedule and tariff control (share only during the hours your parking spot is vacant)
   - KYC-verified EV driver profiles and vehicle connector matching
 
 ## Key Canonical Pages on chargekr.com
 
-- [Home — Share Your EV Charger & Find Stations Near You](https://www.chargekr.com/)
+- [Home Share Your EV Charger & Find Stations Near You](https://www.chargekr.com/)
 - [EV Charging Stations Near Me in India](https://www.chargekr.com/ev-charging-stations-near-me.html)
 - [EV Charging App India](https://www.chargekr.com/ev-charging-app-india.html)
 - [What Is ChargeKr?](https://www.chargekr.com/what-is-chargekr.html)
