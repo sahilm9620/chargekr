@@ -48,8 +48,8 @@
 | Platform Fee | 15% |
 
 ### Platform Availability
-- **Android:** Google Play Store
-- **iOS:** Apple App Store
+- **Android:** [Google Play Store](https://play.google.com/store/apps/details?id=com.chargekr)
+- **iOS:** [Apple App Store](https://apps.apple.com/us/app/chargekr-ev-charging-network/id6825824500)
 - **Web:** chargekr.com (marketing + landing)
 
 ---
