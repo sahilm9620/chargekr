@@ -49,7 +49,7 @@
 
 ### Platform Availability
 - **Android:** [Google Play Store](https://play.google.com/store/apps/details?id=com.chargekr)
-- **iOS:** [Apple App Store](https://apps.apple.com/us/app/chargekr-ev-charging-network/id6825824500)
+- **iOS:** [Apple App Store](https://apps.apple.com/in/app/chargekr-ev-charging-network/id6825824500)
 - **Web:** chargekr.com (marketing + landing)
 
 ---

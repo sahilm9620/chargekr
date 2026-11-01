@@ -6,7 +6,7 @@ ChargeKr is designed for EV users and charger hosts starting in India and expand
 
 - **Official Website**: https://www.chargekr.com/
 - **Android App (Google Play)**: https://play.google.com/store/apps/details?id=com.chargekr (`com.chargekr`)
-- **iOS App (Apple App Store)**: https://apps.apple.com/us/app/chargekr-ev-charging-network/id6825824500
+- **iOS App (Apple App Store)**: https://apps.apple.com/in/app/chargekr-ev-charging-network/id6825824500
 - **Brand Name**: ChargeKr (also searched as Chargekr)
 - **Primary Category**: Peer-to-peer electric vehicle (EV) charging marketplace & mobile app
 - **Host Commission**: 0% (100% of charging income goes directly to the host)
