@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChargeKr Ops — Push Notification Studio</title>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <link rel="icon" type="image/png" href="Logo/changekr.png">
+  <link rel="apple-touch-icon" href="Logo/changekr.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #07090E;
+      --card-bg: rgba(16, 22, 34, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-glow: rgba(0, 230, 118, 0.25);
+      --green: #00E676;
+      --green-dark: #00B056;
+      --green-glow: rgba(0, 230, 118, 0.4);
+      --ios-blue: #0A84FF;
+      --android-green: #3DDC84;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --danger: #FF453A;
+      --warning: #FF9F0A;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 230, 118, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(10, 132, 255, 0.06) 0%, transparent 45%);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Glass Effect */
+    .glass {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+    }
+
+    .glass-sm {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+    }
+
+    /* Button styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00E676 0%, #00C853 100%);
+      color: #04140A;
+      box-shadow: 0 4px 20px rgba(0, 230, 118, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 26px rgba(0, 230, 118, 0.5);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-danger {
+      background: rgba(255, 69, 58, 0.15);
+      color: #FF6961;
+      border: 1px solid rgba(255, 69, 58, 0.3);
+    }
+
+    .btn-danger:hover {
+      background: rgba(255, 69, 58, 0.25);
+    }
+
+    /* Inputs */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      background: rgba(8, 12, 20, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #FFF;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.15);
+      background: rgba(8, 12, 20, 0.95);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+      line-height: 1.5;
+    }
+
+    /* Quick Pills */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill-item {
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .pill-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFF;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .pill-item.active {
+      background: rgba(0, 230, 118, 0.15);
+      color: var(--green);
+      border-color: var(--green);
+      font-weight: 600;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green {
+      background: rgba(0, 230, 118, 0.15);
+      color: var(--green);
+      border: 1px solid rgba(0, 230, 118, 0.3);
+    }
+
+    .badge-blue {
+      background: rgba(10, 132, 255, 0.15);
+      color: var(--ios-blue);
+      border: 1px solid rgba(10, 132, 255, 0.3);
+    }
+
+    .badge-red {
+      background: rgba(255, 69, 58, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(255, 69, 58, 0.3);
+    }
+
+    /* Toast */
+    #toastContainer {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: #111827;
+      color: #FFF;
+      font-size: 0.9rem;
+      border-left: 4px solid var(--green);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: slideIn 0.3s ease;
+      min-width: 280px;
+      max-width: 400px;
+    }
+
+    .toast.error {
+      border-left-color: var(--danger);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Layout */
+    .header {
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--card-border);
+      background: rgba(7, 9, 14, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFF;
+    }
+
+    .header-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
+
+    .header-logo h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .stats-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+    }
+
+    .stat-chip strong {
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    .main-container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px;
+      flex: 1;
+    }
+
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+    }
+
+    @media (max-width: 1024px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Phone Mockups */
+    .preview-column {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+    }
+
+    .phone-toggle {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 16px;
+      gap: 4px;
+    }
+
+    .phone-toggle-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .phone-toggle-btn.active {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* iPhone Frame */
+    .iphone-frame {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 48px;
+      padding: 14px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      position: relative;
+    }
+
+    .iphone-screen {
+      background: radial-gradient(circle at 50% 20%, #1e293b 0%, #090d16 80%);
+      border-radius: 38px;
+      padding: 16px 14px 28px 14px;
+      min-height: 580px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      width: 100px;
+      height: 26px;
+      background: #000;
+      border-radius: 20px;
+      margin: 0 auto 16px auto;
+    }
+
+    .iphone-clock {
+      text-align: center;
+      font-size: 3.4rem;
+      font-weight: 300;
+      letter-spacing: -1.5px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2px;
+    }
+
+    .iphone-date {
+      text-align: center;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+
+    /* iOS Notification Banner */
+    .ios-banner {
+      background: rgba(30, 36, 50, 0.75);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.92); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .ios-banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .ios-banner-app {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .ios-banner-app img {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    .ios-banner-app span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .ios-banner-time {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .ios-banner-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .ios-banner-body {
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .ios-banner-img {
+      margin-top: 10px;
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* Android Mockup Frame */
+    .android-frame {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      background: #0e1117;
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      display: none;
+    }
+
+    .android-screen {
+      background: #171d26;
+      border-radius: 28px;
+      padding: 16px 14px 28px 14px;
+      min-height: 580px;
+    }
+
+    .android-camera {
+      width: 12px;
+      height: 12px;
+      background: #000;
+      border-radius: 50%;
+      margin: 0 auto 18px auto;
+    }
+
+    .android-card {
+      background: #232b38;
+      border-radius: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .android-card-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .android-card-top img {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    .android-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+
+    .android-card-body {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .android-card-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .android-btn {
+      font-size: 0.78rem;
+      color: var(--android-green);
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* History Table */
+    .history-card {
+      margin-top: 28px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-secondary);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+      color: #FFF;
+    }
+
+    /* Login Gateway Overlay */
+    #loginOverlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 30%, #0d1527 0%, #04060a 100%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .login-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0, 230, 118, 0.3);
+    }
+
+    .login-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .login-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer"></div>
+
+  <!-- ── 1. LOGIN GATEWAY (SHOWN WHEN NOT LOGGED IN) ── -->
+  <div id="loginOverlay">
+    <div class="glass login-box">
+      <img src="Logo/changekr.png" alt="ChargeKr Logo" class="login-logo">
+      <div class="badge badge-green" style="margin-bottom: 12px;">Restricted Ops Console</div>
+      <h2 class="login-title">Ops Push Studio</h2>
+      <p class="login-subtitle">Sign in to broadcast instant push notifications to iOS and Android devices via Amazon SNS.</p>
+
+      <form id="loginForm">
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label">Username</label>
+          <input type="text" id="loginUsername" class="form-input" placeholder="admin" required autocomplete="username">
+        </div>
+
+        <div class="form-group" style="text-align: left;">
+          <label class="form-label">Password</label>
+          <div style="position: relative;">
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••••••" required autocomplete="current-password" style="padding-right: 40px;">
+            <i class="fa-regular fa-eye" id="togglePasswordBtn" style="position: absolute; right: 14px; top: 14px; cursor: pointer; color: var(--text-muted);"></i>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-secondary); text-align: left;">
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="rememberMe" checked style="accent-color: var(--green);">
+            Remember this session
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="loginSubmitBtn" style="width: 100%;">
+          <i class="fa-solid fa-lock-open"></i> Unlock Studio
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── 2. STUDIO HEADER ── -->
+  <header class="header">
+    <div class="header-logo">
+      <img src="Logo/changekr.png" alt="ChargeKr">
+      <div>
+        <h1>ChargeKr Ops Studio</h1>
+        <div style="font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block;"></span>
+          api.chargekr.com (Live Production)
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-chip" title="Total active registered mobile devices">
+        <i class="fa-solid fa-mobile-screen" style="color: var(--green);"></i>
+        <span>Devices: <strong id="statTotal">--</strong></span>
+      </div>
+      <div class="stat-chip" title="Apple APNs push registered devices">
+        <i class="fa-brands fa-apple" style="color: var(--ios-blue);"></i>
+        <span>iOS: <strong id="statIos">--</strong></span>
+      </div>
+      <div class="stat-chip" title="Google FCM push registered devices">
+        <i class="fa-brands fa-android" style="color: var(--android-green);"></i>
+        <span>Android: <strong id="statAndroid">--</strong></span>
+      </div>
+      <button class="btn btn-secondary" id="refreshStatsBtn" style="padding: 7px 12px; font-size: 0.8rem;" title="Refresh device counts">
+        <i class="fa-solid fa-rotate"></i>
+      </button>
+      <button class="btn btn-danger" id="logoutBtn" style="padding: 7px 14px; font-size: 0.8rem;">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+      </button>
+    </div>
+  </header>
+
+  <!-- ── 3. MAIN STUDIO INTERFACE ── -->
+  <main class="main-container">
+    <div class="studio-grid">
+
+      <!-- LEFT: COMPOSER FORM -->
+      <section class="glass" style="padding: 28px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 700;">Broadcast Push Notification</h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Compose and deliver rich alerts to iOS and Android users in real time.</p>
+          </div>
+          <span class="badge badge-green"><i class="fa-solid fa-paper-plane"></i> SNS Direct</span>
+        </div>
+
+        <form id="pushForm">
+          <!-- Platform Selector -->
+          <div class="form-group">
+            <label class="form-label">
+              <span>Target Platform</span>
+              <span id="platformLabelText" style="color: var(--green); font-size: 0.75rem;">ALL PLATFORMS</span>
+            </label>
+            <div class="pill-group" id="platformPills">
+              <div class="pill-item active" data-platform="ALL"><i class="fa-solid fa-layer-group"></i> All (iOS + Android)</div>
+              <div class="pill-item" data-platform="IOS"><i class="fa-brands fa-apple"></i> Apple iOS Only</div>
+              <div class="pill-item" data-platform="ANDROID"><i class="fa-brands fa-android"></i> Android Only</div>
+            </div>
+          </div>
+
+          <!-- Audience Target Scope -->
+          <div class="form-group">
+            <label class="form-label">Audience Scope</label>
+            <div class="pill-group" id="targetPills">
+              <div class="pill-item active" data-target="BROADCAST"><i class="fa-solid fa-bullhorn"></i> Broadcast to All Users</div>
+              <div class="pill-item" data-target="USER"><i class="fa-solid fa-user"></i> Specific User</div>
+              <div class="pill-item" data-target="TOKEN"><i class="fa-solid fa-key"></i> Device Token</div>
+            </div>
+
+            <!-- Dynamic Input for Specific User -->
+            <div id="targetUserInputContainer" style="display: none; margin-top: 10px;">
+              <input type="text" id="targetUserInput" class="form-input" placeholder="Enter phone (e.g. 9999999999), email, or user UUID">
+            </div>
+
+            <!-- Dynamic Input for Specific Token -->
+            <div id="targetTokenInputContainer" style="display: none; margin-top: 10px;">
+              <input type="text" id="targetTokenInput" class="form-input" placeholder="Paste full 64-char APNs hex or FCM registration token">
+            </div>
+          </div>
+
+          <!-- Quick Templates -->
+          <div class="form-group">
+            <label class="form-label">
+              <span>Quick Preset Templates</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Click to load</span>
+            </label>
+            <div class="pill-group">
+              <div class="pill-item template-btn" data-title="⚡ Fast Charger Near You!" data-body="A high-speed CCS2 charger just went online in BKC, Mumbai. Book your instant slot now!" data-route="/explore">⚡ New Charger</div>
+              <div class="pill-item template-btn" data-title="🎉 Weekend Special: 20% Off" data-body="Charge anywhere this Saturday & Sunday and save 20% on all peer-to-peer charging sessions." data-route="/explore">🎉 Promo Discount</div>
+              <div class="pill-item template-btn" data-title="⏱️ Slot Starting Soon" data-body="Reminder: Your charging reservation at BKC Fast Charger begins in 15 minutes." data-route="/bookings">⏱️ Booking Reminder</div>
+              <div class="pill-item template-btn" data-title="🔋 Session Completed!" data-body="Your EV battery is fully charged! Please move your vehicle to free up the bay for fellow drivers." data-route="/bookings">🔋 Charge Done</div>
+            </div>
+          </div>
+
+          <!-- Notification Title -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>Notification Title</span>
+              <span id="titleCount" style="color: var(--text-muted); font-family: var(--font-mono);">0/60</span>
+            </div>
+            <input type="text" id="pushTitle" class="form-input" placeholder="e.g. ⚡ Special Offer: Charge for ₹40/hr today!" maxlength="100" required>
+            <div class="pill-group" style="margin-top: 6px;">
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">⚡</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">🔋</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">🚗</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">📍</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">🎉</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">⏱️</span>
+              <span class="emoji-btn pill-item" style="padding: 3px 8px;">✅</span>
+            </div>
+          </div>
+
+          <!-- Notification Body -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>Message Body</span>
+              <span id="bodyCount" style="color: var(--text-muted); font-family: var(--font-mono);">0/180</span>
+            </div>
+            <textarea id="pushBody" class="form-textarea" placeholder="Enter clear, compelling alert text that EV drivers will see on their lockscreen..." maxlength="300" required></textarea>
+          </div>
+
+          <!-- Deep Link / Screen Route -->
+          <div class="form-group">
+            <label class="form-label">In-App Target Route (When Tapped)</label>
+            <input type="text" id="pushRoute" class="form-input" placeholder="/explore" value="/explore">
+            <div class="pill-group">
+              <span class="route-btn pill-item active" data-route="/explore">/explore (Map)</span>
+              <span class="route-btn pill-item" data-route="/bookings">/bookings (History)</span>
+              <span class="route-btn pill-item" data-route="/profile">/profile (Account)</span>
+              <span class="route-btn pill-item" data-route="/charger/c0000000-0000-4000-8000-000000000001">Demo Charger</span>
+            </div>
+          </div>
+
+          <!-- Advanced Accordion -->
+          <details style="margin-bottom: 22px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 16px;">
+            <summary style="font-size: 0.88rem; font-weight: 600; cursor: pointer; color: var(--text-secondary); user-select: none;">
+              <i class="fa-solid fa-sliders" style="margin-right: 6px;"></i> Rich Media & Custom Metadata
+            </summary>
+
+            <div style="margin-top: 14px;">
+              <div class="form-group">
+                <label class="form-label">Hero Image URL (Optional)</label>
+                <input type="url" id="pushImageUrl" class="form-input" placeholder="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div class="form-group">
+                  <label class="form-label">Sound Effect</label>
+                  <select id="pushSound" class="form-select">
+                    <option value="default">Default Alert Chime</option>
+                    <option value="silent">Silent (Badge / Banner only)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Badge Counter</label>
+                  <input type="number" id="pushBadge" class="form-input" value="1" min="0" max="99">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label class="form-label">Custom JSON Data (Payload)</label>
+                <textarea id="pushCustomData" class="form-textarea" style="font-family: var(--font-mono); font-size: 0.82rem;" placeholder='{"promoCode": "CHARGE20", "campaign": "weekend_rush"}'></textarea>
+              </div>
+            </div>
+          </details>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <button type="submit" class="btn btn-primary" id="sendPushBtn" style="flex: 1; padding: 14px 24px; font-size: 1rem;">
+              <i class="fa-solid fa-paper-plane"></i> Send Push Notification
+            </button>
+            <button type="button" class="btn btn-secondary" id="testSelfBtn" title="Send a test notification only to test account">
+              <i class="fa-solid fa-vial"></i> Test (9999999999)
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT: LIVE INTERACTIVE PREVIEW -->
+      <section class="preview-column">
+        <!-- Phone Model Switcher -->
+        <div class="phone-toggle">
+          <button class="phone-toggle-btn active" id="btnShowIos">
+            <i class="fa-brands fa-apple"></i> iPhone (iOS 18)
+          </button>
+          <button class="phone-toggle-btn" id="btnShowAndroid">
+            <i class="fa-brands fa-android"></i> Android (Pixel 9)
+          </button>
+        </div>
+
+        <!-- 🍏 iPhone Preview Mockup -->
+        <div class="iphone-frame" id="iphoneMockup">
+          <div class="iphone-screen">
+            <div class="dynamic-island"></div>
+            <div class="iphone-clock" id="iosClock">09:41</div>
+            <div class="iphone-date" id="iosDate">Monday, November 9</div>
+
+            <!-- iOS Banner -->
+            <div class="ios-banner" id="iosBanner">
+              <div class="ios-banner-header">
+                <div class="ios-banner-app">
+                  <img src="Logo/changekr.png" alt="ChargeKr">
+                  <span>ChargeKr</span>
+                </div>
+                <div class="ios-banner-time">now</div>
+              </div>
+              <div class="ios-banner-title" id="previewTitleIos">⚡ Special Offer</div>
+              <div class="ios-banner-body" id="previewBodyIos">Type your notification content on the left to see live rendering.</div>
+              <img id="previewImageIos" class="ios-banner-img" alt="Attached banner">
+            </div>
+
+            <div style="margin-top: auto; text-align: center;">
+              <div style="width: 130px; height: 5px; background: rgba(255, 255, 255, 0.4); border-radius: 999px; margin: 0 auto;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🤖 Android Preview Mockup -->
+        <div class="android-frame" id="androidMockup">
+          <div class="android-screen">
+            <div class="android-camera"></div>
+
+            <div style="font-size: 0.78rem; color: #94a3b8; margin-bottom: 16px; display: flex; justify-content: space-between;">
+              <span id="androidClock">09:41</span>
+              <span><i class="fa-solid fa-wifi"></i> 5G <i class="fa-solid fa-battery-full"></i></span>
+            </div>
+
+            <!-- Android Notification Card -->
+            <div class="android-card">
+              <div class="android-card-top">
+                <img src="Logo/changekr.png" alt="ChargeKr">
+                <span>ChargeKr</span>
+                <span>•</span>
+                <span>now</span>
+              </div>
+              <div class="android-card-title" id="previewTitleAndroid">⚡ Special Offer</div>
+              <div class="android-card-body" id="previewBodyAndroid">Type your notification content on the left to see live rendering.</div>
+              <img id="previewImageAndroid" style="margin-top: 10px; width: 100%; height: 130px; object-fit: cover; border-radius: 12px; display: none;" alt="Preview image">
+              <div class="android-card-actions">
+                <button class="android-btn">OPEN APP</button>
+                <button class="android-btn" style="color: #94a3b8;">DISMISS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ── 4. SENT BROADCAST HISTORY & AUDIT LOG ── -->
+    <section class="glass history-card" style="padding: 24px;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700;">Sent Push History & Delivery Logs</h3>
+          <p style="font-size: 0.82rem; color: var(--text-secondary);">Real-time audit log of all notifications dispatched from this studio.</p>
+        </div>
+        <button class="btn btn-secondary" id="refreshHistoryBtn" style="font-size: 0.82rem; padding: 6px 14px;">
+          <i class="fa-solid fa-rotate"></i> Refresh History
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Platform</th>
+              <th>Target</th>
+              <th>Title & Message</th>
+              <th>Route</th>
+              <th>Delivered</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <tr>
+              <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 28px;">
+                <i class="fa-solid fa-spinner fa-spin" style="margin-right: 8px;"></i> Loading notification logs...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── 5. JAVASCRIPT STUDIO ENGINE ── -->
+  <script>
+    const API_BASE = "https://api.chargekr.com";
+    let adminToken = localStorage.getItem("chargekr_admin_token") || sessionStorage.getItem("chargekr_admin_token");
+    let currentPlatform = "ALL";
+    let currentTarget = "BROADCAST";
+
+    // ── Toast Helper ──
+    function showToast(message, isError = false) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = `toast ${isError ? "error" : ""}`;
+      toast.innerHTML = `<i class="fa-solid ${isError ? "fa-circle-xmark" : "fa-circle-check"}"></i> <span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
+    // ── Authentication Check ──
+    async function verifyAuth() {
+      if (!adminToken) {
+        document.getElementById("loginOverlay").style.display = "flex";
+        return;
+      }
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/auth/me`, {
+          headers: { "Authorization": `Bearer ${adminToken}` }
+        });
+        if (res.ok) {
+          document.getElementById("loginOverlay").style.display = "none";
+          loadStats();
+          loadHistory();
+        } else {
+          logout();
+        }
+      } catch (err) {
+        // If network offline or error, let user see error
+        console.warn("Auth check error:", err);
+      }
+    }
+
+    function logout() {
+      adminToken = null;
+      localStorage.removeItem("chargekr_admin_token");
+      sessionStorage.removeItem("chargekr_admin_token");
+      document.getElementById("loginOverlay").style.display = "flex";
+    }
+
+    // ── Login Form Handler ──
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("loginSubmitBtn");
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Authenticating...`;
+      btn.disabled = true;
+
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value.trim();
+      const remember = document.getElementById("rememberMe").checked;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await res.json();
+        if (res.ok && data.token) {
+          adminToken = data.token;
+          if (remember) localStorage.setItem("chargekr_admin_token", adminToken);
+          else sessionStorage.setItem("chargekr_admin_token", adminToken);
+
+          document.getElementById("loginOverlay").style.display = "none";
+          showToast("Welcome to Ops Studio!");
+          loadStats();
+          loadHistory();
+        } else {
+          showToast(data.message || "Invalid credentials", true);
+        }
+      } catch (err) {
+        showToast("Failed to connect to backend API: " + err.message, true);
+      } finally {
+        btn.innerHTML = `<i class="fa-solid fa-lock-open"></i> Unlock Studio`;
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", logout);
+
+    // Toggle password eye
+    document.getElementById("togglePasswordBtn").addEventListener("click", () => {
+      const pwd = document.getElementById("loginPassword");
+      const icon = document.getElementById("togglePasswordBtn");
+      if (pwd.type === "password") {
+        pwd.type = "text";
+        icon.className = "fa-regular fa-eye-slash";
+      } else {
+        pwd.type = "password";
+        icon.className = "fa-regular fa-eye";
+      }
+    });
+
+    // ── Load Stats ──
+    async function loadStats() {
+      if (!adminToken) return;
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/push/stats`, {
+          headers: { "Authorization": `Bearer ${adminToken}` }
+        });
+        if (res.ok) {
+          const stats = await res.json();
+          document.getElementById("statTotal").textContent = stats.totalDevices ?? 0;
+          document.getElementById("statIos").textContent = stats.iosDevices ?? 0;
+          document.getElementById("statAndroid").textContent = stats.androidDevices ?? 0;
+        }
+      } catch (err) {
+        console.warn("Could not load stats", err);
+      }
+    }
+
+    document.getElementById("refreshStatsBtn").addEventListener("click", () => {
+      const icon = document.querySelector("#refreshStatsBtn i");
+      icon.classList.add("fa-spin");
+      loadStats().finally(() => setTimeout(() => icon.classList.remove("fa-spin"), 600));
+    });
+
+    // ── Load History ──
+    async function loadHistory() {
+      if (!adminToken) return;
+      const tbody = document.getElementById("historyTableBody");
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/push/history`, {
+          headers: { "Authorization": `Bearer ${adminToken}` }
+        });
+        if (res.ok) {
+          const list = await res.json();
+          if (list.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 24px;">No push notifications broadcasted yet. Send your first alert above!</td></tr>`;
+            return;
+          }
+          tbody.innerHTML = list.map(item => {
+            const timeStr = item.sentAt ? new Date(item.sentAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : "Just now";
+            const platformBadge = item.platform === "IOS" ? `<span class="badge badge-blue"><i class="fa-brands fa-apple"></i> iOS</span>`
+              : (item.platform === "ANDROID" ? `<span class="badge badge-green"><i class="fa-brands fa-android"></i> Android</span>`
+              : `<span class="badge badge-green"><i class="fa-solid fa-layer-group"></i> Both</span>`);
+            const statusClass = item.status === "DELIVERED" ? "badge-green" : (item.status === "PARTIAL" ? "badge-blue" : "badge-red");
+            return `
+              <tr>
+                <td><strong>${timeStr}</strong></td>
+                <td>${platformBadge}</td>
+                <td><span style="font-family: var(--font-mono); font-size: 0.78rem;">${item.target}${item.targetUser ? ` (${item.targetUser})` : ''}</span></td>
+                <td>
+                  <div style="font-weight: 700; color: #FFF;">${escapeHtml(item.title)}</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary); max-width: 380px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(item.body)}</div>
+                </td>
+                <td><code style="font-size: 0.75rem; color: var(--green);">${escapeHtml(item.route || "/explore")}</code></td>
+                <td><strong>${item.sentCount}/${item.totalTargeted}</strong> <span style="font-size: 0.72rem; color: var(--text-muted);">(${item.iosSent}🍏 / ${item.androidSent}🤖)</span></td>
+                <td><span class="badge ${statusClass}">${item.status}</span></td>
+              </tr>
+            `;
+          }).join("");
+        }
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--danger);">Failed to load history: ${err.message}</td></tr>`;
+      }
+    }
+
+    document.getElementById("refreshHistoryBtn").addEventListener("click", () => {
+      const icon = document.querySelector("#refreshHistoryBtn i");
+      icon.classList.add("fa-spin");
+      loadHistory().finally(() => setTimeout(() => icon.classList.remove("fa-spin"), 600));
+    });
+
+    // ── Live Interactive Preview Sync ──
+    const titleInput = document.getElementById("pushTitle");
+    const bodyInput = document.getElementById("pushBody");
+    const imageInput = document.getElementById("pushImageUrl");
+
+    function updatePreview() {
+      const title = titleInput.value.trim() || "⚡ Special Offer";
+      const body = bodyInput.value.trim() || "Type your notification content on the left to see live rendering.";
+      const img = imageInput.value.trim();
+
+      document.getElementById("previewTitleIos").textContent = title;
+      document.getElementById("previewBodyIos").textContent = body;
+      document.getElementById("previewTitleAndroid").textContent = title;
+      document.getElementById("previewBodyAndroid").textContent = body;
+
+      const imgIos = document.getElementById("previewImageIos");
+      const imgAndroid = document.getElementById("previewImageAndroid");
+      if (img) {
+        imgIos.src = img;
+        imgIos.style.display = "block";
+        imgAndroid.src = img;
+        imgAndroid.style.display = "block";
+      } else {
+        imgIos.style.display = "none";
+        imgAndroid.style.display = "none";
+      }
+
+      document.getElementById("titleCount").textContent = `${titleInput.value.length}/60`;
+      document.getElementById("bodyCount").textContent = `${bodyInput.value.length}/180`;
+    }
+
+    titleInput.addEventListener("input", updatePreview);
+    bodyInput.addEventListener("input", updatePreview);
+    imageInput.addEventListener("input", updatePreview);
+
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+      const date = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      document.getElementById("iosClock").textContent = time;
+      document.getElementById("iosDate").textContent = date;
+      document.getElementById("androidClock").textContent = time;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ── Platform Switcher ──
+    document.querySelectorAll("#platformPills .pill-item").forEach(el => {
+      el.addEventListener("click", () => {
+        document.querySelectorAll("#platformPills .pill-item").forEach(p => p.classList.remove("active"));
+        el.classList.add("active");
+        currentPlatform = el.dataset.platform;
+        document.getElementById("platformLabelText").textContent = currentPlatform;
+        if (currentPlatform === "IOS") showIosMockup();
+        else if (currentPlatform === "ANDROID") showAndroidMockup();
+      });
+    });
+
+    // ── Target Switcher ──
+    document.querySelectorAll("#targetPills .pill-item").forEach(el => {
+      el.addEventListener("click", () => {
+        document.querySelectorAll("#targetPills .pill-item").forEach(p => p.classList.remove("active"));
+        el.classList.add("active");
+        currentTarget = el.dataset.target;
+        document.getElementById("targetUserInputContainer").style.display = (currentTarget === "USER") ? "block" : "none";
+        document.getElementById("targetTokenInputContainer").style.display = (currentTarget === "TOKEN") ? "block" : "none";
+      });
+    });
+
+    // ── Templates Click ──
+    document.querySelectorAll(".template-btn").forEach(el => {
+      el.addEventListener("click", () => {
+        titleInput.value = el.dataset.title;
+        bodyInput.value = el.dataset.body;
+        document.getElementById("pushRoute").value = el.dataset.route || "/explore";
+        updatePreview();
+      });
+    });
+
+    // ── Emoji Buttons ──
+    document.querySelectorAll(".emoji-btn").forEach(el => {
+      el.addEventListener("click", () => {
+        titleInput.value += " " + el.textContent.trim();
+        updatePreview();
+      });
+    });
+
+    // ── Route Buttons ──
+    document.querySelectorAll(".route-btn").forEach(el => {
+      el.addEventListener("click", () => {
+        document.querySelectorAll(".route-btn").forEach(r => r.classList.remove("active"));
+        el.classList.add("active");
+        document.getElementById("pushRoute").value = el.dataset.route;
+      });
+    });
+
+    // ── Phone Preview Toggle ──
+    const btnIos = document.getElementById("btnShowIos");
+    const btnAndroid = document.getElementById("btnShowAndroid");
+    const mockupIos = document.getElementById("iphoneMockup");
+    const mockupAndroid = document.getElementById("androidMockup");
+
+    function showIosMockup() {
+      btnIos.classList.add("active");
+      btnAndroid.classList.remove("active");
+      mockupIos.style.display = "block";
+      mockupAndroid.style.display = "none";
+    }
+
+    function showAndroidMockup() {
+      btnAndroid.classList.add("active");
+      btnIos.classList.remove("active");
+      mockupIos.style.display = "none";
+      mockupAndroid.style.display = "block";
+    }
+
+    btnIos.addEventListener("click", showIosMockup);
+    btnAndroid.addEventListener("click", showAndroidMockup);
+
+    // ── Send Notification Submit ──
+    document.getElementById("pushForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const title = titleInput.value.trim();
+      const body = bodyInput.value.trim();
+      if (!title || !body) {
+        showToast("Please provide both title and message body", true);
+        return;
+      }
+
+      const totalCount = document.getElementById("statTotal").textContent;
+      const confirmMsg = currentTarget === "BROADCAST"
+        ? `Broadcast this push to all active devices on ${currentPlatform}?`
+        : `Send push notification to ${currentTarget}?`;
+
+      if (!confirm(confirmMsg)) return;
+
+      const btn = document.getElementById("sendPushBtn");
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Broadcasting...`;
+      btn.disabled = true;
+
+      let customData = null;
+      const customRaw = document.getElementById("pushCustomData").value.trim();
+      if (customRaw) {
+        try {
+          customData = JSON.parse(customRaw);
+        } catch (err) {
+          showToast("Custom JSON is invalid: " + err.message, true);
+          btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Send Push Notification`;
+          btn.disabled = false;
+          return;
+        }
+      }
+
+      const payload = {
+        title: title,
+        body: body,
+        platform: currentPlatform,
+        target: currentTarget,
+        targetUser: currentTarget === "USER" ? document.getElementById("targetUserInput").value.trim() : null,
+        targetToken: currentTarget === "TOKEN" ? document.getElementById("targetTokenInput").value.trim() : null,
+        route: document.getElementById("pushRoute").value.trim() || "/explore",
+        imageUrl: imageInput.value.trim() || null,
+        badge: parseInt(document.getElementById("pushBadge").value) || 1,
+        sound: document.getElementById("pushSound").value || "default",
+        type: "PROMOTION",
+        customData: customData
+      };
+
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/push/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${adminToken}`
+          },
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (res.ok && result.success) {
+          showToast(`🚀 Delivered to ${result.sentCount}/${result.totalTargeted} devices (${result.iosSent} iOS, ${result.androidSent} Android)!`);
+          loadHistory();
+          loadStats();
+        } else {
+          showToast(result.message || "Failed to deliver push", true);
+        }
+      } catch (err) {
+        showToast("Error sending push: " + err.message, true);
+      } finally {
+        btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> Send Push Notification`;
+        btn.disabled = false;
+      }
+    });
+
+    // ── Test to self button ──
+    document.getElementById("testSelfBtn").addEventListener("click", () => {
+      document.querySelectorAll("#targetPills .pill-item").forEach(p => p.classList.remove("active"));
+      const userPill = document.querySelector("#targetPills .pill-item[data-target='USER']");
+      if (userPill) userPill.classList.add("active");
+      currentTarget = "USER";
+      document.getElementById("targetUserInputContainer").style.display = "block";
+      document.getElementById("targetTokenInputContainer").style.display = "none";
+      document.getElementById("targetUserInput").value = "9999999999";
+      showToast("Target set to test user phone: 9999999999");
+    });
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Init
+    verifyAuth();
+    updatePreview();
+  </script>
+</body>
+</html>
