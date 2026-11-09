@@ -36,16 +36,15 @@
 
 **Tagline:** *Share your charger, earn money, and build a greener future.*
 
-### Key Metrics (Targets)
-| Metric | Target |
-|--------|--------|
-| Chargers Shared | 2,500+ |
-| Registered Users | 10,000+ |
-| Cities | 15+ (India) |
-| CO₂ Prevented | 50+ tons |
+### Key Metrics (Platform Highlights)
+| Metric | Platform Details |
+|--------|------------------|
+| Network Model | Decentralized Peer-to-Peer & Public Discovery |
+| Availability | Pan-India |
+| Trust & Verification | 100% Verified Chargers & Hosts |
 | Avg. Host Monthly Earnings | ₹5,000–15,000 |
-| Host Revenue Share | 85% |
-| Platform Fee | 15% |
+| Host Revenue Share | 100% (0% platform commission) |
+| Platform Fee | ₹0 commission for hosts |
 
 ### Platform Availability
 - **Android:** [Google Play Store](https://play.google.com/store/apps/details?id=com.chargekr)
@@ -184,8 +183,8 @@ Driver Books Charger
   → Host Receives Notification
   → Driver Arrives → Charging Session Starts
   → Session Ends → Payment Processed
-  → 85% Goes to Host Earnings Wallet
-  → 15% Platform Fee Deducted
+  → 100% of Charging Fee Goes to Host Earnings Wallet
+  → ₹0 Platform Fee Deducted (0% Host Commission)
   → Weekly Payout to Bank Account (Every Monday)
   → Min Payout Threshold: ₹100
 ```
@@ -198,7 +197,7 @@ Driver Books Charger
 
 | Revenue Stream | Details |
 |---------------|---------|
-| **Platform Fee** | 15% commission on each booking |
+| **Host Commission** | ₹0 platform commission (100% payout to hosts) |
 | **Premium Host Subscription** (future) | Featured listings, priority support, advanced analytics |
 | **Promoted Listings** (future) | Hosts pay to boost visibility in search results |
 | **Enterprise Plans** (future) | B2B partnerships with fleet operators, companies, residential societies |
@@ -211,16 +210,16 @@ Driver Books Charger
 | Avg. Sessions/Day | 2–6 |
 | Monthly Earnings (typical) | ₹5,000 – ₹15,000 |
 | Monthly Earnings (DC Fast in commercial area) | Up to ₹28,000+ |
-| Revenue to Host | 85% |
+| Revenue to Host | 100% |
 | Upfront Costs for Host | ₹0 (use existing charger) |
 
 ### 7.3 Earnings Calculator Logic
 
 ```
-Monthly Earnings = hours_per_day × rate_per_hour × days_per_week × 4 × 0.85
+Monthly Earnings = hours_per_day × rate_per_hour × days_per_week × 4 × 1.00
 
 Example:
-  4 hrs/day × ₹50/hr × 5 days/week × 4 weeks × 0.85 = ₹3,400/month
+  4 hrs/day × ₹50/hr × 5 days/week × 4 weeks × 1.00 = ₹4,000/month
 ```
 
 ---
@@ -321,8 +320,7 @@ Session Ends
   → Total calculated: hours × hourly rate
   → Driver charged automatically
   → Payment processed via gateway (Razorpay / Stripe)
-  → 85% credited to Host earnings wallet
-  → 15% retained as platform fee
+  → 100% credited to Host earnings wallet (₹0 platform commission)
   → Host receives weekly bank transfer (Monday)
 ```
 
