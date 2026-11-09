@@ -519,6 +519,241 @@
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
+    /* ── Ops Navigation Tabs ── */
+    .ops-nav-tabs {
+      display: inline-flex;
+      background: rgba(11, 12, 14, 0.05);
+      border: 1px solid rgba(11, 12, 14, 0.06);
+      padding: 3px;
+      border-radius: var(--radius-xl, 999px);
+      gap: 4px;
+    }
+
+    .ops-nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: var(--radius-xl, 999px);
+      border: none;
+      background: transparent;
+      font-size: 0.84rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ops-nav-tab:hover {
+      color: var(--text-primary);
+    }
+
+    .ops-nav-tab.active {
+      background: var(--bg-paper, #FFFFFF);
+      color: var(--text-primary);
+      box-shadow: 0 1px 3px rgba(11, 12, 14, 0.08);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary, #22C55E);
+      display: inline-block;
+      box-shadow: 0 0 6px var(--primary);
+      animation: pulseLive 2s infinite;
+    }
+
+    @keyframes pulseLive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* ── KPI Metric Grid ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 1024px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kpi-card {
+      background: var(--bg-paper, #FFFFFF);
+      border: 1px solid rgba(11, 12, 14, 0.08);
+      border-radius: var(--radius-md, 20px);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-value {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.1;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── Interactive Bubble Chart Showcase ── */
+    .bubble-showcase-card {
+      background: var(--bg-paper, #FFFFFF);
+      border: 1px solid rgba(11, 12, 14, 0.08);
+      border-radius: var(--radius-md, 20px);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .bubble-stage-container {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      background: radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.03) 0%, rgba(246, 245, 242, 0.3) 70%), #FAFAF9;
+      border: 1px solid rgba(11, 12, 14, 0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .bubble-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .feature-bubble {
+      cursor: pointer;
+      transition: filter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feature-bubble:hover {
+      filter: drop-shadow(0 14px 28px rgba(11, 12, 14, 0.16));
+    }
+
+    .feature-bubble.active-selected circle.main-circle {
+      stroke: #0B0C0E;
+      stroke-width: 3.5px;
+    }
+
+    /* Floating Bubble Tooltip */
+    .bubble-tooltip {
+      position: absolute;
+      pointer-events: none;
+      z-index: 50;
+      background: var(--bg-carbon, #0B0C0E);
+      color: #FFFFFF;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transform: translate(-50%, -115%);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      opacity: 0;
+      max-width: 260px;
+      white-space: normal;
+    }
+
+    .bubble-tooltip.visible {
+      opacity: 1;
+    }
+
+    /* Endpoint Method Badges */
+    .method-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .method-badge.get { background: rgba(59, 130, 246, 0.12); color: #2563EB; }
+    .method-badge.post { background: rgba(34, 197, 94, 0.14); color: #15803D; }
+    .method-badge.put { background: rgba(139, 92, 246, 0.14); color: #7C3AED; }
+    .method-badge.delete { background: rgba(239, 68, 68, 0.14); color: #B91C1C; }
+    .method-badge.options { background: rgba(100, 116, 139, 0.14); color: #475569; }
+
+    /* Latency Badges */
+    .latency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-xl);
+    }
+    .latency-badge.fast { background: rgba(34, 197, 94, 0.12); color: #15803D; }
+    .latency-badge.normal { background: rgba(245, 158, 11, 0.12); color: #B45309; }
+    .latency-badge.slow { background: rgba(239, 68, 68, 0.12); color: #B91C1C; }
+
+    /* Share Progress Bar */
+    .share-bar-container {
+      width: 80px;
+      height: 6px;
+      background: rgba(11, 12, 14, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .share-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -566,21 +801,36 @@
   <!-- ── 2. MINIMALIST NAVBAR ── -->
   <nav class="ops-navbar">
     <div class="ops-navbar-inner">
-      <a href="index.html" class="ops-logo">
-        <img src="Logo/changekr.png" alt="ChargeKr">
-        <div class="ops-logo-title">Charge<span style="color: var(--primary);">Kr</span></div>
-        <span class="ops-tag">Push Studio</span>
-      </a>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="index.html" class="ops-logo">
+          <img src="Logo/changekr.png" alt="ChargeKr">
+          <div class="ops-logo-title">Charge<span style="color: var(--primary);">Kr</span></div>
+          <span class="ops-tag" id="opsNavTag">Console</span>
+        </a>
+
+        <!-- Segmented Navigation Tabs -->
+        <div class="ops-nav-tabs">
+          <button class="ops-nav-tab active" id="tabPush" onclick="switchOpsTab('push')">
+            <i class="fa-solid fa-paper-plane" style="font-size: 0.78rem;"></i>
+            <span>Push Studio</span>
+          </button>
+          <button class="ops-nav-tab" id="tabAnalytics" onclick="switchOpsTab('analytics')">
+            <i class="fa-solid fa-circle-nodes" style="font-size: 0.8rem;"></i>
+            <span>Feature Analytics</span>
+            <span class="live-dot" title="Live telemetry enabled"></span>
+          </button>
+        </div>
+      </div>
 
       <!-- Minimalist Stats & User Controls -->
       <div style="display: flex; align-items: center; gap: 12px;">
-        <div class="ops-chip" title="Total active registered mobile devices">
+        <div class="ops-chip" id="deviceChip" title="Total active registered mobile devices">
           <i class="fa-solid fa-mobile-screen" style="color: var(--text-muted);"></i>
           <span>Devices: <strong id="statTotal">--</strong></span>
           <span style="color: var(--text-muted); font-size: 0.75rem;">(<span id="statIos">--</span> iOS • <span id="statAndroid">--</span> Android)</span>
         </div>
 
-        <button class="btn btn--outline btn--sm" id="refreshStatsBtn" style="padding: 8px 12px;" title="Refresh live device count">
+        <button class="btn btn--outline btn--sm" id="refreshStatsBtn" style="padding: 8px 12px;" title="Refresh live data">
           <i class="fa-solid fa-rotate" style="font-size: 0.78rem;"></i>
         </button>
 
@@ -594,7 +844,10 @@
 
   <!-- ── 3. MAIN STUDIO BODY ── -->
   <main class="ops-container">
-    <div class="ops-grid">
+
+    <!-- ════════ VIEW 1: PUSH NOTIFICATION STUDIO ════════ -->
+    <div id="pushStudioView">
+      <div class="ops-grid">
 
       <!-- LEFT: COMPOSER FORM -->
       <section class="ops-card">
@@ -836,6 +1089,194 @@
         </table>
       </div>
     </section>
+    </div>
+    <!-- ════════ END VIEW 1 ════════ -->
+
+    <!-- ════════ VIEW 2: FEATURE ANALYTICS & BUBBLE DASHBOARD ════════ -->
+    <div id="featureAnalyticsView" style="display: none;">
+
+      <!-- Header & Time Filter Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+            <h1 class="ops-card-title" style="margin-bottom: 0; font-size: 1.45rem;">Feature Usage Intelligence</h1>
+            <span class="status-pill success"><i class="fa-solid fa-chart-line"></i> Live Telemetry</span>
+          </div>
+          <p class="ops-card-desc" style="margin: 0;">Real-time aggregation of mobile app interactions and API endpoints across iOS and Android.</p>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <!-- Time Range Filter Pills -->
+          <div class="pill-group" id="analyticsRangePills" style="margin: 0;">
+            <div class="pill-opt" data-range="today">Today</div>
+            <div class="pill-opt" data-range="7d">7 Days</div>
+            <div class="pill-opt" data-range="30d">30 Days</div>
+            <div class="pill-opt active" data-range="all">All Time</div>
+          </div>
+
+          <button class="btn btn--outline btn--sm" id="refreshAnalyticsBtn" onclick="loadFeatureAnalytics()" style="padding: 8px 14px;" title="Refresh telemetry">
+            <i class="fa-solid fa-rotate" style="font-size: 0.78rem;"></i>
+            <span>Refresh</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 1. KPI Summary Cards Grid -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Total Requests</span>
+            <i class="fa-solid fa-bolt" style="color: var(--primary);"></i>
+          </div>
+          <div class="kpi-value" id="kpiTotalHits">--</div>
+          <div class="kpi-sub">
+            <span class="status-pill success" style="padding: 2px 6px; font-size: 0.68rem;">Live</span>
+            <span>Recorded in database</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Top Feature</span>
+            <i class="fa-solid fa-crown" style="color: #F59E0B;"></i>
+          </div>
+          <div class="kpi-value" id="kpiTopFeature" style="font-size: 1.35rem; line-height: 1.2;">--</div>
+          <div class="kpi-sub" id="kpiTopShare">
+            <span>Leading platform feature</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Platform Latency</span>
+            <i class="fa-solid fa-gauge-high" style="color: #3B82F6;"></i>
+          </div>
+          <div class="kpi-value" id="kpiAvgLatency">--</div>
+          <div class="kpi-sub" id="kpiLatencyBadge">
+            <span>Server response time</span>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">
+            <span>Active Modules</span>
+            <i class="fa-solid fa-cubes" style="color: #8B5CF6;"></i>
+          </div>
+          <div class="kpi-value" id="kpiModulesCount">--</div>
+          <div class="kpi-sub" id="kpiEndpointsCount">
+            <span>Endpoints mapped</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Interactive Feature Bubble Showcase Card -->
+      <section class="bubble-showcase-card">
+        <div class="ops-card-header" style="margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <h2 class="ops-card-title" style="margin-bottom: 0;">Feature Engagement Bubbles</h2>
+              <span id="activeBubbleFilterBadge" class="ops-chip" style="display: none; cursor: pointer; padding: 3px 10px; font-size: 0.74rem;" onclick="resetBubbleFilter()">
+                <i class="fa-solid fa-xmark"></i> Filter: <strong id="filterFeatureName"></strong> (Reset)
+              </span>
+            </div>
+            <p class="ops-card-desc" style="margin-top: 4px;">
+              Bubble diameter represents relative request volume (&radic;hits). Hover to inspect metrics, click any bubble to drill into endpoints.
+            </p>
+          </div>
+          <div style="font-size: 0.76rem; color: var(--text-muted); font-family: var(--font-mono);" id="bubbleUpdatedTime">
+            Updated just now
+          </div>
+        </div>
+
+        <!-- Bubble Interactive Stage Container -->
+        <div class="bubble-stage-container" id="bubbleStageWrapper">
+          <svg id="bubbleSvg" class="bubble-svg" viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid meet"></svg>
+
+          <!-- Floating Interactive Tooltip -->
+          <div id="bubbleTooltip" class="bubble-tooltip">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span id="tipIcon" style="font-size: 1rem;"></span>
+              <strong id="tipTitle" style="font-size: 0.88rem; font-family: var(--font-heading);"></strong>
+            </div>
+            <div style="font-size: 0.74rem; color: #94A3B8; margin-bottom: 8px;" id="tipCategory"></div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.78rem;">
+              <span style="color: #94A3B8;">Requests:</span>
+              <strong id="tipHits" style="color: #22C55E; font-family: var(--font-mono);"></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.78rem;">
+              <span style="color: #94A3B8;">Traffic Share:</span>
+              <strong id="tipShare" style="font-family: var(--font-mono);"></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.78rem;">
+              <span style="color: #94A3B8;">Avg Latency:</span>
+              <strong id="tipLatency" style="font-family: var(--font-mono);"></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem;">
+              <span style="color: #94A3B8;">Active Routes:</span>
+              <strong id="tipRoutes" style="font-family: var(--font-mono);"></strong>
+            </div>
+            <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; color: #38BDF8; text-align: center;">
+              Click bubble to filter routes below
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend / Feature Chips -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px;">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;" id="bubbleLegendChips">
+            <!-- Dynamic Category Chips -->
+          </div>
+          <div style="font-size: 0.78rem; color: var(--text-muted);">
+            <i class="fa-solid fa-circle-info" style="margin-right: 4px;"></i> Live Supabase PostgreSQL persistence
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Endpoint Route Deep-Dive Table -->
+      <section class="ops-card">
+        <div class="ops-card-header">
+          <div>
+            <h2 class="ops-card-title">Endpoint Telemetry & Performance</h2>
+            <p class="ops-card-desc">Detailed request breakdown for all API routes under the selected module.</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="position: relative; width: 260px;">
+              <input type="text" id="endpointSearchInput" class="form-input" placeholder="Search routes (e.g. /nearby)..." style="padding-left: 34px; font-size: 0.82rem; height: 36px;">
+              <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 11px; font-size: 0.76rem; color: var(--text-muted);"></i>
+            </div>
+            <button class="btn btn--outline btn--sm" id="resetTableFilterBtn" onclick="resetBubbleFilter()" style="display: none; padding: 8px 12px;">
+              <span>Clear Filter</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="ops-table">
+            <thead>
+              <tr>
+                <th>Feature Module</th>
+                <th>Method</th>
+                <th>API Route</th>
+                <th>Requests</th>
+                <th>Volume Share</th>
+                <th>Avg Latency</th>
+                <th>Last Active</th>
+              </tr>
+            </thead>
+            <tbody id="endpointTableBody">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 28px;">
+                  <i class="fa-solid fa-spinner fa-spin" style="margin-right: 6px;"></i> Loading telemetry...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+    <!-- ════════ END VIEW 2 ════════ -->
+
   </main>
 
   <!-- ── 5. CLIENT SCRIPT ── -->
@@ -1204,6 +1645,541 @@
       const div = document.createElement("div");
       div.textContent = text;
       return div.innerHTML;
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // 6. OPS TAB SWITCHING & FEATURE ANALYTICS ENGINE
+    // ════════════════════════════════════════════════════════════
+    let currentOpsTab = "push";
+    let currentAnalyticsRange = "all";
+    let analyticsData = null;
+    let selectedFeatureKey = null;
+    let endpointSearchQuery = "";
+
+    function switchOpsTab(tab) {
+      currentOpsTab = tab;
+      const tabPush = document.getElementById("tabPush");
+      const tabAnalytics = document.getElementById("tabAnalytics");
+      const viewPush = document.getElementById("pushStudioView");
+      const viewAnalytics = document.getElementById("featureAnalyticsView");
+      const navTag = document.getElementById("opsNavTag");
+
+      if (tab === "analytics") {
+        tabPush.classList.remove("active");
+        tabAnalytics.classList.add("active");
+        viewPush.style.display = "none";
+        viewAnalytics.style.display = "block";
+        navTag.textContent = "Analytics";
+        loadFeatureAnalytics();
+      } else {
+        tabAnalytics.classList.remove("active");
+        tabPush.classList.add("active");
+        viewAnalytics.style.display = "none";
+        viewPush.style.display = "block";
+        navTag.textContent = "Push Studio";
+      }
+    }
+
+    // Analytics range selector
+    document.querySelectorAll("#analyticsRangePills .pill-opt").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll("#analyticsRangePills .pill-opt").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        currentAnalyticsRange = pill.getAttribute("data-range");
+        loadFeatureAnalytics();
+      });
+    });
+
+    async function loadFeatureAnalytics() {
+      if (!adminToken) return;
+      const refreshBtn = document.getElementById("refreshAnalyticsBtn");
+      if (refreshBtn) refreshBtn.innerHTML = `<i class="fa-solid fa-rotate fa-spin" style="font-size: 0.78rem;"></i> <span>Refreshing...</span>`;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/admin/analytics/features?range=${currentAnalyticsRange}`, {
+          headers: { "Authorization": `Bearer ${adminToken}` }
+        });
+        if (!res.ok) {
+          if (res.status === 401) logout();
+          return;
+        }
+        analyticsData = await res.json();
+        updateAnalyticsUI(analyticsData);
+      } catch (err) {
+        console.warn("Analytics fetch failed:", err);
+        showToast("Failed to load feature analytics: " + err.message, true);
+      } finally {
+        if (refreshBtn) refreshBtn.innerHTML = `<i class="fa-solid fa-rotate" style="font-size: 0.78rem;"></i> <span>Refresh</span>`;
+      }
+    }
+
+    function updateAnalyticsUI(data) {
+      if (!data) return;
+
+      // 1. KPI Cards
+      document.getElementById("kpiTotalHits").textContent = (data.totalHits || 0).toLocaleString();
+      document.getElementById("kpiTopFeature").textContent = data.topFeature || "None";
+      const topFeat = (data.features && data.features[0]) || null;
+      document.getElementById("kpiTopShare").innerHTML = topFeat 
+        ? `<span><strong>${topFeat.percentage}%</strong> of total traffic</span>` 
+        : `<span>Leading platform feature</span>`;
+
+      const avgLat = data.avgLatencyMs || 0;
+      document.getElementById("kpiAvgLatency").textContent = `${avgLat} ms`;
+      const latBadge = avgLat < 60 
+        ? `<span class="latency-badge fast"><i class="fa-solid fa-bolt"></i> Ultra Fast</span>`
+        : avgLat < 150 
+        ? `<span class="latency-badge normal"><i class="fa-solid fa-check"></i> Nominal</span>`
+        : `<span class="latency-badge slow"><i class="fa-solid fa-triangle-exclamation"></i> High</span>`;
+      document.getElementById("kpiLatencyBadge").innerHTML = latBadge;
+
+      const totalEndpoints = (data.features || []).reduce((acc, f) => acc + (f.endpointCount || 0), 0);
+      document.getElementById("kpiModulesCount").textContent = `${data.uniqueFeatures || 0} Modules`;
+      document.getElementById("kpiEndpointsCount").innerHTML = `<span><strong>${totalEndpoints}</strong> active endpoints</span>`;
+
+      document.getElementById("bubbleUpdatedTime").textContent = `Updated ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+
+      // 2. Render Bubbles & Legend
+      renderBubbleChart(data.features || [], data.totalHits || 0);
+      renderLegendChips(data.features || []);
+
+      // 3. Render Endpoints Table
+      renderEndpointTable(data.features || []);
+    }
+
+    // Dynamic Legend Chips
+    function renderLegendChips(features) {
+      const container = document.getElementById("bubbleLegendChips");
+      if (!container) return;
+      container.innerHTML = `
+        <span class="ops-chip" style="cursor: pointer; ${!selectedFeatureKey ? 'background: #0B0C0E; color: #FFFFFF;' : ''}" onclick="resetBubbleFilter()">
+          All Features
+        </span>
+      `;
+      features.forEach(f => {
+        const isSelected = selectedFeatureKey === f.featureKey;
+        const chip = document.createElement("span");
+        chip.className = "ops-chip";
+        chip.style.cursor = "pointer";
+        chip.style.transition = "all 0.15s ease";
+        if (isSelected) {
+          chip.style.background = f.color;
+          chip.style.color = "#FFFFFF";
+          chip.style.borderColor = f.color;
+        }
+        chip.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: ${f.color}; display: inline-block;"></span> <span>${escapeHtml(f.displayName)}</span>`;
+        chip.onclick = () => selectFeatureBubble(f.featureKey);
+        container.appendChild(chip);
+      });
+    }
+
+    // Interactive Bubble Chart Physics & Rendering
+    function renderBubbleChart(features, grandTotal) {
+      const svg = document.getElementById("bubbleSvg");
+      if (!svg) return;
+      svg.innerHTML = "";
+
+      if (!features || features.length === 0) {
+        svg.innerHTML = `<text x="500" y="260" text-anchor="middle" fill="#94A3B8" font-size="16" font-family="Inter, sans-serif">No telemetry recorded for this timeframe</text>`;
+        return;
+      }
+
+      const width = 1000;
+      const height = 520;
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      const maxHits = Math.max(...features.map(f => f.totalHits || 1), 1);
+      const minRadius = 42;
+      const maxRadius = 120;
+
+      // Map to bubble nodes
+      const bubbles = features.map((f, i) => {
+        const hitsRatio = Math.sqrt((f.totalHits || 1) / maxHits);
+        const r = Math.round(minRadius + hitsRatio * (maxRadius - minRadius));
+        const angle = (i / features.length) * 2 * Math.PI + (i % 2 === 0 ? 0.2 : -0.2);
+        const dist = 60 + (i * 35);
+        return {
+          ...f,
+          r: r,
+          x: centerX + Math.cos(angle) * dist,
+          y: centerY + Math.sin(angle) * dist,
+          vx: 0,
+          vy: 0
+        };
+      });
+
+      // Relaxation simulation (70 iterations)
+      for (let iter = 0; iter < 70; iter++) {
+        for (let i = 0; i < bubbles.length; i++) {
+          const b1 = bubbles[i];
+          // Gravity toward center
+          b1.vx += (centerX - b1.x) * 0.015;
+          b1.vy += (centerY - b1.y) * 0.015;
+
+          // Collisions
+          for (let j = i + 1; j < bubbles.length; j++) {
+            const b2 = bubbles[j];
+            const dx = b2.x - b1.x;
+            const dy = b2.y - b1.y;
+            const dist = Math.hypot(dx, dy) || 1;
+            const minDist = b1.r + b2.r + 14;
+
+            if (dist < minDist) {
+              const overlap = (minDist - dist) / dist;
+              const fx = dx * overlap * 0.45;
+              const fy = dy * overlap * 0.45;
+              b1.vx -= fx;
+              b1.vy -= fy;
+              b2.vx += fx;
+              b2.vy += fy;
+            }
+          }
+
+          // Damping & position update
+          b1.x += b1.vx;
+          b1.y += b1.vy;
+          b1.vx *= 0.72;
+          b1.vy *= 0.72;
+
+          // Boundary clamp
+          b1.x = Math.max(b1.r + 16, Math.min(width - b1.r - 16, b1.x));
+          b1.y = Math.max(b1.r + 16, Math.min(height - b1.r - 16, b1.y));
+        }
+      }
+
+      // Render SVG definitions
+      const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+      bubbles.forEach(b => {
+        const grad = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
+        grad.setAttribute("id", `grad-${b.featureKey.replace(/[^a-zA-Z0-9]/g, '_')}`);
+        grad.setAttribute("cx", "35%");
+        grad.setAttribute("cy", "35%");
+        grad.setAttribute("r", "65%");
+
+        const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop1.setAttribute("offset", "0%");
+        stop1.setAttribute("stop-color", "#FFFFFF");
+        stop1.setAttribute("stop-opacity", "0.95");
+
+        const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop2.setAttribute("offset", "55%");
+        stop2.setAttribute("stop-color", b.color || "#22C55E");
+        stop2.setAttribute("stop-opacity", "0.18");
+
+        const stop3 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+        stop3.setAttribute("offset", "100%");
+        stop3.setAttribute("stop-color", b.color || "#22C55E");
+        stop3.setAttribute("stop-opacity", "0.38");
+
+        grad.appendChild(stop1);
+        grad.appendChild(stop2);
+        grad.appendChild(stop3);
+        defs.appendChild(grad);
+      });
+      svg.appendChild(defs);
+
+      // Render SVG groups
+      const tooltip = document.getElementById("bubbleTooltip");
+
+      bubbles.forEach(b => {
+        const isSelected = selectedFeatureKey === b.featureKey;
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", `feature-bubble ${isSelected ? 'active-selected' : ''}`);
+        g.setAttribute("data-key", b.featureKey);
+
+        const gradId = `grad-${b.featureKey.replace(/[^a-zA-Z0-9]/g, '_')}`;
+
+        // Outer glow/pulse ring if selected
+        if (isSelected) {
+          const pulseCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          pulseCircle.setAttribute("cx", b.x);
+          pulseCircle.setAttribute("cy", b.y);
+          pulseCircle.setAttribute("r", b.r + 8);
+          pulseCircle.setAttribute("fill", "none");
+          pulseCircle.setAttribute("stroke", b.color || "#0B0C0E");
+          pulseCircle.setAttribute("stroke-width", "2.5");
+          pulseCircle.setAttribute("stroke-dasharray", "6 4");
+          g.appendChild(pulseCircle);
+        }
+
+        // Main bubble circle
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("class", "main-circle");
+        circle.setAttribute("cx", b.x);
+        circle.setAttribute("cy", b.y);
+        circle.setAttribute("r", b.r);
+        circle.setAttribute("fill", `url(#${gradId})`);
+        circle.setAttribute("stroke", isSelected ? "#0B0C0E" : (b.color || "#22C55E"));
+        circle.setAttribute("stroke-width", isSelected ? "3.5" : "2");
+        circle.style.transition = "all 0.25s ease";
+        g.appendChild(circle);
+
+        // Icon (Emoji)
+        const iconEmoji = getFeatureEmoji(b.featureKey);
+        const iconText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        iconText.setAttribute("x", b.x);
+        iconText.setAttribute("y", b.r > 65 ? b.y - b.r * 0.32 : b.y - 12);
+        iconText.setAttribute("text-anchor", "middle");
+        iconText.setAttribute("dominant-baseline", "middle");
+        iconText.setAttribute("font-size", b.r > 75 ? "24" : b.r > 50 ? "18" : "15");
+        iconText.textContent = iconEmoji;
+        g.appendChild(iconText);
+
+        // Title
+        const titleText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        titleText.setAttribute("x", b.x);
+        titleText.setAttribute("y", b.r > 65 ? b.y - 4 : b.y + 6);
+        titleText.setAttribute("text-anchor", "middle");
+        titleText.setAttribute("dominant-baseline", "middle");
+        titleText.setAttribute("font-family", "Plus Jakarta Sans, Inter, sans-serif");
+        titleText.setAttribute("font-weight", "700");
+        titleText.setAttribute("font-size", b.r > 80 ? "13.5" : b.r > 55 ? "11.5" : "10");
+        titleText.setAttribute("fill", "#0B0C0E");
+        titleText.textContent = truncateString(b.displayName, b.r > 70 ? 20 : 13);
+        g.appendChild(titleText);
+
+        // Hits count & share
+        const hitsText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        hitsText.setAttribute("x", b.x);
+        hitsText.setAttribute("y", b.r > 65 ? b.y + 18 : b.y + 22);
+        hitsText.setAttribute("text-anchor", "middle");
+        hitsText.setAttribute("dominant-baseline", "middle");
+        hitsText.setAttribute("font-family", "JetBrains Mono, monospace");
+        hitsText.setAttribute("font-weight", "600");
+        hitsText.setAttribute("font-size", b.r > 80 ? "12" : b.r > 55 ? "10.5" : "9");
+        hitsText.setAttribute("fill", "#1E293B");
+        hitsText.textContent = `${b.totalHits.toLocaleString()} hits`;
+        g.appendChild(hitsText);
+
+        if (b.r > 60) {
+          const shareText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          shareText.setAttribute("x", b.x);
+          shareText.setAttribute("y", b.y + 36);
+          shareText.setAttribute("text-anchor", "middle");
+          shareText.setAttribute("dominant-baseline", "middle");
+          shareText.setAttribute("font-family", "Inter, sans-serif");
+          shareText.setAttribute("font-weight", "600");
+          shareText.setAttribute("font-size", "10");
+          shareText.setAttribute("fill", b.color || "#16A34A");
+          shareText.textContent = `${b.percentage}% share`;
+          g.appendChild(shareText);
+        }
+
+        // Tooltip hover interactions
+        g.addEventListener("mouseenter", (e) => {
+          circle.setAttribute("r", b.r + 4);
+          circle.setAttribute("stroke-width", "3.5");
+
+          document.getElementById("tipIcon").textContent = iconEmoji;
+          document.getElementById("tipTitle").textContent = b.displayName;
+          document.getElementById("tipCategory").textContent = `${b.category || 'Module'} • Key: ${b.featureKey}`;
+          document.getElementById("tipHits").textContent = `${b.totalHits.toLocaleString()} calls`;
+          document.getElementById("tipShare").textContent = `${b.percentage}% of all traffic`;
+          document.getElementById("tipLatency").textContent = `${b.avgLatencyMs || 0} ms`;
+          document.getElementById("tipRoutes").textContent = `${b.endpointCount || 0} unique routes`;
+
+          tooltip.classList.add("visible");
+          positionTooltip(e);
+        });
+
+        g.addEventListener("mousemove", (e) => {
+          positionTooltip(e);
+        });
+
+        g.addEventListener("mouseleave", () => {
+          circle.setAttribute("r", b.r);
+          circle.setAttribute("stroke-width", isSelected ? "3.5" : "2");
+          tooltip.classList.remove("visible");
+        });
+
+        // Click to filter endpoints
+        g.addEventListener("click", () => {
+          selectFeatureBubble(b.featureKey === selectedFeatureKey ? null : b.featureKey);
+        });
+
+        svg.appendChild(g);
+      });
+    }
+
+    function positionTooltip(e) {
+      const wrapper = document.getElementById("bubbleStageWrapper");
+      const tooltip = document.getElementById("bubbleTooltip");
+      if (!wrapper || !tooltip) return;
+
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      tooltip.style.left = `${Math.max(130, Math.min(rect.width - 130, x))}px`;
+      tooltip.style.top = `${Math.max(80, y - 14)}px`;
+    }
+
+    function getFeatureEmoji(key) {
+      switch (key) {
+        case "chargers": return "⚡";
+        case "bookings": return "🔋";
+        case "users": return "👤";
+        case "auth": return "🔐";
+        case "vehicles": return "🚗";
+        case "reviews": return "⭐";
+        case "payments": return "💳";
+        case "payouts": return "🏦";
+        case "reports": return "🚩";
+        case "api.other.get": return "🔍";
+        case "api.other.post": return "⚡";
+        default: return "⚙️";
+      }
+    }
+
+    function truncateString(str, max) {
+      if (!str) return "";
+      return str.length > max ? str.substring(0, max - 1) + "…" : str;
+    }
+
+    function selectFeatureBubble(key) {
+      selectedFeatureKey = key;
+      const badge = document.getElementById("activeBubbleFilterBadge");
+      const resetBtn = document.getElementById("resetTableFilterBtn");
+      const nameEl = document.getElementById("filterFeatureName");
+
+      if (key && analyticsData && analyticsData.features) {
+        const feat = analyticsData.features.find(f => f.featureKey === key);
+        if (feat) {
+          nameEl.textContent = feat.displayName;
+          badge.style.display = "inline-flex";
+          resetBtn.style.display = "inline-flex";
+        }
+      } else {
+        badge.style.display = "none";
+        resetBtn.style.display = "none";
+      }
+
+      if (analyticsData) {
+        renderBubbleChart(analyticsData.features || [], analyticsData.totalHits || 0);
+        renderLegendChips(analyticsData.features || []);
+        renderEndpointTable(analyticsData.features || []);
+      }
+    }
+
+    function resetBubbleFilter() {
+      selectFeatureBubble(null);
+    }
+
+    // Endpoint Table Search & Rendering
+    document.getElementById("endpointSearchInput").addEventListener("input", (e) => {
+      endpointSearchQuery = e.target.value.trim().toLowerCase();
+      if (analyticsData) {
+        renderEndpointTable(analyticsData.features || []);
+      }
+    });
+
+    function renderEndpointTable(features) {
+      const tbody = document.getElementById("endpointTableBody");
+      if (!tbody) return;
+
+      // Flatten endpoints
+      let rows = [];
+      features.forEach(f => {
+        if (selectedFeatureKey && f.featureKey !== selectedFeatureKey) {
+          return;
+        }
+        (f.endpoints || []).forEach(ep => {
+          if (endpointSearchQuery) {
+            const matchPath = (ep.path || "").toLowerCase().includes(endpointSearchQuery);
+            const matchMethod = (ep.method || "").toLowerCase().includes(endpointSearchQuery);
+            const matchFeat = (f.displayName || "").toLowerCase().includes(endpointSearchQuery);
+            if (!matchPath && !matchMethod && !matchFeat) return;
+          }
+          rows.push({
+            featureKey: f.featureKey,
+            featureName: f.displayName,
+            featureColor: f.color || "#22C55E",
+            category: f.category,
+            method: ep.method || "GET",
+            path: ep.path || "",
+            hits: ep.hits || 0,
+            percentageOfFeature: ep.percentageOfFeature || 0,
+            avgLatencyMs: ep.avgLatencyMs || 0,
+            lastSeenAt: ep.lastSeenAt
+          });
+        });
+      });
+
+      // Sort by hits descending
+      rows.sort((a, b) => b.hits - a.hits);
+
+      if (rows.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 32px;">
+              No endpoints matching current filter criteria.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      const grandTotalHits = (analyticsData && analyticsData.totalHits) || 1;
+
+      tbody.innerHTML = rows.map(r => {
+        const methodClass = (r.method || "GET").toLowerCase();
+        const overallShare = Math.round((r.hits * 1000.0) / grandTotalHits) / 10.0;
+        const latencyClass = r.avgLatencyMs < 60 ? "fast" : r.avgLatencyMs < 150 ? "normal" : "slow";
+        const relativeTime = r.lastSeenAt ? formatRelativeTime(r.lastSeenAt) : "Recently";
+
+        return `
+          <tr>
+            <td>
+              <span class="ops-chip" style="padding: 2px 8px; font-size: 0.76rem; border-color: ${r.featureColor}40;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: ${r.featureColor}; display: inline-block;"></span>
+                <span>${escapeHtml(r.featureName)}</span>
+              </span>
+            </td>
+            <td>
+              <span class="method-badge ${methodClass}">${escapeHtml(r.method)}</span>
+            </td>
+            <td>
+              <code style="font-family: var(--font-mono); font-size: 0.84rem; color: #0B0C0E; font-weight: 500;">${escapeHtml(r.path)}</code>
+            </td>
+            <td>
+              <strong style="font-family: var(--font-mono); font-size: 0.88rem;">${r.hits.toLocaleString()}</strong>
+            </td>
+            <td>
+              <div style="display: flex; align-items: center;">
+                <div class="share-bar-container">
+                  <div class="share-bar-fill" style="width: ${Math.min(100, Math.max(6, overallShare * 1.3))}%; background: ${r.featureColor};"></div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">${overallShare}%</span>
+              </div>
+            </td>
+            <td>
+              <span class="latency-badge ${latencyClass}">${r.avgLatencyMs} ms</span>
+            </td>
+            <td style="color: var(--text-muted); font-size: 0.78rem;">
+              ${escapeHtml(relativeTime)}
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function formatRelativeTime(isoString) {
+      try {
+        const d = new Date(isoString);
+        if (isNaN(d.getTime())) return isoString;
+        const diffMs = Date.now() - d.getTime();
+        const diffSec = Math.floor(diffMs / 1000);
+        if (diffSec < 60) return "Just now";
+        const diffMin = Math.floor(diffSec / 60);
+        if (diffMin < 60) return `${diffMin}m ago`;
+        const diffHour = Math.floor(diffMin / 60);
+        if (diffHour < 24) return `${diffHour}h ago`;
+        const diffDay = Math.floor(diffHour / 24);
+        return `${diffDay}d ago`;
+      } catch (e) {
+        return isoString;
+      }
     }
 
     verifyAuth();
