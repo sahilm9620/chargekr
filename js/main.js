@@ -114,28 +114,28 @@ function initHeroNodeSwitcher() {
 
   const nodes = [
     {
-      loc: 'VERIFIED HOST • INDIRANAGAR, BENGALURU',
+      loc: 'ILLUSTRATIVE SESSION • INDIRANAGAR, BENGALURU',
       spec: '7.4 KW HOME WALLBOX • ₹45/HR',
       soc: 38,
       kwh: '6.4',
       earn: 90,
-      status: '● CHARGING NOW'
+      status: '● CHARGING NOW (ILLUSTRATIVE)'
     },
     {
-      loc: 'VERIFIED HOST • BANDRA WEST, MUMBAI',
+      loc: 'ILLUSTRATIVE SESSION • BANDRA WEST, MUMBAI',
       spec: '11 KW TYPE-2 AC BAY • ₹60/HR',
       soc: 74,
       kwh: '16.5',
       earn: 180,
-      status: '● CHARGING NOW'
+      status: '● CHARGING NOW (ILLUSTRATIVE)'
     },
     {
-      loc: 'VERIFIED HOST • KOREGAON PARK, PUNE',
+      loc: 'ILLUSTRATIVE SESSION • KOREGAON PARK, PUNE',
       spec: '3.3 KW 15A SMART PLUG • ₹30/HR',
       soc: 92,
       kwh: '5.2',
       earn: 60,
-      status: '● PAID VIA UPI (100% TO HOST)'
+      status: '● COMPLETED SESSION (ILLUSTRATIVE)'
     }
   ];
 
@@ -1715,15 +1715,15 @@ function initCalculator() {
 
   function getImpactDescription(monthly) {
     if (monthly < 3500) {
-      return 'Covers 100% of your own monthly home EV charging bill';
+      return 'Illustrative gross receipts at chosen hours (before electricity & expenses)';
     }
     if (monthly < 8500) {
-      return 'Covers 100% of home EV charging + monthly society maintenance';
+      return 'Illustrative gross receipts at regular utilisation (before electricity & expenses)';
     }
     if (monthly < 16000) {
-      return 'Offsets your EV EMI + 100% of monthly household electricity';
+      return 'Illustrative gross receipts at multi-session daily sharing (before expenses)';
     }
-    return 'High-yield host income • Equivalent to ~12,000 km of free EV driving/mo';
+    return 'Illustrative high-volume sharing projection (gross receipts before expenses)';
   }
 
   function animateMonthlyNumber(targetMonthly) {
@@ -1772,7 +1772,7 @@ function initCalculator() {
     if (annualInline) annualInline.textContent = `₹${yearly.toLocaleString('en-IN')} / yr`;
     if (impactBadge) impactBadge.textContent = getImpactDescription(monthly);
     if (summaryText) {
-      summaryText.innerHTML = `Sharing <strong>${hours} hrs/day</strong> (${days} days/wk) at <strong>₹${rate}/hr</strong> • ₹${yearly.toLocaleString('en-IN')}/yr`;
+      summaryText.innerHTML = `Sharing <strong>${hours} hrs/day</strong> (${days} days/wk) at <strong>₹${rate}/hr</strong> • ₹${yearly.toLocaleString('en-IN')}/yr (Illustrative)`;
     }
   }
 
