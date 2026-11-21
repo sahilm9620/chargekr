@@ -14,22 +14,23 @@ const lerp = (start, end, factor) => start + (end - start) * factor;
 const expoOut = (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
 document.addEventListener('DOMContentLoaded', () => {
-  const lenis = initLenisEngine();
-  initBrandIgnitionIntro(lenis);
-  initSplitTextReveals();
-  initHeroNodeSwitcher();
-  initLenisScrollChoreography(lenis);
-  initThreeWallboxTwin(lenis);
-  init3DCardTilt();
-  initVelocityMarquee();
-  initSpeedComparator(lenis);
-  initMagneticButtons();
-  initScrollReveal();
-  initCounters();
-  initAccordions();
-  initMobileMenu(lenis);
-  initCalculator();
-  initLenisAnchorScroll(lenis);
+  let lenis = null;
+  try { lenis = initLenisEngine(); } catch (e) { console.warn('Lenis:', e); }
+  try { initBrandIgnitionIntro(lenis); } catch (e) { console.warn('BrandIntro:', e); }
+  try { initSplitTextReveals(); } catch (e) { console.warn('SplitText:', e); }
+  try { initHeroNodeSwitcher(); } catch (e) { console.warn('HeroNode:', e); }
+  try { initLenisScrollChoreography(lenis); } catch (e) { console.warn('ScrollChoreography:', e); }
+  try { initThreeWallboxTwin(lenis); } catch (e) { console.warn('WallboxTwin:', e); }
+  try { init3DCardTilt(); } catch (e) { console.warn('CardTilt:', e); }
+  try { initVelocityMarquee(); } catch (e) { console.warn('Marquee:', e); }
+  try { initSpeedComparator(lenis); } catch (e) { console.warn('SpeedComparator:', e); }
+  try { initMagneticButtons(); } catch (e) { console.warn('MagneticButtons:', e); }
+  try { initScrollReveal(); } catch (e) { console.warn('ScrollReveal:', e); }
+  try { initCounters(); } catch (e) { console.warn('Counters:', e); }
+  try { initAccordions(); } catch (e) { console.warn('Accordions:', e); }
+  try { initMobileMenu(lenis); } catch (e) { console.warn('MobileMenu:', e); }
+  try { initCalculator(); } catch (e) { console.warn('Calculator:', e); }
+  try { initLenisAnchorScroll(lenis); } catch (e) { console.warn('AnchorScroll:', e); }
 });
 
 /* ---- 0. Signature ChargeKr Brand Ignition Curtain + Hero Host Node Switcher ---- */
@@ -648,10 +649,10 @@ function initThreeWallboxTwin(lenis) {
     {
       idx: 'STEP 01 OF 03 • DISCOVER & BOOK NEARBY',
       title: 'Reserve a verified home charger near your destination',
-      desc: 'Open ChargeKr to see available 15A, Type-2, and Fast chargers in nearby apartments, villas, and offices. Lock your time slot in advance and receive an automatic digital gate pass for society entry.',
+      desc: 'Open ChargeKr to see available 15A, Type-2, and Fast chargers in nearby apartments, villas, and offices. Lock your time slot in advance and receive verified host arrival instructions and designated bay details.',
       rows: [
         ['Host Location', 'Indiranagar Villa #14 (Type-2 · 7.4 kW)', false],
-        ['Reserved Slot & Entry', '2:00 PM – 5:00 PM • Gate Pass Approved', true],
+        ['Reserved Slot & Entry', '2:00 PM – 5:00 PM • Slot Confirmed', true],
         ['Driver Verification', 'Verified EV Profile & Connector Match', false]
       ]
     },
@@ -660,7 +661,7 @@ function initThreeWallboxTwin(lenis) {
       title: 'Pull into the host’s parking bay and plug in',
       desc: 'Zero waiting in commercial queues. Scan the QR code on the host’s charger and plug the connector into your EV. Both you and the host can track live charging progress from your phones.',
       rows: [
-        ['Arrival Wait Time', '0 Minutes (Guaranteed Reserved Bay)', false],
+        ['Arrival Wait Time', '0 Minutes (Pre-Booked Bay)', false],
         ['Charger Connection', 'QR Scanned • Type-2 Connector Locked', true],
         ['Power Delivery', '7.4 kW Home AC (+52 km Range / Hr)', false]
       ]
@@ -677,16 +678,42 @@ function initThreeWallboxTwin(lenis) {
     }
   ];
 
-  // Scene, Camera & Renderer
+  // Safely check WebGL availability
+  let isWebglSupported = false;
+  try {
+    const testCanvas = document.createElement('canvas');
+    isWebglSupported = !!(window.WebGLRenderingContext && (testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl')));
+  } catch (e) {
+    isWebglSupported = false;
+  }
+
+  const w = container.clientWidth || 640;
+  const h = container.clientHeight || 460;
+  const aspect = w / h;
+
+  let renderer = null;
+  if (isWebglSupported) {
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'default' });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      container.appendChild(renderer.domElement);
+    } catch (err) {
+      console.warn('Three.js WebGLRenderer creation failed, using 2D car twin:', err);
+      renderer = null;
+    }
+  }
+
+  if (!renderer) {
+    initFallbackCarAnimation(container, section, lenis, stagePills, stageContent);
+    return;
+  }
+
+  // Scene & Camera
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, container.clientWidth / container.clientHeight, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(34, aspect, 0.1, 100);
   camera.position.set(0, 1.85, 6.4);
   camera.lookAt(0, 0.15, 0);
-
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  container.appendChild(renderer.domElement);
 
   // Studio Architectural Daylight Lighting
   const ambientLight = new THREE.AmbientLight(0xfffdf8, 0.92);
@@ -1329,6 +1356,292 @@ function initThreeWallboxTwin(lenis) {
   requestAnimationFrame(animate3D);
 }
 
+/* ---- 3b. Interactive 2D Fallback Twin (Car Drives In & Plugs Into Wallbox on Scroll) ---- */
+function initFallbackCarAnimation(container, section, lenis, stagePills, stageContent) {
+  if (!container || !section) return;
+
+  container.innerHTML = `
+    <div class="ck-car-fallback-stage" style="width:100%; height:100%; position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 860 480" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="display:block; overflow:visible;">
+        <defs>
+          <linearGradient id="bayGrad2D" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2D3039"/>
+            <stop offset="100%" stop-color="#1A1C22"/>
+          </linearGradient>
+          <linearGradient id="carBodyGrad2D" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="40%" stop-color="#F2F4F7"/>
+            <stop offset="100%" stop-color="#DDE2E8"/>
+          </linearGradient>
+          <linearGradient id="glassGrad2D" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1B202A"/>
+            <stop offset="100%" stop-color="#090B10"/>
+          </linearGradient>
+          <filter id="voltGlow2D" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- 0. Parking Bay Ground & Lines -->
+        <rect x="70" y="310" width="720" height="130" rx="14" fill="url(#bayGrad2D)"/>
+        <line x1="110" y1="322" x2="760" y2="322" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" opacity="0.45"/>
+        <line x1="110" y1="428" x2="760" y2="428" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="14 10" opacity="0.45"/>
+        <line x1="110" y1="322" x2="110" y2="428" stroke="#FFFFFF" stroke-width="4" opacity="0.85"/>
+        <!-- Wheel Stop Curb -->
+        <rect x="134" y="358" width="16" height="52" rx="4" fill="#14171E"/>
+        <rect x="136" y="366" width="12" height="36" rx="2" fill="#32E800" opacity="0.9"/>
+
+        <!-- Under-Car Glow (Illuminates on Step 3) -->
+        <ellipse id="fb-underglow" cx="490" cy="392" rx="180" ry="22" fill="#32E800" opacity="0" filter="url(#voltGlow2D)"/>
+
+        <!-- 1. Wallbox Pillar & Unit -->
+        <g id="fb-wallbox-group">
+          <rect x="150" y="160" width="34" height="198" rx="6" fill="#D8D3C8" stroke="#B8B2A6" stroke-width="1.5"/>
+          <rect x="138" y="180" width="58" height="84" rx="12" fill="#0D1016" stroke="#2D323E" stroke-width="2"/>
+          <circle id="fb-wb-ring" cx="167" cy="222" r="16" fill="none" stroke="#32E800" stroke-width="3" filter="url(#voltGlow2D)"/>
+          <text x="167" y="225" font-family="-apple-system, sans-serif" font-size="8" font-weight="900" fill="#32E800" text-anchor="middle">CK</text>
+          <circle cx="167" cy="254" r="5" fill="#20242D"/>
+        </g>
+
+        <!-- 2. Electric Car (Moves on X as car drives in) -->
+        <g id="fb-car-group" transform="translate(180, 0)">
+          <!-- Car Shadow -->
+          <ellipse cx="490" cy="386" rx="180" ry="14" fill="#000000" opacity="0.45"/>
+
+          <!-- Body Chassis -->
+          <path d="M 330 355 L 320 325 Q 335 295 410 285 L 485 242 Q 545 236 615 252 L 670 282 Q 682 315 672 355 Z" fill="url(#carBodyGrad2D)" stroke="#CAD0D8" stroke-width="1.5"/>
+          <!-- Panoramic Glass -->
+          <path d="M 415 284 L 482 244 Q 542 238 610 254 L 638 284 Z" fill="url(#glassGrad2D)"/>
+          <line x1="535" y1="240" x2="538" y2="284" stroke="#0D1016" stroke-width="4"/>
+
+          <!-- Headlights -->
+          <path d="M 322 318 L 338 312 L 332 328 Z" fill="#FFFFFF" id="fb-headlight" filter="url(#voltGlow2D)"/>
+          <!-- Taillight (Brake light) -->
+          <rect id="fb-taillight" x="668" y="306" width="6" height="18" rx="2" fill="#D91E2E"/>
+
+          <!-- Charge Port Door & Port Inlet -->
+          <g id="fb-charge-port" transform="translate(365, 305)">
+            <rect id="fb-port-door" x="0" y="0" width="16" height="20" rx="3" fill="#DDE2E8" stroke="#B8BFC8" stroke-width="1"/>
+            <circle id="fb-port-inlet" cx="8" cy="10" r="5" fill="#0D1016" stroke="#32E800" stroke-width="2"/>
+            <circle id="fb-port-glow" cx="8" cy="10" r="7" fill="none" stroke="#32E800" stroke-width="2" opacity="0" filter="url(#voltGlow2D)"/>
+          </g>
+
+          <!-- Wheels -->
+          <g id="fb-wheel-front" transform="translate(385, 362)">
+            <circle cx="0" cy="0" r="28" fill="#14171E" stroke="#0B0D12" stroke-width="3"/>
+            <circle cx="0" cy="0" r="18" fill="#CAD0D8" stroke="#909AA8" stroke-width="2"/>
+            <circle cx="0" cy="0" r="7" fill="#14171E"/>
+            <g id="fb-spokes-front">
+              <line x1="-16" y1="0" x2="16" y2="0" stroke="#FFFFFF" stroke-width="2.5"/>
+              <line x1="0" y1="-16" x2="0" y2="16" stroke="#FFFFFF" stroke-width="2.5"/>
+            </g>
+          </g>
+          <g id="fb-wheel-rear" transform="translate(615, 362)">
+            <circle cx="0" cy="0" r="28" fill="#14171E" stroke="#0B0D12" stroke-width="3"/>
+            <circle cx="0" cy="0" r="18" fill="#CAD0D8" stroke="#909AA8" stroke-width="2"/>
+            <circle cx="0" cy="0" r="7" fill="#14171E"/>
+            <g id="fb-spokes-rear">
+              <line x1="-16" y1="0" x2="16" y2="0" stroke="#FFFFFF" stroke-width="2.5"/>
+              <line x1="0" y1="-16" x2="0" y2="16" stroke="#FFFFFF" stroke-width="2.5"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- 3. Charging Cable & Gun Nozzle -->
+        <path id="fb-cable-path" d="M 167 254 Q 210 350 373 315" fill="none" stroke="#1A1D24" stroke-width="6" stroke-linecap="round"/>
+        <path id="fb-cable-pulse" d="M 167 254 Q 210 350 373 315" fill="none" stroke="#32E800" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="16 12" opacity="0" filter="url(#voltGlow2D)"/>
+
+        <!-- Charging Gun Nozzle -->
+        <g id="fb-nozzle" transform="translate(167, 254)">
+          <rect x="-8" y="-6" width="16" height="12" rx="3" fill="#161920" stroke="#2E3340" stroke-width="1.5"/>
+          <rect x="-2" y="-4" width="8" height="8" rx="2" fill="#32E800"/>
+        </g>
+      </svg>
+    </div>
+  `;
+
+  const carGroup = container.querySelector('#fb-car-group');
+  const spokesFront = container.querySelector('#fb-spokes-front');
+  const spokesRear = container.querySelector('#fb-spokes-rear');
+  const portDoor = container.querySelector('#fb-port-door');
+  const portGlow = container.querySelector('#fb-port-glow');
+  const taillight = container.querySelector('#fb-taillight');
+  const cablePath = container.querySelector('#fb-cable-path');
+  const cablePulse = container.querySelector('#fb-cable-pulse');
+  const nozzle = container.querySelector('#fb-nozzle');
+  const underglow = container.querySelector('#fb-underglow');
+
+  const stageIdxEl = document.getElementById('three-stage-idx');
+  const stageTitleEl = document.getElementById('three-stage-title');
+  const stageDescEl = document.getElementById('three-stage-desc');
+  const specLeftEl = document.getElementById('three-spec-left');
+  const specRightEl = document.getElementById('three-spec-right');
+
+  const row1Lbl = document.getElementById('ck-row-1-lbl');
+  const row1Val = document.getElementById('ck-row-1-val');
+  const row2Lbl = document.getElementById('ck-row-2-lbl');
+  const row2Val = document.getElementById('ck-row-2-val');
+  const row3Lbl = document.getElementById('ck-row-3-lbl');
+  const row3Val = document.getElementById('ck-row-3-val');
+
+  let scrollProg = 0;
+  let smoothProg = 0;
+  let lastStageIdx = -1;
+  let animTime = 0;
+
+  function updateHUD(idx) {
+    if (idx === lastStageIdx) return;
+    lastStageIdx = idx;
+    const info = stageContent[idx] || stageContent[0];
+    stagePills.forEach((p, i) => p.classList.toggle('active', i === idx));
+
+    if (stageIdxEl) stageIdxEl.textContent = info.idx;
+    if (stageTitleEl) stageTitleEl.textContent = info.title;
+    if (stageDescEl) stageDescEl.textContent = info.desc;
+    if (info.rows) {
+      if (row1Lbl) row1Lbl.textContent = info.rows[0][0];
+      if (row1Val) { row1Val.textContent = info.rows[0][1]; row1Val.style.color = info.rows[0][2] ? '#1b8a00' : 'var(--text-primary)'; }
+      if (row2Lbl) row2Lbl.textContent = info.rows[1][0];
+      if (row2Val) { row2Val.textContent = info.rows[1][1]; row2Val.style.color = info.rows[1][2] ? '#1b8a00' : 'var(--text-primary)'; }
+      if (row3Lbl) row3Lbl.textContent = info.rows[2][0];
+      if (row3Val) { row3Val.textContent = info.rows[2][1]; row3Val.style.color = info.rows[2][2] ? '#1b8a00' : 'var(--text-primary)'; }
+    }
+  }
+
+  function computeProg(scrollY) {
+    const secTop = section.getBoundingClientRect().top + window.scrollY;
+    const secScrollable = Math.max(1, section.offsetHeight - window.innerHeight);
+    if (window.innerWidth > 1024) {
+      scrollProg = clamp((scrollY - secTop) / secScrollable, 0, 1);
+    } else {
+      const rect = container.getBoundingClientRect();
+      const startY = window.innerHeight * 0.85;
+      const endY = window.innerHeight * 0.15;
+      scrollProg = clamp((startY - rect.top) / Math.max(1, startY - endY), 0, 1);
+    }
+  }
+
+  if (lenis) {
+    lenis.on('scroll', ({ scroll }) => computeProg(scroll));
+  } else {
+    window.addEventListener('scroll', () => computeProg(window.scrollY), { passive: true });
+  }
+
+  stagePills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const idx = parseInt(pill.getAttribute('data-3d-stage') || '0', 10);
+      const targetP = idx === 0 ? 0.15 : idx === 1 ? 0.52 : 0.92;
+      const secTop = section.getBoundingClientRect().top + window.scrollY;
+      const secScrollable = Math.max(1, section.offsetHeight - window.innerHeight);
+      if (lenis && window.innerWidth > 1024) {
+        lenis.scrollTo(secTop + targetP * secScrollable, { duration: 1.1, easing: expoOut });
+      } else {
+        scrollProg = targetP;
+        updateHUD(idx);
+      }
+    });
+  });
+
+  function render2D() {
+    smoothProg = lerp(smoothProg, scrollProg, 0.1);
+    animTime += 0.03;
+
+    const activeStage = smoothProg < 0.33 ? 0 : smoothProg < 0.62 ? 1 : 2;
+    updateHUD(activeStage);
+
+    // Pill progress bars
+    const p0 = clamp(smoothProg / 0.33, 0, 1);
+    const p1 = clamp((smoothProg - 0.33) / 0.29, 0, 1);
+    const p2 = clamp((smoothProg - 0.62) / 0.38, 0, 1);
+    [p0, p1, p2].forEach((prog, i) => {
+      if (stagePills[i]) stagePills[i].style.setProperty('--pill-progress', prog.toFixed(3));
+    });
+
+    // Step 1: Car drives into bay (0.0 -> 0.28)
+    const rawDrive = clamp(smoothProg / 0.26, 0, 1);
+    const driveEase = 1 - Math.pow(1 - rawDrive, 3);
+    const carX = (1 - driveEase) * 200;
+    if (carGroup) carGroup.setAttribute('transform', `translate(${carX.toFixed(1)}, 0)`);
+
+    // Wheel rotation
+    const wheelDeg = ((1 - driveEase) * -360).toFixed(1);
+    if (spokesFront) spokesFront.setAttribute('transform', `rotate(${wheelDeg})`);
+    if (spokesRear) spokesRear.setAttribute('transform', `rotate(${wheelDeg})`);
+
+    // Brake lights flare
+    const isBraking = rawDrive > 0.3 && rawDrive < 0.98;
+    if (taillight) taillight.setAttribute('fill', isBraking ? '#FF1E32' : '#D91E2E');
+
+    // Flap door opens
+    const flapP = clamp((smoothProg - 0.18) / 0.14, 0, 1);
+    if (portDoor) portDoor.setAttribute('transform', `rotate(${(-flapP * 65).toFixed(1)}, 0, 10)`);
+
+    // Step 2: Cable nozzle connects to car port (0.28 -> 0.58)
+    const rawDock = clamp((smoothProg - 0.28) / 0.28, 0, 1);
+    const dockT = rawDock * rawDock * (3 - 2 * rawDock); // smoothstep
+
+    // Port coordinates on car: (373 + carX, 315)
+    const targetPortX = 373 + carX;
+    const targetPortY = 315;
+
+    // Nozzle position: lerp from wallbox holster (167, 254) to port
+    const arcLift = Math.sin(dockT * Math.PI) * -45;
+    const nX = lerp(167, targetPortX, dockT);
+    const nY = lerp(254, targetPortY, dockT) + arcLift;
+
+    if (nozzle) nozzle.setAttribute('transform', `translate(${nX.toFixed(1)}, ${nY.toFixed(1)})`);
+
+    // Dynamic cable curve
+    const ctrlX = lerp(200, targetPortX - 60, dockT);
+    const ctrlY = lerp(340, 360, dockT) + arcLift * 0.5;
+    const pathD = `M 167 254 Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${nX.toFixed(1)} ${nY.toFixed(1)}`;
+    if (cablePath) cablePath.setAttribute('d', pathD);
+    if (cablePulse) cablePulse.setAttribute('d', pathD);
+
+    // Step 3: Charging active (0.58 -> 1.0)
+    const isCharging = smoothProg >= 0.56;
+    const chargeP = clamp((smoothProg - 0.56) / 0.42, 0, 1);
+
+    if (isCharging) {
+      if (underglow) underglow.setAttribute('opacity', (0.2 + Math.sin(animTime * 4) * 0.08).toFixed(2));
+      if (portGlow) portGlow.setAttribute('opacity', (0.8 + Math.sin(animTime * 6) * 0.2).toFixed(2));
+      if (cablePulse) {
+        cablePulse.setAttribute('opacity', '0.9');
+        cablePulse.style.strokeDashoffset = (-animTime * 45).toFixed(1);
+      }
+    } else {
+      if (underglow) underglow.setAttribute('opacity', '0');
+      if (portGlow) portGlow.setAttribute('opacity', '0');
+      if (cablePulse) cablePulse.setAttribute('opacity', '0');
+    }
+
+    const socVal = Math.round(20 + chargeP * 65);
+    const hostCut = Math.round(chargeP * 180);
+    if (specLeftEl) {
+      specLeftEl.innerHTML = isCharging
+        ? 'CHARGER: <strong style="color:#1b8a00;">CONNECTED • 7.4 KW</strong>'
+        : dockT > 0.05
+          ? 'CHARGER: <strong>CONNECTING TO EV...</strong>'
+          : rawDrive < 0.95
+            ? 'VEHICLE: <strong>ARRIVING AT HOST BAY...</strong>'
+            : 'CHARGER: <strong>READY IN HOST BAY</strong>';
+    }
+    if (specRightEl) {
+      specRightEl.textContent = isCharging
+        ? `● BATTERY: ${socVal}% · HOST EARNS ₹${hostCut} (100%)`
+        : '● VEHICLE BATTERY: 20%';
+    }
+
+    requestAnimationFrame(render2D);
+  }
+
+  requestAnimationFrame(render2D);
+}
+
 /* ---- 4. Interactive 3D Cursor Tilt & Specular Sheen on Cards ---- */
 function init3DCardTilt() {
   if (window.innerWidth <= 1024) return;
@@ -1587,12 +1900,25 @@ function initScrollReveal() {
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: '0px 0px -36px 0px'
+      threshold: 0.05,
+      rootMargin: '60px 0px 60px 0px'
     }
   );
 
   revealElements.forEach((el) => observer.observe(el));
+
+  // Safety trigger for elements already in or near viewport
+  const forceCheckInView = () => {
+    revealElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 80) {
+        el.classList.add('visible', 'is-inview');
+      }
+    });
+  };
+  window.addEventListener('scroll', forceCheckInView, { passive: true });
+  setTimeout(forceCheckInView, 150);
+  setTimeout(forceCheckInView, 600);
 }
 
 /* ---- 10. Animated Counters ---- */
@@ -1799,13 +2125,22 @@ function initLenisAnchorScroll(lenis) {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (targetId === '#' || !targetId) return;
 
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        if (lenis) {
-          lenis.scrollTo(target, { offset: -84, duration: 1.3, easing: expoOut });
+
+        // Immediately force any reveal elements inside target to be visible so there is never a blank screen
+        target.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
+          el.classList.add('visible', 'is-inview');
+        });
+        if (target.classList.contains('reveal')) {
+          target.classList.add('visible', 'is-inview');
+        }
+
+        if (lenis && typeof lenis.scrollTo === 'function') {
+          lenis.scrollTo(target, { offset: -72, duration: 1.1, easing: expoOut });
         } else {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -1815,8 +2150,8 @@ function initLenisAnchorScroll(lenis) {
 
   document.querySelectorAll('[data-lenis-top]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      if (lenis) {
-        lenis.scrollTo(0, { duration: 1.4, easing: expoOut });
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        lenis.scrollTo(0, { duration: 1.2, easing: expoOut });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

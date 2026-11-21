@@ -1593,11 +1593,21 @@ p {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.85s var(--ease-out-expo), transform 0.85s var(--ease-out-expo);
+  /* Safety fallback so content never remains permanently invisible if an observer is delayed */
+  animation: ckRevealFallback 0.1s ease 2.2s forwards;
+}
+
+@keyframes ckRevealFallback {
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible {
   opacity: 1;
   transform: translate(0, 0) scale(1);
+  animation: none;
 }
 
 /* ==========================================================================
